@@ -9,17 +9,17 @@ module.exports = {
       },
       textColor: (theme) => theme('colors'),
       textColor: {
-        primary: '#e31c6d',
+        primary: '#ea4d22',
         secondary: '#11ccc9',
       },
       backgroundColor: (theme) => ({
         ...theme('colors'),
-        primary: '#252a35',
+        primary: '#ea4d22',
       }),
       borderColor: (theme) => ({
         ...theme('colors'),
         DEFAULT: theme('colors.gray.300', 'currentColor'),
-        primary: '#252a35',
+        primary: '#ea4d22',
       }),
       screens: {
         xxs: '280px',
