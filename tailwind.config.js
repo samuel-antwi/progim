@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         futura: ['Futura', 'sans-serif'],
         raleway: ['Raleway', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       textColor: (theme) => theme('colors'),
       textColor: {
@@ -15,6 +16,7 @@ module.exports = {
       backgroundColor: (theme) => ({
         ...theme('colors'),
         primary: '#ea4d22',
+        light: '#f8f8f8',
       }),
       borderColor: (theme) => ({
         ...theme('colors'),

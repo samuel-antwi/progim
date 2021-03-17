@@ -31,17 +31,32 @@ const LandingPage = () => {
 export default LandingPage;
 
 const Styles = styled.div`
-  position: relative;
+  /* position: relative;
   width: 100%;
   height: 100vh;
-  background: url('/images/landingBg-02.jpeg');
+  background: url('/images/landingBg-03.jpeg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  :before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: url('/images/landingBg-03.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  :before {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
 
   .overlay {
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.1);
   }
 `;

@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 
 const Layout = ({ title, description, children }) => {
   return (
-    <div className='font-raleway'>
+    <div className='font-poppins'>
       <Navbar />
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
