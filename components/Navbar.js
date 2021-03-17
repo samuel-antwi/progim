@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 const Navbar = () => {
   return (
-    <div className='sticky top-0 p-8'>
+    <div className='sticky top-0 p-8 bg-white z-10'>
       <div className='max-w-7xl mx-auto flex justify-between items-center'>
         <Link href='/'>
           <a>
@@ -47,7 +47,7 @@ const NavLinks = ({ name, url }) => {
       <a
         className={`${
           getPathName() === url && 'text-primary'
-        } hover:text-primary uppercase text-sm font-semibold tracking-wide`}>
+        } hover:text-primary hidden md:block uppercase text-sm font-semibold tracking-wide`}>
         {name}
       </a>
     </Link>

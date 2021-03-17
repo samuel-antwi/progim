@@ -27,12 +27,11 @@ export default class MyDocument extends Document {
   }
   render() {
     return (
-      <Html lang='ENG'>
+      <Html>
         <Head />
         <body>
-          <Main>
-            <NextScript />
-          </Main>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );
