@@ -23,3 +23,32 @@ export const GET_CLASSES = gql`
     }
   }
 `;
+
+export const GET_ABOUT_PAGE = gql`
+  query queryAboutPage($slug: String!) {
+    page(where: { slug: $slug }) {
+      award
+      classRoom
+      createdAt
+      description
+      equipment
+      expertTrainers
+      happyClient
+      id
+      list
+      name
+      personalTrainers
+      slug
+      subTitle
+      title
+      images {
+        url
+      }
+      aboutImage {
+        url
+        width
+        height
+      }
+    }
+  }
+`;
