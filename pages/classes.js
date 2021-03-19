@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
+import { getPathName } from '../utils';
 
 const GymClasses = () => {
   const dispatch = useDispatch();
@@ -13,12 +14,6 @@ const GymClasses = () => {
   const { classes } = useSelector((state) => state.classes);
 
   console.log(classes);
-
-  // Get pathname of a current route and remove the slash infront.
-  const getPathName = () => {
-    let router = useRouter();
-    return (router = router.pathname.slice(1));
-  };
 
   const ellipsis = (description) => {
     if (description?.length > 10) {
@@ -44,7 +39,7 @@ const GymClasses = () => {
                   <a>Home</a>
                 </Link>
                 <BsLink45Deg size={23} />
-                <p>{getPathName()}</p>
+                <p className='capitalize'>{getPathName()}</p>
               </div>
             </div>
           </div>

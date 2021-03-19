@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 const Navbar = () => {
   return (
     <div className='sticky top-0 p-8 bg-white z-10'>
-      <div className='max-w-7xl mx-auto flex justify-between items-center'>
+      <div className='max-w-6xl mx-auto flex justify-between items-center'>
         <Link href='/'>
           <a>
             <img className='w-32' src='images/logo-1.png' alt='Logo' />

@@ -1,9 +1,11 @@
 import Head from 'next/head';
+import MiniNavBar from './MiniNavBar';
 import Navbar from './Navbar';
 
 const Layout = ({ title, description, children }) => {
   return (
     <div className='font-poppins bg-light'>
+      <MiniNavBar />
       <Navbar />
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
