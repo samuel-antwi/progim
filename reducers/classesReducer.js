@@ -5,10 +5,14 @@ const initialState = {
   popular_classes: [],
 };
 
-const classesReducer = (state = initialState, actions) => {
-  switch (actions) {
+const classesReducer = (state = initialState, action) => {
+  switch (action.type) {
     case FETCH_CLASSES:
-      return { ...state };
+      return {
+        ...state,
+        classes: action.payload.classes,
+        isLoading: false,
+      };
     case FETCH_POPULAR_CLASSES:
       return { ...state };
     default:

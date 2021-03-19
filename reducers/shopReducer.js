@@ -22,4 +22,4 @@ const shopReducer = (state = initialState, actions) => {
   }
 };
 
-export default sho;
+export default shopReducer;
