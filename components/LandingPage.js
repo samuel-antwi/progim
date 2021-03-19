@@ -6,8 +6,8 @@ const LandingPage = () => {
     <Styles className=''>
       <div className='overlay '>
         <div className=' container'>
-          <div className=' col-span-1 uppercase flex flex-col justify-center justify-items-center h-screen'>
-            <h1 className='text-yellow-700 md:text-4xl font-extrabold'>step up your</h1>
+          <div className=' col-span-1 uppercase flex flex-col justify-center h-screen'>
+            <h1 className='text-yellow-800 md:text-4xl font-extrabold'>step up your</h1>
             <div className='text-gray-300 '>
               <h1 className='md:text-8xl font-extrabold'>fitness</h1>
               <h1 className='md:text-5xl flex items-center font-extrabold mb-10'>
@@ -31,31 +31,33 @@ const LandingPage = () => {
 export default LandingPage;
 
 const Styles = styled.div`
-  /* width: 100%;
+  width: 100%;
   height: 100vh;
-  background: url('/images/landingBg-03.jpeg');
+  background: url('/images/home-bg-01.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative */
-  :before {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background: url('/images/landingBg-03.jpeg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  :before {
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-  }
+  position: relative;
+
   .overlay {
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.6);
   }
 `;
+
+// :before {
+//     content: '';
+//     z-index: -1;
+//     position: absolute;
+//     width: 100%;
+//     height: 100vh;
+//     background: url('/images/landingBg-03.jpeg');
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//   }
+//   :before {
+//     -webkit-transform: scaleX(-1);
+//     transform: scaleX(-1);
+//   }
