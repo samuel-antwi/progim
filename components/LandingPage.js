@@ -4,11 +4,11 @@ import { BsChevronDown } from 'react-icons/bs';
 const LandingPage = () => {
   return (
     <Styles className=''>
-      <div className='overlay'>
-        <div className=' container '>
-          <div className='col-span-1 uppercase flex flex-col justify-center justify-items-center h-screen'>
+      <div className='overlay '>
+        <div className=' container'>
+          <div className=' col-span-1 uppercase flex flex-col justify-center justify-items-center h-screen'>
             <h1 className='text-yellow-700 md:text-4xl font-extrabold'>step up your</h1>
-            <div className='text-gray-300'>
+            <div className='text-gray-300 '>
               <h1 className='md:text-8xl font-extrabold'>fitness</h1>
               <h1 className='md:text-5xl flex items-center font-extrabold mb-10'>
                 <span className='mr-3 text-gray-400'>with</span>
@@ -31,13 +31,13 @@ const LandingPage = () => {
 export default LandingPage;
 
 const Styles = styled.div`
-  /* position: relative;
-  width: 100%;
+  /* width: 100%;
   height: 100vh;
   background: url('/images/landingBg-03.jpeg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
+  position: relative */
   :before {
     content: '';
     z-index: -1;
@@ -53,7 +53,6 @@ const Styles = styled.div`
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
   }
-
   .overlay {
     width: 100%;
     height: 100vh;
