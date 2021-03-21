@@ -27,23 +27,29 @@ const MiniNavBar = () => {
             <p className='ml-2'>Mon - Fri 9:00 am - 17:00 pm</p>
           </span>
         </div>
-        <div className='flex items-center space-x-4'>
-          <a className='hover:text-gray-200' href='/'>
-            <FaFacebookF />
-          </a>
-          <a className='hover:text-gray-200' href='/'>
-            <FaLinkedinIn />
-          </a>
-          <a className='hover:text-gray-200' href='/'>
-            <FaTwitter />
-          </a>
-          <a className='hover:text-gray-200' href='/'>
-            <AiFillInstagram />
-          </a>
-        </div>
+        <SocialLinks />
       </div>
     </div>
   ) : null;
+};
+
+export const SocialLinks = () => {
+  return (
+    <div className='flex items-center space-x-4'>
+      <a className='hover:text-gray-200' href='/'>
+        <FaFacebookF />
+      </a>
+      <a className='hover:text-gray-200' href='/'>
+        <FaLinkedinIn />
+      </a>
+      <a className='hover:text-gray-200' href='/'>
+        <FaTwitter />
+      </a>
+      <a className='hover:text-gray-200' href='/'>
+        <AiFillInstagram />
+      </a>
+    </div>
+  );
 };
 
 export default MiniNavBar;
