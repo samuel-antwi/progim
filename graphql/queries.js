@@ -52,3 +52,22 @@ export const GET_ABOUT_PAGE = gql`
     }
   }
 `;
+
+export const TRAINERS = gql`
+  query queryTrainers {
+    trainers {
+      id
+      name
+      slug
+      trainerImage {
+        height
+        width
+        url
+      }
+      classCategories {
+        name
+        id
+      }
+    }
+  }
+`;

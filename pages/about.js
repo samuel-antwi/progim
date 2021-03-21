@@ -7,6 +7,7 @@ import graphcms from '../graphql/client';
 import { GET_ABOUT_PAGE } from '../graphql/queries';
 import Image from 'next/image';
 import { IoIosCheckmark } from 'react-icons/io';
+import WhatWeDo from '../components/WhatWeDo';
 
 const About = ({ page }) => {
   const {
@@ -50,20 +51,23 @@ const About = ({ page }) => {
           aboutImage={aboutImage}
         />
       </section>
-      <div className='md:grid grid-cols-6 mb-20'>
-        <AboutGrid item={happyClient} item_des='Happy client' />
-        <img className='h-64 w-full object-cover' src={images[3].url} alt='Happy clients' />
-        <AboutGrid item={equipment} item_des='Equipment' />
-        <img className='h-64 w-full object-cover' src={images[2].url} alt='Happy clients' />
-        <AboutGrid item={expertTrainers} item_des='Expert trainers' />
-        <img className='h-64 w-full object-cover' src={images[4].url} alt='Expert trainers' />
-        <img className='h-64 w-full object-cover' src={images[1].url} alt='Trophy' />
-        <AboutGrid item={award} item_des='Awards' />
-        <img className='h-64 w-full object-cover' src={images[5].url} alt='Personal trainers' />
-        <AboutGrid item={personalTrainers} item_des='Personal trainers' />
-        <img className='h-64 w-full object-cover' src={images[6].url} alt='Classrooms' />
-        <AboutGrid item={classRoom} item_des='class rooms' />
-      </div>
+      <section>
+        <div className='md:grid grid-cols-6 mb-20'>
+          <AboutGrid item={happyClient} item_des='Happy client' />
+          <img className='h-64 w-full object-cover' src={images[3].url} alt='Happy clients' />
+          <AboutGrid item={equipment} item_des='Equipment' />
+          <img className='h-64 w-full object-cover' src={images[2].url} alt='Happy clients' />
+          <AboutGrid item={expertTrainers} item_des='Expert trainers' />
+          <img className='h-64 w-full object-cover' src={images[4].url} alt='Expert trainers' />
+          <img className='h-64 w-full object-cover' src={images[1].url} alt='Trophy' />
+          <AboutGrid item={award} item_des='Awards' />
+          <img className='h-64 w-full object-cover' src={images[5].url} alt='Personal trainers' />
+          <AboutGrid item={personalTrainers} item_des='Personal trainers' />
+          <img className='h-64 w-full object-cover' src={images[6].url} alt='Classrooms' />
+          <AboutGrid item={classRoom} item_des='class rooms' />
+        </div>
+      </section>
+      <WhatWeDo />
     </>
   );
 };
