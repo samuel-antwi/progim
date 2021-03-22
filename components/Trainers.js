@@ -5,8 +5,6 @@ import Slider from 'react-slick';
 import { slickSettings } from '../utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AiFillInstagram } from 'react-icons/ai';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { SocialLinks } from './MiniNavBar';
 import styled from 'styled-components';
 

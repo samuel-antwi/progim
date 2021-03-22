@@ -19,9 +19,8 @@ export default function Home({ trainers }) {
 
 export const getStaticProps = async () => {
   const { trainers } = await graphcms.request(TRAINERS);
+
   return {
-    props: {
-      trainers,
-    },
+    props: { trainers },
   };
 };
