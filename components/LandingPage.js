@@ -45,19 +45,3 @@ const Styles = styled.div`
     background: rgba(0, 0, 0, 0.6);
   }
 `;
-
-// :before {
-//     content: '';
-//     z-index: -1;
-//     position: absolute;
-//     width: 100%;
-//     height: 100vh;
-//     background: url('/images/landingBg-03.jpeg');
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//   }
-//   :before {
-//     -webkit-transform: scaleX(-1);
-//     transform: scaleX(-1);
-//   }
