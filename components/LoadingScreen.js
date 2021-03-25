@@ -2,7 +2,11 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Loader from 'react-loader-spinner';
 
 const LoadingScreen = () => {
-  return <Loader type='ThreeDots' color='#ea4d22' height={100} width={100} />;
+  return (
+    <div className='flex justify-center items-center justify-items-center'>
+      <Loader type='ThreeDots' color='#ea4d22' height={100} width={100} />
+    </div>
+  );
 };
 
 export default LoadingScreen;
