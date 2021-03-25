@@ -11,7 +11,7 @@ const LandingPage = () => {
             <div className='text-gray-300 '>
               <h1 className='md:text-8xl font-extrabold'>fitness</h1>
               <h1 className='md:text-5xl flex items-center font-extrabold mb-10'>
-                <span className='mr-3 text-gray-400'>with</span>
+                <span className='mr-3 text-gray-800'>with</span>
                 <img className='w-60' src='/images/logo-1.png' alt='logo' />
               </h1>
             </div>
@@ -33,7 +33,7 @@ export default LandingPage;
 const Styles = styled.div`
   width: 100%;
   height: 100vh;
-  background: url('/images/home-bg-01.jpeg');
+  background: url('/images/landingBg-01.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,6 +42,6 @@ const Styles = styled.div`
   .overlay {
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
   }
 `;
