@@ -9,8 +9,6 @@ const Plan = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  console.log(data);
-
   useEffect(() => {
     getPlans();
   }, []);

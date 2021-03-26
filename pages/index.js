@@ -1,4 +1,5 @@
 import Bmi from '../components/Bmi';
+import FeaturedProducts from '../components/FeaturedProducts';
 import LandingPage from '../components/LandingPage';
 import Plan from '../components/Plan';
 import Trainers from '../components/Trainers';
@@ -14,6 +15,7 @@ export default function Home({ trainers }) {
       <Trainers trainers={trainers} />
       <Bmi />
       <Plan />
+      <FeaturedProducts />
     </div>
   );
 }
