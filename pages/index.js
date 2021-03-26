@@ -1,5 +1,6 @@
 import Bmi from '../components/Bmi';
 import LandingPage from '../components/LandingPage';
+import Plan from '../components/Plan';
 import Trainers from '../components/Trainers';
 import WhatWeDo from '../components/WhatWeDo';
 import graphcms from '../graphql/client';
@@ -12,6 +13,7 @@ export default function Home({ trainers }) {
       <WhatWeDo />
       <Trainers trainers={trainers} />
       <Bmi />
+      <Plan />
     </div>
   );
 }

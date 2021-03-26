@@ -113,7 +113,7 @@ const BmiForm = () => {
         )}
       </form>
       {showResults && !isLoading && (
-        <div className='font-semibold'>
+        <div className='font-semibold mb-10'>
           <span className='flex items-center mb-5'>
             <h1>Your BMI results:</h1>
             <p className='py-2 w-1/2 px-4 bg-primary ml-3'>{bmiResults}</p>

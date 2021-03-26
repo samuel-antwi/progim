@@ -71,3 +71,25 @@ export const TRAINERS = gql`
     }
   }
 `;
+
+export const GET_ALL_PLANS = gql`
+  query getAllPlans {
+    pricePlans {
+      access
+      freeRiding
+      id
+      name
+      personalTrainer
+      price
+      slug
+      unlimitedEquipments
+      yogaMeditation
+      image {
+        url
+        width
+        height
+        fileName
+      }
+    }
+  }
+`;
