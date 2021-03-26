@@ -93,3 +93,22 @@ export const GET_ALL_PLANS = gql`
     }
   }
 `;
+
+export const FEATURED_PRODUCTS = gql`
+  query getFeaturedProducts {
+    products(first: 3) {
+      id
+      name
+      onSale
+      price
+      salePrice
+      shortDescription
+      slug
+      image {
+        height
+        width
+        url
+      }
+    }
+  }
+`;
