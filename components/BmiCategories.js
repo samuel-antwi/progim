@@ -1,6 +1,6 @@
 const BmiCategories = () => {
   return (
-    <div className=''>
+    <div className='pb-20 lg:pb-0'>
       <h1 className='uppercase mb-1 font-bold md:text-xl text-center bg-primary py-3 px-5'>
         bmi categories
       </h1>
