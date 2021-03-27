@@ -92,7 +92,7 @@ const BmiForm = () => {
             </label>
             <input
               required
-              className='block w-full mb-4 border border-primary bg-transparent p-2'
+              className='block w-full mb-4 border  border-primary bg-transparent p-2 appearance-none'
               type='number'
               name='weight'
               value={formState.weight}
@@ -104,9 +104,8 @@ const BmiForm = () => {
           <LoadingScreen />
         ) : (
           <button
-            // disabled={bmiResults}
             type='submit'
-            className='block w-full border mb-10 border-primary bg-primary bg-transparent p-2  hover:border-yellow-900'
+            className='block  w-full border mb-10 border-primary bg-primary p-2'
             type='number'>
             Calculate
           </button>

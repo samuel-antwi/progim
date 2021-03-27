@@ -38,6 +38,7 @@ const Styles = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  background-attachment: fixed;
 
   .overlay {
     width: 100%;
