@@ -7,7 +7,7 @@ const LandingPage = () => {
       <div className='overlay '>
         <div className=' container'>
           <div className=' col-span-1 uppercase flex flex-col justify-center h-screen'>
-            <h1 className='text-yellow-800 md:text-4xl font-extrabold'>step up your</h1>
+            <h1 className='text-gray-800 md:text-4xl font-extrabold'>step up your</h1>
             <div className='text-gray-300 '>
               <h1 className='md:text-8xl font-extrabold'>fitness</h1>
               <h1 className='md:text-5xl flex items-center font-extrabold mb-10'>
@@ -15,12 +15,12 @@ const LandingPage = () => {
                 <img className='w-60' src='/images/logo-1.png' alt='logo' />
               </h1>
             </div>
-            <button className='text-gray-100 w-64 bg-yellow-800 hover:bg-primary rounded-full py-4 tracking-wide font-semibold uppercase'>
+            <button className='text-gray-100 w-64 bg-primary hover:bg-primary rounded-full py-4 tracking-wide font-semibold uppercase'>
               become a member
             </button>
-            <div className='absolute max-w-xs mx-auto inset-x-0 bottom-10 flex justify-center items-center bg-yellow-800 w-16 h-16 rounded-full'>
+            <button className='absolute max-w-xs mx-auto inset-x-0 bottom-10 flex justify-center items-center bg-primary w-16 h-16 rounded-full'>
               <BsChevronDown size={20} className='text-gray-200' />
-            </div>
+            </button>
           </div>
         </div>
       </div>

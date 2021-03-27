@@ -23,8 +23,10 @@ const PlanGrid = ({ plan }) => {
         <div className='bg-primary w-20 h-20 rounded-full p-5 flex items-center justify-center'>
           <img className='' src={image.url} alt={fileName} />
         </div>
-        <h1 className='md:text-xl text-gray-800 tracking-wide uppercase font-semibold'>{name}</h1>
-        <h1 className='md:text-6xl text-primary font-bold'>£{price}</h1>
+        <h1 className='md:text-xl text-lg text-gray-800 tracking-wide uppercase font-semibold'>
+          {name}
+        </h1>
+        <h1 className='md:text-6xl text-3xl text-primary font-bold'>£{price}</h1>
       </div>
       <div className='px-10 pt-10 space-y-3'>
         <BenefitList benefit={freeRiding} description='free riding' />
