@@ -14,7 +14,7 @@ const FeaturedProducts = () => {
   return (
     <div className='max-w-7xl mx-auto pb-20'>
       <Header title='choose your brand' subTitile='our featured products' />
-      <div className='md:grid xl:grid-cols-3 md:grid-cols-2 gap-10'>
+      <div className='md:grid md:grid-cols-2 lg:grid-cols-3  gap-10 px-5'>
         {data.map((product) => (
           <div className='shadow bg-white pb-10 relative mb-5 px-5' key={product.id}>
             {product.onSale && (
