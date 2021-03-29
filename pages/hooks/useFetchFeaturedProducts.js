@@ -6,12 +6,14 @@ import { FEATURED_PRODUCTS } from '../../graphql/queries';
 const useFetchFeaturedProducts = () => {
   const [size, setSize] = useState(3);
 
-  const { data, isLoading, isError, error } = useQuery(['fetchFeaturedProducts'], fetchProduct);
-
-  async function fetchProduct() {
-    const { products } = await graphcms.request(FEATURED_PRODUCTS, { size: size });
-    return products;
-  }
+  const { data, isLoading, isError, error } = useQuery(
+    ['fetchFeaturedProducts'],
+    fetchProduct,
+    async () => {
+      const { products } = await graphcms.request(FEATURED_PRODUCTS, { size: size });
+      return products;
+    }
+  );
 
   return { data, isError, isLoading, error };
 };
