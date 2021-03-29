@@ -7,8 +7,7 @@ const useFetchFeaturedProducts = () => {
   const [size, setSize] = useState(3);
 
   const { data, isLoading, isError, error } = useQuery(
-    ['fetchFeaturedProducts'],
-    fetchProduct,
+    ['fetchFeaturedProducts', size],
     async () => {
       const { products } = await graphcms.request(FEATURED_PRODUCTS, { size: size });
       return products;
