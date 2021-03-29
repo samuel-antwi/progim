@@ -95,8 +95,8 @@ export const GET_ALL_PLANS = gql`
 `;
 
 export const FEATURED_PRODUCTS = gql`
-  query getFeaturedProducts($size: Int!) {
-    products(first: $size) {
+  query getFeaturedProducts {
+    products(first: 3) {
       id
       name
       onSale
