@@ -2,7 +2,7 @@ import Header from './Header';
 import LoadingScreen from './LoadingScreen';
 import Image from 'next/image';
 import Link from 'next/link';
-import useFetchFeaturedProducts from '../pages/hooks/useFetchFeaturedProducts';
+import useFetchFeaturedProducts from '../hooks/useFetchFeaturedProducts';
 
 const FeaturedProducts = () => {
   const { data, isError, isLoading, error } = useFetchFeaturedProducts();
