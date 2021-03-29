@@ -112,3 +112,35 @@ export const FEATURED_PRODUCTS = gql`
     }
   }
 `;
+
+export const PRODUCT = gql`
+  query getProduct($slug: String!) {
+    product(where: { slug: $slug }) {
+      fullDescription {
+        markdown
+      }
+      id
+      name
+      onSale
+      price
+      salePrice
+      shortDescription
+      slug
+      image {
+        height
+        width
+        url
+      }
+      productReviews(orderBy: id_ASC) {
+        email
+        id
+        name
+        rating
+        title
+        message {
+          markdown
+        }
+      }
+    }
+  }
+`;
