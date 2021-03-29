@@ -1,13 +1,22 @@
-import { useQuery } from 'react-query';
 import graphcms from '../../graphql/client';
 import { FEATURED_PRODUCTS, PRODUCT } from '../../graphql/queries';
 import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 
 const Product = ({ product }) => {
   console.log(product);
+  const {
+    name,
+    shortDescription,
+    fullDescription,
+    price,
+    salePrice,
+    productReviews,
+    image,
+  } = product;
   return (
     <div>
       <ProductBanner>
@@ -22,24 +31,52 @@ const Product = ({ product }) => {
                 <BsLink45Deg size={23} />
                 <p className='capitalize'>shop</p>
                 <BsLink45Deg size={23} />
-                <p className='capitalize'>{product.name}</p>
+                <p className='capitalize'>{name}</p>
               </div>
             </div>
           </div>
         </div>
       </ProductBanner>
-      <div className='py-20 max-w-7xl mx-auto'>
-        <div className='grid grid-cols-2 gap-10'>
-          <div className=' bg-white col-span-1'>
-            <Image width={900} height={900} src={product.image.url} alt={product.name} />
+      <div className='py-20 max-w-7xl mx-auto px-5'>
+        <div className='md:grid grid-cols-2 gap-10 mb-10'>
+          <div className=' bg-white col-span-1 mb-5 hover:shadow'>
+            <Image width={900} height={900} src={image.url} alt={name} />
           </div>
           <div className='col-span-1'>
-            <h1 className='md:text-2xl font-semibold mb-5'>{product.name}</h1>
+            <hr />
+            <h1 className='text-2xl font-semibold mb-5 capitalize pt-10'>{name}</h1>
             <span className='flex items-center space-x-4 font-semibold mb-10'>
-              {product.onSale && <p className='text-gray-600 line-through'>£{product.price}</p>}
-              <p className='text-primary  md:text-xl'>£{product.salePrice}</p>
+              {product.onSale && <p className='text-gray-600 line-through'>£{price}</p>}
+              <p className='text-primary text-xl'>£{salePrice}</p>
             </span>
-            <p className='text-gray-600'>{product.shortDescription}</p>
+            <p className='text-gray-600 mb-10'>{shortDescription}</p>
+            <div className=' flex items-center space-x-5 mb-10'>
+              <div className='flex items-center justify-center justify-items-center space-x-4 border-2 rounded-full w-40 py-3'>
+                <button>
+                  <FiMinus />
+                </button>
+                <p className='border-r-2 border-l-2 px-3'>1</p>
+                <button>
+                  <FiPlus />
+                </button>
+              </div>
+              <button className='border rounded-full bg-primary text-gray-50 w-40 py-3 uppercase'>
+                add to basket
+              </button>
+            </div>
+            <hr />
+          </div>
+        </div>
+        <div>
+          <div className='flex items-center space-x-1 mb-10'>
+            <button className='bg-primary text-white md:py-4 py-3 md:w-40 w-32'>Description</button>
+            <button className='bg-[#E4E4E4] md:py-4 py-3 w-32 md:w-40'>
+              Reviews ({productReviews.length})
+            </button>
+          </div>
+          <div>
+            <h1 className='mb-10  md:text-xl font-semibold'>Description</h1>
+            <div className='text-gray-700'>{fullDescription.markdown}</div>
           </div>
         </div>
       </div>

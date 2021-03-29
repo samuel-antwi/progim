@@ -118,6 +118,7 @@ export const PRODUCT = gql`
     product(where: { slug: $slug }) {
       fullDescription {
         markdown
+        html
       }
       id
       name
