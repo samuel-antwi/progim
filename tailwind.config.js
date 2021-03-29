@@ -37,11 +37,10 @@ module.exports = {
         center: true,
         padding: '1.5rem',
       },
-      maxHeight: {},
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

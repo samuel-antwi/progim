@@ -1,22 +1,15 @@
 import Header from './Header';
-import { useQuery } from 'react-query';
-import graphcms from '../graphql/client';
-import { FEATURED_PRODUCTS } from '../graphql/queries';
 import LoadingScreen from './LoadingScreen';
 import Image from 'next/image';
 import Link from 'next/link';
+import useFetchFeaturedProducts from '../pages/hooks/useFetchFeaturedProducts';
 
 const FeaturedProducts = () => {
-  const { data, isError, isLoading } = useQuery(['featured'], async () => {
-    const { products } = await graphcms.request(FEATURED_PRODUCTS);
-    return products;
-  });
-
-  console.log(data);
+  const { data, isError, isLoading, error } = useFetchFeaturedProducts();
 
   if (isLoading) return <LoadingScreen />;
 
-  if (isError) return <p>Error loading products</p>;
+  if (isError) return <p>{error.message}</p>;
 
   return (
     <div className='max-w-7xl mx-auto pb-20'>
@@ -29,7 +22,7 @@ const FeaturedProducts = () => {
                 Sale
               </p>
             )}
-            <Link href='/'>
+            <Link href={`shop/${product.slug}`}>
               <a>
                 <Image
                   src={product.image.url}

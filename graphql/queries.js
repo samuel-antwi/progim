@@ -95,8 +95,8 @@ export const GET_ALL_PLANS = gql`
 `;
 
 export const FEATURED_PRODUCTS = gql`
-  query getFeaturedProducts {
-    products(first: 3) {
+  query getFeaturedProducts($size: Int!) {
+    products(first: $size) {
       id
       name
       onSale
@@ -108,6 +108,38 @@ export const FEATURED_PRODUCTS = gql`
         height
         width
         url
+      }
+    }
+  }
+`;
+
+export const PRODUCT = gql`
+  query getProduct($slug: String!) {
+    product(where: { slug: $slug }) {
+      fullDescription {
+        markdown
+      }
+      id
+      name
+      onSale
+      price
+      salePrice
+      shortDescription
+      slug
+      image {
+        height
+        width
+        url
+      }
+      productReviews(orderBy: id_ASC) {
+        email
+        id
+        name
+        rating
+        title
+        message {
+          markdown
+        }
       }
     }
   }
