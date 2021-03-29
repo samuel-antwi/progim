@@ -4,12 +4,10 @@ import { FEATURED_PRODUCTS, PRODUCT } from '../../graphql/queries';
 import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { getFullPathName, getPathName } from '../../utils';
 import Image from 'next/image';
 
 const Product = ({ product }) => {
   console.log(product);
-
   return (
     <div>
       <ProductBanner>
@@ -17,7 +15,7 @@ const Product = ({ product }) => {
           <div className='flex h-full container'>
             <div className='my-auto'>
               <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Product</h1>
-              <div className='flex items-center text-lg space-x-2 py-2 px-3 bg-primary'>
+              <div className='flex items-center md:text-lg text-sm space-x-2 py-2 px-3 bg-primary'>
                 <Link href='/'>
                   <a>Home</a>
                 </Link>
@@ -59,7 +57,8 @@ export const getStaticPaths = async () => {
         slug: slug,
       },
     })),
-    fallback: true,
+
+    fallback: false,
   };
 };
 
