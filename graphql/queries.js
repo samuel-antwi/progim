@@ -96,7 +96,7 @@ export const GET_ALL_PLANS = gql`
 
 export const FEATURED_PRODUCTS = gql`
   query getFeaturedProducts {
-    products(first: 3) {
+    products(first: 100) {
       id
       name
       onSale
