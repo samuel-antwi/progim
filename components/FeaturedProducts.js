@@ -5,18 +5,18 @@ import Link from 'next/link';
 import useFetchFeaturedProducts from '../hooks/useFetchFeaturedProducts';
 import SaleBadge from './SaleBadge';
 
-const FeaturedProducts = () => {
-  const { data, isError, isLoading, error } = useFetchFeaturedProducts();
+const FeaturedProducts = ({ products }) => {
+  // const { data, isError, isLoading, error } = useFetchFeaturedProducts();
 
-  if (isLoading) return <LoadingScreen />;
+  // if (isLoading) return <LoadingScreen />;
 
-  if (isError) return <p>{error.message}</p>;
+  // if (isError) return <p>{error.message}</p>;
 
   return (
     <div className='max-w-7xl mx-auto pb-20 md:px-20 px-5'>
       <Header title='choose your brand' subTitile='our featured products' />
       <div className='md:grid md:grid-cols-2 pt-10 lg:grid-cols-3  gap-10'>
-        {data.map((product) => (
+        {products.map((product) => (
           <div className='shadow bg-white pb-10 relative mb-5 px-5' key={product.id}>
             <SaleBadge product={product} />
             <Link href={`shop/${product.slug}`}>

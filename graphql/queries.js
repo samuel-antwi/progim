@@ -163,3 +163,35 @@ export const PRODUCT = gql`
     }
   }
 `;
+
+export const PAGE_CONTENT = gql`
+  query pageContents {
+    trainers {
+      id
+      name
+      slug
+      trainerImage {
+        height
+        width
+        url
+      }
+      classCategories {
+        name
+        id
+      }
+    }
+    products(first: 3) {
+      id
+      name
+      onSale
+      price
+      salePrice
+      slug
+      image {
+        height
+        width
+        url
+      }
+    }
+  }
+`;
