@@ -6,11 +6,13 @@ import useFetchAllProducts from '../hooks/useFetchAllProducts';
 import { BsLink45Deg } from 'react-icons/bs';
 import SaleBadge from '../components/SaleBadge';
 import Header from '../components/Header';
+import graphcms from '../graphql/client';
+import { ALL_PRODUCTS } from '../graphql/queries';
 
-const products = () => {
-  const { data, isLoading, error, isError } = useFetchAllProducts();
+const products = ({ products }) => {
+  // const { data, isLoading, error, isError } = useFetchAllProducts();
 
-  if (isLoading) return <LoadingScreen />;
+  // if (isLoading) return <LoadingScreen />;
 
   return (
     <>
@@ -33,7 +35,7 @@ const products = () => {
       <div className='max-w-7xl mx-auto py-20 md:px-20 px-5'>
         <Header title='choose your brand' subTitile='shop all products' />
         <div className='md:grid md:grid-cols-2 lg:grid-cols-3 pt-10  gap-10'>
-          {data.map((product) => (
+          {products.map((product) => (
             <div className='shadow bg-white pb-10 relative mb-5 px-5' key={product.id}>
               <SaleBadge product={product} />
               <Link href={`shop/${product.slug}`}>
@@ -71,6 +73,15 @@ const products = () => {
       </div>
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  const { products } = await graphcms.request(ALL_PRODUCTS);
+  return {
+    props: {
+      products,
+    },
+  };
 };
 
 export default products;

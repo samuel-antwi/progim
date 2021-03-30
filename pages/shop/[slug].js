@@ -1,5 +1,5 @@
 import graphcms from '../../graphql/client';
-import { FEATURED_PRODUCTS, PRODUCT } from '../../graphql/queries';
+import { ALL_PRODUCTS, FEATURED_PRODUCTS, PRODUCT } from '../../graphql/queries';
 import ProductDetails from '../../components/ProductDetails';
 
 const Product = ({ product }) => {
@@ -9,7 +9,7 @@ const Product = ({ product }) => {
 export default Product;
 
 export const getStaticPaths = async () => {
-  const { products } = await graphcms.request(FEATURED_PRODUCTS);
+  const { products } = await graphcms.request(ALL_PRODUCTS);
   return {
     paths: products.map(({ slug }) => ({
       params: {
