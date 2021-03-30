@@ -17,7 +17,7 @@ const Trainers = ({ trainers }) => {
           {trainers.map((trainer) => {
             const { id, trainerImage, name, classCategories } = trainer;
             return (
-              <div key={id} className='wrapper relative mb-5'>
+              <div key={id} className='wrapper pt-10 relative mb-5'>
                 <Link href='/'>
                   <a>
                     <Image

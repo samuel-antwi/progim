@@ -1,19 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { getClasses } from '../actions/classesAction';
-import { useRouter } from 'next/router';
 import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getPathName } from '../utils';
+import useFetchClasses from '../hooks/useFetchClasses';
+import LoadingScreen from '../components/LoadingScreen';
+import Bmi from '../components/Bmi';
 
 const GymClasses = () => {
-  const dispatch = useDispatch();
-
-  const { classes } = useSelector((state) => state.classes);
-
-  console.log(classes);
+  const { data, isError, error, isLoading } = useFetchClasses();
 
   const ellipsis = (description) => {
     if (description?.length > 10) {
@@ -23,12 +18,11 @@ const GymClasses = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(getClasses());
-  }, [dispatch]);
+  if (isError) return console.log(error.message);
+  if (isLoading) return LoadingScreen;
 
   return (
-    <Styles>
+    <>
       <ClassBanner>
         <div className='overlay absolute text-gray-200'>
           <div className='flex h-full'>
@@ -47,12 +41,12 @@ const GymClasses = () => {
       </ClassBanner>
       <div className='xl:max-w-7xl mx-auto py-20  px-5 xl:px-10'>
         <div className='xxm:grid grid-cols-2 lg:grid-cols-3  gap-10'>
-          {classes.map((session) => {
+          {data.map((session) => {
             const {
               name,
               description,
               classCategory,
-              image: { url, width, height },
+              image: { url },
               id,
               price,
               classSize,
@@ -100,7 +94,8 @@ const GymClasses = () => {
           })}
         </div>
       </div>
-    </Styles>
+      <Bmi />
+    </>
   );
 };
 
@@ -127,15 +122,3 @@ const ClassBanner = styled.div`
     transform: translateY(-50%);
   }
 `;
-
-const Styles = styled.div``;
-
-// export const getStaticProps = async () => {
-//   const { classes } = await graphcms.request(GET_CLASSES);
-//   console.log(classes);
-//   return {
-//     props: {
-//       classes,
-//     },
-//   };
-// };

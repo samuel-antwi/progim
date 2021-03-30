@@ -5,8 +5,13 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { FiPlus, FiMinus } from 'react-icons/fi';
+import { useState } from 'react';
+import ProductReviewForm from '../../components/ProductReviewForm';
+import SaleBadge from '../../components/SaleBadge';
 
 const Product = ({ product }) => {
+  const [isDescription, setIsDescription] = useState(true);
+  const [isReview, setIsReview] = useState(false);
   console.log(product);
   const {
     name,
@@ -17,6 +22,17 @@ const Product = ({ product }) => {
     productReviews,
     image,
   } = product;
+
+  const showDescription = () => {
+    setIsDescription(true);
+    setIsReview(false);
+  };
+
+  const showReview = () => {
+    setIsReview(true);
+    setIsDescription(false);
+  };
+
   return (
     <div>
       <ProductBanner>
@@ -39,8 +55,9 @@ const Product = ({ product }) => {
       </ProductBanner>
       <div className='py-20 max-w-7xl mx-auto px-5'>
         <div className='md:grid grid-cols-2 gap-10 mb-10'>
-          <div className=' bg-white col-span-1 mb-5 hover:shadow'>
+          <div className='relative bg-white col-span-1 mb-5 hover:shadow'>
             <Image width={900} height={900} src={image.url} alt={name} />
+            <SaleBadge product={product} />
           </div>
           <div className='col-span-1'>
             <hr />
@@ -69,14 +86,41 @@ const Product = ({ product }) => {
         </div>
         <div>
           <div className='flex items-center space-x-1 mb-10'>
-            <button className='bg-primary text-white md:py-4 py-3 md:w-40 w-32'>Description</button>
-            <button className='bg-[#E4E4E4] md:py-4 py-3 w-32 md:w-40'>
+            <button
+              onClick={showDescription}
+              className={`${
+                isDescription ? 'bg-primary text-white' : 'bg-[#E4E4E4] text-gray-800'
+              } focus:outline-none hover:bg-primary hover:text-white md:py-4 font-semibold py-3 md:w-40 w-32`}>
+              Description
+            </button>
+            <button
+              onClick={showReview}
+              className={`${
+                isReview ? 'bg-primary text-white' : 'bg-[#E4E4E4] text-gray-800'
+              } focus:outline-none hover:bg-primary hover:text-white  font-semibold md:py-4 py-3 md:w-40 w-32`}>
               Reviews ({productReviews.length})
             </button>
           </div>
           <div>
-            <h1 className='mb-10  md:text-xl font-semibold'>Description</h1>
-            <div className='text-gray-700'>{fullDescription.markdown}</div>
+            {isDescription ? (
+              <>
+                <h1 className='mb-10  md:text-xl font-semibold'>Description</h1>
+                <div className='text-gray-700'>{fullDescription.markdown}</div>
+              </>
+            ) : (
+              <div>
+                <h1 className='mb-10  md:text-xl font-semibold'>Review</h1>
+                {productReviews.length === 0 && (
+                  <>
+                    <p className='mb-3'>There are no reviews yet.</p>
+                    <h3 className='text-xl font-medium text-gray-600'>
+                      Be the first to review "{name}"
+                    </h3>
+                    <ProductReviewForm />
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -95,7 +139,7 @@ export const getStaticPaths = async () => {
       },
     })),
 
-    fallback: false,
+    fallback: true,
   };
 };
 

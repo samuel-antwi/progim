@@ -13,7 +13,7 @@ const WhatWeDo = () => {
           <div className='col-span-2'>
             <Header isCenter={false} title='what we do' subTitile='our featured services' />
             <div
-              className={`md:grid gap-5 ${
+              className={`md:grid gap-5 pt-10 ${
                 getFullPathName().includes('/about') ? 'grid-cols-3' : 'grid-cols-2'
               }`}>
               <ServicesCard

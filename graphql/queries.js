@@ -112,6 +112,24 @@ export const FEATURED_PRODUCTS = gql`
     }
   }
 `;
+export const ALL_PRODUCTS = gql`
+  query getAllProducts {
+    products {
+      id
+      name
+      onSale
+      price
+      salePrice
+      shortDescription
+      slug
+      image {
+        height
+        width
+        url
+      }
+    }
+  }
+`;
 
 export const PRODUCT = gql`
   query getProduct($slug: String!) {
