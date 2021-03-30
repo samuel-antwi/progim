@@ -2,15 +2,21 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import BmiCategories from './BmiCategories';
 import BmiForm from './BmiForm';
+import { useRouter } from 'next/router';
 
 const Bmi = () => {
+  const router = useRouter();
+  const homePage = router.pathname === '/';
   return (
     <Styles className='my-20 text-gray-100'>
       <div className='overlay'>
         <div className='xl:max-w-7xl mx-auto lg:px-5 sm:px-20 px-5 pt-20'>
           <div className='lg:grid grid-cols-7 gap-5'>
             <div className='bmi__image col-span-2 hidden lg:block'>
-              <img className='object-cover' src='/images/bmi-03.jpg' />
+              <img
+                className='object-cover'
+                src={homePage ? '/images/bmi-03.jpg' : '/images/bmi.png'}
+              />
             </div>
             <div className='col-span-3'>
               <div className='mb-10'>

@@ -31,7 +31,7 @@ const Plan = () => {
         {loading ? (
           <LoadingScreen />
         ) : (
-          <div className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='md:grid md:grid-cols-2 pt-10 lg:grid-cols-3 gap-8'>
             {data.map((plan, index) => (
               <PlanGrid key={plan.id} plan={plan} index={index} />
             ))}
