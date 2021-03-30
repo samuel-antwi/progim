@@ -1,5 +1,5 @@
 import graphcms from '../../graphql/client';
-import { ALL_PRODUCTS, FEATURED_PRODUCTS, PRODUCT } from '../../graphql/queries';
+import { ALL_PRODUCTS, PRODUCT } from '../../graphql/queries';
 import ProductDetails from '../../components/ProductDetails';
 
 const Product = ({ product }) => {
@@ -16,8 +16,6 @@ export const getStaticPaths = async () => {
         slug: slug,
       },
     })),
-
-    fallback: true,
   };
 };
 
