@@ -17,7 +17,7 @@ export default function Home({ trainers }) {
       <Bmi />
       <Plan />
       <Discount />
-      {/* <FeaturedProducts /> */}
+      <FeaturedProducts />
     </div>
   );
 }
