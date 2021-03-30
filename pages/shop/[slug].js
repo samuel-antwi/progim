@@ -16,6 +16,7 @@ export const getStaticPaths = async () => {
         slug: slug,
       },
     })),
+    fallback: false,
   };
 };
 
