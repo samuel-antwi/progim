@@ -1,9 +1,15 @@
 import graphcms from '../../graphql/client';
 import { ALL_PRODUCTS, PRODUCT } from '../../graphql/queries';
 import ProductDetails from '../../components/ProductDetails';
+import RelatedProducts from '../../components/RelatedProducts';
 
-const Product = ({ product }) => {
-  return <ProductDetails product={product} />;
+const Product = ({ product, products }) => {
+  return (
+    <div>
+      <ProductDetails product={product} />
+      <RelatedProducts products={products} />
+    </div>
+  );
 };
 
 export default Product;
@@ -21,12 +27,13 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { product } = await graphcms.request(PRODUCT, {
+  const { product, products } = await graphcms.request(PRODUCT, {
     slug: params.slug,
   });
   return {
     props: {
       product,
+      products,
     },
   };
 };

@@ -51,7 +51,7 @@ const ProductDetails = ({ product }) => {
           </div>
         </div>
       </ProductBanner>
-      <div className='py-20 max-w-7xl mx-auto px-5'>
+      <div className='py-20 max-w-7xl mx-auto px-5 md:px-10'>
         <div className='md:grid grid-cols-2 gap-10 mb-10'>
           <div className='relative bg-white col-span-1 mb-5 hover:shadow'>
             <Image width={900} height={900} src={image.url} alt={name} />

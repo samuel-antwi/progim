@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import useFetchFeaturedProducts from '../hooks/useFetchFeaturedProducts';
 import SaleBadge from './SaleBadge';
+import { MdShoppingBasket } from 'react-icons/md';
+import { BsPlusCircleFill } from 'react-icons/bs';
 
 const FeaturedProducts = ({ products }) => {
   // const { data, isError, isLoading, error } = useFetchFeaturedProducts();
@@ -48,9 +50,14 @@ const FeaturedProducts = ({ products }) => {
                 )}
                 <p className='text-primary'>£{product.price}</p>
               </span>
-              <button className='bg-primary py-3 text-sm rounded-full uppercase px-5 text-gray-100'>
-                add to cart
-              </button>
+              <div className='overlay flex justify-end px-10'>
+                <button
+                  className='focus:outline-none flex flex-col items-center'
+                  aria-label='add to cart'>
+                  <MdShoppingBasket size={35} />
+                  <BsPlusCircleFill className='-mt-1.5' />
+                </button>
+              </div>
             </div>
           </div>
         ))}
