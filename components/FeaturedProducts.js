@@ -17,7 +17,11 @@ const FeaturedProducts = ({ products }) => {
       <Header title='choose your brand' subTitile='our featured products' />
       <div className='md:grid md:grid-cols-2 pt-10 lg:grid-cols-3  gap-10'>
         {products.map((product) => (
-          <div className='shadow bg-white pb-10 relative mb-5 px-5' key={product.id}>
+          <div
+            data-aos='flip-right'
+            data-aos-duration='1000'
+            className='shadow bg-white pb-10 relative mb-5 px-5'
+            key={product.id}>
             <SaleBadge product={product} />
             <Link href={`shop/${product.slug}`}>
               <a>

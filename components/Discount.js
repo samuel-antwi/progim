@@ -6,8 +6,10 @@ const Discount = () => {
     <Styles className='mb-20 min-h-[750px]'>
       <div className='overlay min-h-[750px]'>
         <div className='md:grid grid-cols-2 max-w-6xl mx-auto'>
-          <img src='/images/discount2.png' alt='Gym member' />
-          <div className='text-gray-100 flex h-full'>
+          <div data-aos='slide-right' data-aos-duration='1000'>
+            <img src='/images/discount2.png' alt='Gym member' />
+          </div>
+          <div data-aos='slide-left' data-aos-duration='1000' className='text-gray-100 flex h-full'>
             <div className='m-auto py-10 md:py-0'>
               <h1 className='md:text-3xl text-xl font-semibold uppercase mb-3 tracking-wider'>
                 Join fitness class
