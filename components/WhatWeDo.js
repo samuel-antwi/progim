@@ -55,7 +55,7 @@ const WhatWeDo = () => {
             </div>
           </div>
           {getFullPathName() !== '/about' && (
-            <div className='col-span-1 mt-10 lg:mt-0'>
+            <div data-aos='zoom-out' data-aos-duration='1000' className='col-span-1 mt-10 lg:mt-0'>
               <Image
                 className='object-cover'
                 src='/images/bmi.png'
@@ -74,13 +74,16 @@ const WhatWeDo = () => {
 
 const ServicesCard = ({ title, description, image_url }) => {
   return (
-    <div className='bg-white flex hover:shadow rounded-md px-6 py-10 mb-10 md:mb-0'>
+    <div
+      data-aos='zoom-in-down'
+      data-aos-duration='1000'
+      className='bg-black text-gray-100 flex hover:shadow rounded-md px-6 py-10 mb-10 md:mb-0'>
       <div>
         <img className='w-40' src={image_url} alt={title} />
       </div>
       <div className='ml-10'>
         <h1 className='mb-5 font-semibold md:text-xl uppercase'>{title}</h1>
-        <p className='text-gray-700'>{description}</p>
+        <p className='text-gray-400'>{description}</p>
       </div>
     </div>
   );

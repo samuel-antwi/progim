@@ -1,7 +1,7 @@
 import { GiCheckMark } from 'react-icons/gi';
 import { VscChromeClose } from 'react-icons/vsc';
 
-const PlanGrid = ({ plan }) => {
+const PlanGrid = ({ plan, index }) => {
   const {
     name,
     price,
@@ -14,11 +14,13 @@ const PlanGrid = ({ plan }) => {
     personalTrainer,
     slug,
     fileName,
-    index,
   } = plan;
 
   return (
-    <div className='col-span-1 mb-10 md:mb-0 bg-white shadow rounded-lg py-10'>
+    <div
+      data-aos='flip-down'
+      data-aos-duration={index === 0 ? '1000' : index === 1 ? '1500' : index === 2 ? '2000' : ''}
+      className='col-span-1 mb-10 md:mb-0 bg-white shadow rounded-lg py-10'>
       <div className='flex flex-col justify-items-center items-center justify-center space-y-5'>
         <div className='bg-primary w-20 h-20 rounded-full p-5 flex items-center justify-center'>
           <img className='' src={image.url} alt={fileName} />
