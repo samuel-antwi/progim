@@ -59,28 +59,4 @@ const Styles = styled.div`
   .wrapper:hover .overlay {
     height: 30%;
   }
-
-  /* .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 0;
-    transition: 0.5s ease;
-    overflow: hidden;
-  }
-
-  .content {
-    position: absolute;
-    width: 100%;
-    top: 45%;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-  }
-  .wrapper:hover .overlay {
-    height: 100%;
-  } */
 `;

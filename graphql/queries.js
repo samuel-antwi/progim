@@ -8,6 +8,7 @@ export const GET_CLASSES = gql`
         text
       }
       id
+      slug
       name
       classSize
       price
@@ -136,7 +137,6 @@ export const PRODUCT = gql`
     product(where: { slug: $slug }) {
       fullDescription {
         markdown
-        html
       }
       id
       name
@@ -161,7 +161,51 @@ export const PRODUCT = gql`
         }
       }
     }
+    products(where: { slug_not: $slug }, first: 3) {
+      id
+      name
+      onSale
+      price
+      slug
+      salePrice
+      image {
+        height
+        width
+        url
+      }
+    }
   }
+
+  # query getProduct($slug: String!) {
+  #   product(where: { slug: $slug }) {
+  #     fullDescription {
+  #       markdown
+  #       html
+  #     }
+  #     id
+  #     name
+  #     onSale
+  #     price
+  #     salePrice
+  #     shortDescription
+  #     slug
+  #     image {
+  #       height
+  #       width
+  #       url
+  #     }
+  #     productReviews(orderBy: id_ASC) {
+  #       email
+  #       id
+  #       name
+  #       rating
+  #       title
+  #       message {
+  #         markdown
+  #       }
+  #     }
+  #   }
+  # }
 `;
 
 export const PAGE_CONTENT = gql`
@@ -191,6 +235,26 @@ export const PAGE_CONTENT = gql`
         height
         width
         url
+      }
+    }
+    classes(first: 3) {
+      id
+      description {
+        markdown
+        text
+      }
+      name
+      classSize
+      price
+      slug
+      image {
+        height
+        width
+        url
+      }
+      classCategory {
+        id
+        name
       }
     }
   }

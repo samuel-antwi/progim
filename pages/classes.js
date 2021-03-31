@@ -2,21 +2,13 @@ import styled from 'styled-components';
 import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getPathName } from '../utils';
+import { ellipsis, getPathName } from '../utils';
 import useFetchClasses from '../hooks/useFetchClasses';
 import LoadingScreen from '../components/LoadingScreen';
 import Bmi from '../components/Bmi';
 
 const GymClasses = () => {
   const { data, isError, error, isLoading } = useFetchClasses();
-
-  const ellipsis = (description) => {
-    if (description?.length > 10) {
-      return description.substring(0, 70) + '...';
-    } else {
-      return description;
-    }
-  };
 
   if (isError) return console.log(error.message);
   if (isLoading) return LoadingScreen;
@@ -25,9 +17,9 @@ const GymClasses = () => {
     <>
       <ClassBanner>
         <div className='overlay absolute text-gray-200'>
-          <div className='flex h-full'>
-            <div className='my-auto px-5'>
-              <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Class</h1>
+          <div className='flex h-full container'>
+            <div className='my-auto px-5 max-w-6xl'>
+              <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Classes</h1>
               <div className='flex items-center text-lg space-x-2 py-2 px-3 bg-primary rounded-br-3xl'>
                 <Link href='/'>
                   <a>Home</a>
@@ -43,6 +35,7 @@ const GymClasses = () => {
         <div className='xxm:grid grid-cols-2 lg:grid-cols-3  gap-10'>
           {data.map((session) => {
             const {
+              slug,
               name,
               description,
               classCategory,
@@ -53,7 +46,7 @@ const GymClasses = () => {
             } = session;
             return (
               <div key={id} className='col-span-1 bg-white '>
-                <Link href='/'>
+                <Link href={`/our-classes/${slug}`}>
                   <a className='relative'>
                     <Image
                       className='transition object-cover duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110'

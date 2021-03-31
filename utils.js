@@ -11,6 +11,14 @@ export const getFullPathName = () => {
   return router.pathname;
 };
 
+export const ellipsis = (description) => {
+  if (description?.length > 10) {
+    return description.substring(0, 70) + '...';
+  } else {
+    return description;
+  }
+};
+
 export const slickSettings = {
   infinite: true,
   speed: 500,
