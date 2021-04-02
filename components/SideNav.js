@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { BsBag } from 'react-icons/bs';
 import { GrClose } from 'react-icons/gr';
 
 const SideNav = ({ showSideMenu, setShowSideMenu }) => {

@@ -25,7 +25,7 @@ const FeaturedProducts = ({ products }) => {
             className='shadow bg-white pb-10 relative mb-5 px-5'
             key={product.id}>
             <SaleBadge product={product} />
-            <Link href={`shop/${product.slug}`}>
+            <Link href={`/shop/${product.slug}`}>
               <a>
                 <Image
                   src={product.image.url}
@@ -37,7 +37,7 @@ const FeaturedProducts = ({ products }) => {
               </a>
             </Link>
             <div className='flex flex-col justify-center items-center justify-items-center space-y-5'>
-              <Link href={`shop/${product.slug}`}>
+              <Link href={`/shop/${product.slug}`}>
                 <a>
                   <p className='text-xl  font-semibold capitalize hover:text-primary'>
                     {product.name}
