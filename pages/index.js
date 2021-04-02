@@ -10,7 +10,7 @@ import WhatWeDo from '../components/WhatWeDo';
 import graphcms from '../graphql/client';
 import { PAGE_CONTENT, TRAINERS } from '../graphql/queries';
 
-export default function Home({ trainers, products, classes }) {
+export default function Home({ trainers, products, classes, pricePlans }) {
   return (
     <div>
       {/* <SideNav /> */}
@@ -19,7 +19,7 @@ export default function Home({ trainers, products, classes }) {
       <PopularClasses classes={classes} />
       <Trainers trainers={trainers} />
       <Bmi />
-      <Plan />
+      <Plan pricePlans={pricePlans} />
       <Discount />
       <FeaturedProducts products={products} />
     </div>
@@ -27,9 +27,9 @@ export default function Home({ trainers, products, classes }) {
 }
 
 export const getStaticProps = async () => {
-  const { trainers, products, classes } = await graphcms.request(PAGE_CONTENT);
+  const { trainers, products, classes, pricePlans } = await graphcms.request(PAGE_CONTENT);
 
   return {
-    props: { trainers, products, classes },
+    props: { trainers, products, classes, pricePlans },
   };
 };

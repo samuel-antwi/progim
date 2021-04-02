@@ -257,5 +257,22 @@ export const PAGE_CONTENT = gql`
         name
       }
     }
+    pricePlans {
+      access
+      freeRiding
+      id
+      name
+      personalTrainer
+      price
+      slug
+      unlimitedEquipments
+      yogaMeditation
+      image {
+        url
+        width
+        height
+        fileName
+      }
+    }
   }
 `;

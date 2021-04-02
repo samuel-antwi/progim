@@ -39,7 +39,7 @@ export default Bmi;
 
 const Styles = styled.div`
   width: 100%;
-  background: url('/images/bmi-bg-01.jpeg');
+  background: url('/images/bmi-bg.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,7 +48,7 @@ const Styles = styled.div`
 
   .overlay {
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.85);
   }
 
   .bmi__image {
