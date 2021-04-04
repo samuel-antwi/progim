@@ -24,7 +24,8 @@ const Trainers = ({ trainers }) => {
                       src={trainerImage.url}
                       width={trainerImage.width}
                       height={trainerImage.height}
-                      layout='responsive'
+                      priority={true}
+                      loading='eager'
                     />
                   </a>
                 </Link>

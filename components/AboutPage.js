@@ -51,7 +51,8 @@ const AboutPage = () => {
             src={aboutImage.url}
             width={500}
             height={500}
-            layout='responsive'
+            loading='eager'
+            priority={true}
           />
         </div>
         <div className='col-span-1 py-10 md:py-0'>

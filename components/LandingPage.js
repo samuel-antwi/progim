@@ -35,9 +35,6 @@ const LandingPage = () => {
                 become a member
               </button>
             </div>
-            <button className='absolute max-w-xs mx-auto inset-x-0 bottom-10 flex justify-center items-center bg-primary w-16 h-16 rounded-full'>
-              <BsChevronDown size={20} className='text-gray-200' />
-            </button>
           </div>
         </div>
       </div>

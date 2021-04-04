@@ -95,9 +95,7 @@ const GymClasses = () => {
 export default GymClasses;
 
 const ClassBanner = styled.div`
-  background: url('/images/classBg.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url('/images/classBg.jpeg') no-repeat center;
   background-size: cover;
   width: 100%;
   height: 25vh;

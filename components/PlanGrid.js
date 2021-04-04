@@ -30,7 +30,7 @@ const PlanGrid = ({ plan, index }) => {
         </h1>
         <h1 className='md:text-6xl text-3xl text-primary font-bold'>£{price}</h1>
       </div>
-      <div className='xs:px-10 px-5 pt-10 space-y-3'>
+      <div className='xl:px-10  px-5 pt-10 space-y-3'>
         <BenefitList benefit={freeRiding} description='free riding' />
         <BenefitList benefit={yogaMeditation} description='yoga meditation' />
         <BenefitList benefit={unlimitedEquipments} description='unlimited equipment' />

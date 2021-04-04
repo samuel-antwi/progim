@@ -23,7 +23,7 @@ export default function Home({ trainers, products, classes, pricePlans }) {
   });
 
   return (
-    <div>
+    <>
       <LandingPage />
       <WhatWeDo />
       <PopularClasses classes={classes} />
@@ -32,7 +32,7 @@ export default function Home({ trainers, products, classes, pricePlans }) {
       <Plan pricePlans={pricePlans} />
       <Discount />
       <FeaturedProducts products={products} />
-    </div>
+    </>
   );
 }
 

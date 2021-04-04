@@ -6,11 +6,18 @@ import {
   FaPhoneAlt,
   FaEnvelope,
 } from 'react-icons/fa';
+import { BsChevronUp } from 'react-icons/bs';
+import useScroll from '../hooks/useScroll';
 
 const Footer = () => {
+  const pageHasScrolled = useScroll();
+
   const getCurrentYear = () => {
     return new Date().getFullYear();
   };
+
+  const socialIconsStyles =
+    'bg-primary rounded-full text-white p-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110';
 
   return (
     <div className='bg-[#272727] text-gray-400'>
@@ -26,16 +33,16 @@ const Footer = () => {
               fitness to the next level.
             </p>
             <div className='flex items-center space-x-3'>
-              <a className='bg-primary rounded-full text-white p-2' href='/'>
+              <a className={socialIconsStyles} href='/'>
                 <FaFacebookF />
               </a>
-              <a className='bg-primary rounded-full text-white p-2' href='/'>
-                <FaTwitter />
-              </a>
-              <a className='bg-primary rounded-full text-white p-2' href='/'>
+              <a className={socialIconsStyles} href='/'>
                 <FaLinkedinIn />
               </a>
-              <a className='bg-primary rounded-full text-white p-2' href='/'>
+              <a className={socialIconsStyles} href='/'>
+                <FaTwitter />
+              </a>
+              <a className={socialIconsStyles} href='/'>
                 <FaInstagram />
               </a>
             </div>
@@ -77,6 +84,13 @@ const Footer = () => {
           </p>
         </div>
       </div>
+      {pageHasScrolled && (
+        <button
+          onClick={() => window.scrollTo(0, 0)}
+          className='fixed right-5 bottom-5 transition duration-400'>
+          <BsChevronUp className='bg-primary h-10 w-10 rounded-full p-2.5 text-gray-100' />
+        </button>
+      )}
     </div>
   );
 };
@@ -86,8 +100,8 @@ export default Footer;
 const SubscribeForm = () => {
   return (
     <div>
-      <form className=' mt-5 flex flex-grow items-center text-gray-800 '>
-        <div className='text-gray-700 rounded-l-full bg-white py-4 px-3'>
+      <form className=' mt-5 flex rounded-full bg-white flex-grow items-center text-gray-800 '>
+        <div className='text-gray-700 rounded-l-full  py-4 px-3'>
           <FaEnvelope />
         </div>
         <input
@@ -95,7 +109,7 @@ const SubscribeForm = () => {
           type='text'
           placeholder='Your email'
         />
-        <button className=' bg-primary p-3 rounded-r-full text-gray-100' type='submit'>
+        <button className=' bg-primary p-3 rounded-r-full  text-gray-100' type='submit'>
           Subscribe
         </button>
       </form>
