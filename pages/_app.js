@@ -11,14 +11,14 @@ import AOS from 'aos';
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    AOS.init({
-      disable: function () {
-        const maxWidth = 800;
-        return window.innerWidth < maxWidth;
-      },
-    });
-  });
+  // useEffect(() => {
+  //   AOS.init({
+  //     disable: function () {
+  //       const maxWidth = 800;
+  //       return window.innerWidth < maxWidth;
+  //     },
+  //   });
+  // });
 
   return (
     <QueryClientProvider client={queryClient}>
