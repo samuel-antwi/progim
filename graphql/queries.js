@@ -73,28 +73,6 @@ export const TRAINERS = gql`
   }
 `;
 
-export const GET_ALL_PLANS = gql`
-  query getAllPlans {
-    pricePlans {
-      access
-      freeRiding
-      id
-      name
-      personalTrainer
-      price
-      slug
-      unlimitedEquipments
-      yogaMeditation
-      image {
-        url
-        width
-        height
-        fileName
-      }
-    }
-  }
-`;
-
 export const FEATURED_PRODUCTS = gql`
   query getFeaturedProducts {
     products(first: 3) {
@@ -175,37 +153,6 @@ export const PRODUCT = gql`
       }
     }
   }
-
-  # query getProduct($slug: String!) {
-  #   product(where: { slug: $slug }) {
-  #     fullDescription {
-  #       markdown
-  #       html
-  #     }
-  #     id
-  #     name
-  #     onSale
-  #     price
-  #     salePrice
-  #     shortDescription
-  #     slug
-  #     image {
-  #       height
-  #       width
-  #       url
-  #     }
-  #     productReviews(orderBy: id_ASC) {
-  #       email
-  #       id
-  #       name
-  #       rating
-  #       title
-  #       message {
-  #         markdown
-  #       }
-  #     }
-  #   }
-  # }
 `;
 
 export const PAGE_CONTENT = gql`

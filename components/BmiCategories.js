@@ -16,7 +16,7 @@ export default BmiCategories;
 
 const Categories = ({ score, indicator }) => {
   return (
-    <span className='flex items-center space-x-1 mb-0.5 text-sm'>
+    <span className='flex items-center space-x-1 mb-0.5 xs:text-sm text-xs'>
       <h1 className='bg-primary py-3 xl:px-5 px-1 w-full capitalize'>{score}</h1>
       <h1 className='bg-primary py-3 xl:px-5 px-1  w-full capitalize'>{indicator}</h1>
     </span>

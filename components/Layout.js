@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Footer from './Footer';
 import MiniNavBar from './MiniNavBar';
 import Navbar from './Navbar';
 
@@ -18,6 +19,7 @@ const Layout = ({ title, description, children }) => {
         <title>{title}</title>
       </Head>
       <div>{children}</div>
+      <Footer />
     </div>
   );
 };

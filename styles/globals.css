@@ -5,6 +5,16 @@
   padding: 0 15px;
 }
 
+.slick-next:before {
+  content: '>';
+  color: red;
+  font-size: 30px;
+}
+.slick-prev {
+  color: red;
+  font-size: 30px;
+}
+
 html,
 body {
   overflow-x: hidden;

@@ -10,14 +10,14 @@ const LandingPage = () => {
             <h1
               data-aos='slide-left'
               data-aos-duration='800'
-              className='text-gray-800 md:text-4xl font-extrabold'>
+              className='text-gray-800 text-4xl font-extrabold'>
               step up your
             </h1>
             <div className='text-gray-300 '>
               <h1
                 data-aos='slide-right'
                 data-aos-duration='1000'
-                className='md:text-8xl font-extrabold'>
+                className='md:text-8xl text-5xl font-extrabold'>
                 fitness
               </h1>
               <h1
@@ -25,7 +25,7 @@ const LandingPage = () => {
                 data-aos-duration='1200'
                 className='md:text-5xl flex items-center font-extrabold mb-10'>
                 <span className='mr-3 text-gray-800'>with</span>
-                <img className='w-60' src='/images/logo-1.png' alt='logo' />
+                <img className='md:w-60 w-32 object-cover' src='/images/logo-1.png' alt='logo' />
               </h1>
             </div>
             <div data-aos='fade-up' data-aos-duration='1500'>

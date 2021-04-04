@@ -5,7 +5,7 @@ const Discount = () => {
   return (
     <Styles className='mb-20 min-h-[750px]'>
       <div className='overlay min-h-[750px]'>
-        <div className='md:grid grid-cols-2 max-w-6xl mx-auto'>
+        <div className='md:grid grid-cols-2 max-w-6xl px-5 mx-auto'>
           <div data-aos='slide-right' data-aos-duration='1000'>
             <img src='/images/discount2.png' alt='Gym member' />
           </div>
@@ -14,7 +14,7 @@ const Discount = () => {
               <h1 className='md:text-3xl text-xl font-semibold uppercase mb-3 tracking-wider'>
                 Join fitness class
               </h1>
-              <h1 className='uppercase text-primary lg:text-5xl md:text-4xl text-3xl mb-5 font-bold'>
+              <h1 className='uppercase text-primary lg:text-5xl md:text-4xl xs:text-3xl text-2xl mb-5 font-bold'>
                 get 30% discount
               </h1>
               <span className='flex items-center mb-3'>
