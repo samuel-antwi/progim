@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { BsChevronDown } from 'react-icons/bs';
+import { useEffect } from 'react';
+import AOS from 'aos';
 
 const LandingPage = () => {
   return (
