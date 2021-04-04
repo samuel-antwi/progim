@@ -22,7 +22,7 @@ const FeaturedProducts = ({ products }) => {
           <div
             data-aos='flip-right'
             data-aos-duration='1000'
-            className='shadow bg-white pb-10 relative mb-5 px-5'
+            className='hover:shadow bg-white pb-10 relative mb-5 px-5'
             key={product.id}>
             <SaleBadge product={product} />
             <Link href={`/shop/${product.slug}`}>
@@ -45,10 +45,8 @@ const FeaturedProducts = ({ products }) => {
                 </a>
               </Link>
               <span className='flex items-center space-x-4 text-lg'>
-                {product.onSale && (
-                  <p className='text-gray-800 line-through'>£{product.salePrice}</p>
-                )}
-                <p className='text-primary'>£{product.price}</p>
+                {product.onSale && <p className='text-gray-800 line-through'>£{product.price}</p>}
+                <p className='text-primary'>£{product.salePrice}</p>
               </span>
               <div className='overlay flex justify-end px-10'>
                 <button
@@ -64,7 +62,7 @@ const FeaturedProducts = ({ products }) => {
       </div>
       <div className='flex justify-center justify-items-center mt-5'>
         <Link href='/products'>
-          <a className='uppercase bg-primary text-gray-100 py-3 px-12 rounded-md font-bold'>
+          <a className='uppercase tracking-widest bg-primary text-gray-100 py-3 px-12 rounded-md font-bold'>
             shop all
           </a>
         </Link>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import LoadingScreen from './LoadingScreen';
+import { BiReset } from 'react-icons/bi';
 
 const BmiForm = () => {
   const [bmiResults, setBmiResults] = useState('');
@@ -117,9 +118,14 @@ const BmiForm = () => {
             <h1>Your BMI results:</h1>
             <p className='py-2 w-1/2 px-4 bg-primary ml-3'>{bmiResults}</p>
           </span>
-          <p className={`py-3 px-4 bg-primary`}>
+          <p className={`py-3 px-4 bg-primary xs:text-base text-xs`}>
             Your BMI Category is <span className='capitalize'>{description()}</span>
           </p>
+          <button
+            onClick={() => setFormState({ weight: '', height: '' })}
+            className='bg-primary p-2 mt-5  text-gray-100'>
+            <BiReset className='xs:w-8 xs:h-8 w-4 h-4' />
+          </button>
         </div>
       )}
     </div>

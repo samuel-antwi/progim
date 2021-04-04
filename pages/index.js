@@ -13,12 +13,11 @@ import { PAGE_CONTENT, TRAINERS } from '../graphql/queries';
 export default function Home({ trainers, products, classes, pricePlans }) {
   return (
     <div>
-      {/* <SideNav /> */}
       <LandingPage />
       <WhatWeDo />
       <PopularClasses classes={classes} />
       <Trainers trainers={trainers} />
-      <Bmi />
+      <Bmi variant={true} />
       <Plan pricePlans={pricePlans} />
       <Discount />
       <FeaturedProducts products={products} />

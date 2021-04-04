@@ -4,11 +4,11 @@ import BmiCategories from './BmiCategories';
 import BmiForm from './BmiForm';
 import { useRouter } from 'next/router';
 
-const Bmi = () => {
+const Bmi = ({ variant }) => {
   const router = useRouter();
   const homePage = router.pathname === '/';
   return (
-    <Styles className='my-20 text-gray-100'>
+    <Styles className={`${variant ? 'my-20' : 'mt-20'} text-gray-100`}>
       <div className='overlay'>
         <div className='xl:max-w-7xl mx-auto lg:px-5 sm:px-20 px-5 pt-20'>
           <div className='lg:grid grid-cols-7 gap-5'>

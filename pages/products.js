@@ -36,7 +36,7 @@ const products = ({ products }) => {
         <Header title='choose your brand' subTitile='shop all products' />
         <div className='md:grid md:grid-cols-2 lg:grid-cols-3 pt-10  gap-10'>
           {products.map((product) => (
-            <div className='shadow bg-white pb-10 relative mb-5 px-5' key={product.id}>
+            <div className=' bg-white pb-10 relative mb-5 px-5' key={product.id}>
               <SaleBadge product={product} />
               <Link href={`shop/${product.slug}`}>
                 <a>
@@ -58,10 +58,8 @@ const products = ({ products }) => {
                   </a>
                 </Link>
                 <span className='flex items-center space-x-4 text-lg'>
-                  {product.onSale && (
-                    <p className='text-gray-800 line-through'>£{product.salePrice}</p>
-                  )}
-                  <p className='text-primary'>£{product.price}</p>
+                  {product.onSale && <p className='text-gray-800 line-through'>£{product.price}</p>}
+                  <p className='text-primary'>£{product.salePrice}</p>
                 </span>
                 <button className='bg-primary py-3 text-sm rounded-full uppercase px-5 text-gray-100'>
                   add to cart

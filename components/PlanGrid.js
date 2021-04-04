@@ -30,7 +30,7 @@ const PlanGrid = ({ plan, index }) => {
         </h1>
         <h1 className='md:text-6xl text-3xl text-primary font-bold'>£{price}</h1>
       </div>
-      <div className='px-10 pt-10 space-y-3'>
+      <div className='xs:px-10 px-5 pt-10 space-y-3'>
         <BenefitList benefit={freeRiding} description='free riding' />
         <BenefitList benefit={yogaMeditation} description='yoga meditation' />
         <BenefitList benefit={unlimitedEquipments} description='unlimited equipment' />
@@ -50,7 +50,7 @@ const BenefitList = ({ benefit, description }) => {
   return (
     <div className='flex justify-between'>
       <p className='uppercase text-gray-700'>{description}</p>
-      <span className='text-gray-100 rounded-full p-1 text-xl bg-black'>
+      <span className='text-gray-100 rounded-full p-1 xs:text-xl bg-black'>
         {benefit ? <GiCheckMark /> : <VscChromeClose />}
       </span>
     </div>

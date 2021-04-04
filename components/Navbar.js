@@ -25,14 +25,14 @@ const Navbar = () => {
             <NavLinks name='Contact' url='/contact' />
             <Link href='/'>
               <a className='cursor-pointer'>
-                <BsBag size={25} />
+                <BsBag size={20} />
               </a>
             </Link>
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}
               aria-label='menu'
               className='md:hidden focus:outline-none p-3 focus:bg-gray-200'>
-              <VscMenu size={25} />
+              <VscMenu size={20} />
             </button>
           </div>
         </div>
