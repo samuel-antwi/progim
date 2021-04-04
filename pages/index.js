@@ -10,6 +10,7 @@ import WhatWeDo from '../components/WhatWeDo';
 import graphcms from '../graphql/client';
 import { PAGE_CONTENT, TRAINERS } from '../graphql/queries';
 import AOS from 'aos';
+import ProgressBar from 'react-scroll-progress-bar';
 
 export default function Home({ trainers, products, classes, pricePlans }) {
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function Home({ trainers, products, classes, pricePlans }) {
   });
 
   return (
-    <div>
+    <>
       <LandingPage />
       <WhatWeDo />
       <PopularClasses classes={classes} />
@@ -32,7 +33,7 @@ export default function Home({ trainers, products, classes, pricePlans }) {
       <Plan pricePlans={pricePlans} />
       <Discount />
       <FeaturedProducts products={products} />
-    </div>
+    </>
   );
 }
 

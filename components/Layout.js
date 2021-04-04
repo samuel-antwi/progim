@@ -2,10 +2,12 @@ import Head from 'next/head';
 import Footer from './Footer';
 import MiniNavBar from './MiniNavBar';
 import Navbar from './Navbar';
+import ProgressBar from 'react-scroll-progress-bar';
 
 const Layout = ({ title, description, children }) => {
   return (
     <div className='font-poppins bg-light'>
+      <ProgressBar bgcolor='#EF5B5B' />
       <MiniNavBar />
       <Navbar />
       <Head>
