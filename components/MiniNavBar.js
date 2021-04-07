@@ -11,7 +11,7 @@ const MiniNavBar = () => {
   };
 
   return getPathName() !== '/' ? (
-    <div className='hidden md:block bg-primary py-3 text-gray-50'>
+    <div className='hidden  md:block bg-primary py-3 text-gray-50'>
       <div className='max-w-6xl mx-auto flex justify-between items-center'>
         <div className='flex items-center space-x-5'>
           <a className='flex text-sm items-center' href='mailto: support@progim.com '>

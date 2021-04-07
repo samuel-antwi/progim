@@ -4,14 +4,16 @@ import { useRouter } from 'next/router';
 import SideNav from './SideNav';
 import { useState } from 'react';
 import ShoppingBag from './ShoppingBag';
+import MiniNavBar from './MiniNavBar';
 
 const Navbar = () => {
   const [showSideMenu, setShowSideMenu] = useState(false);
   return (
     <>
       <SideNav showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
-      <div className='sticky top-0 p-8 bg-white z-10'>
-        <div className='max-w-6xl mx-auto flex justify-between items-center'>
+      <div className='fixed top-0 w-full bg-white z-10'>
+        <MiniNavBar />
+        <div className='max-w-6xl mx-auto py-6 flex justify-between items-center'>
           <Link href='/'>
             <a>
               <h1 className='text-black font-bold md:text-4xl text-xl tracking-wider'>PROGIM</h1>
@@ -21,7 +23,7 @@ const Navbar = () => {
             <NavLinks name='Home' url='/' />
             <NavLinks name='About' url='/about' />
             <NavLinks name='Classes' url='/classes' />
-            <NavLinks name='Shop' url='/products' />
+            <NavLinks name='Shop' url='/shop' />
             <NavLinks name='Blog' url='/blog' />
             <NavLinks name='Contact' url='/contact' />
             <ShoppingBag />
@@ -44,15 +46,13 @@ export const NavLinks = ({ name, url }) => {
   const router = useRouter();
 
   // Get pathname to style the active route
-  const getPathName = () => {
-    return router.pathname;
-  };
+  const getPathName = router.pathname;
 
   return (
     <Link href={url}>
       <a
         className={`${
-          getPathName() === url && 'text-primary'
+          getPathName === url && 'text-primary'
         } hover:text-primary hidden md:block uppercase text-sm font-semibold tracking-wide`}>
         {name}
       </a>

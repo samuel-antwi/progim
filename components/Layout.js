@@ -8,7 +8,7 @@ const Layout = ({ title, description, children }) => {
   return (
     <div className='font-poppins bg-light'>
       <ProgressBar bgcolor='#EF5B5B' />
-      <MiniNavBar />
+      {/* <MiniNavBar /> */}
       <Navbar />
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -20,7 +20,7 @@ const Layout = ({ title, description, children }) => {
         <meta property='og:description' content={description} key='ogdesc' />
         <title>{title}</title>
       </Head>
-      <div>{children}</div>
+      <div className='pt-20'>{children}</div>
       <Footer />
     </div>
   );

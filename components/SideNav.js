@@ -19,6 +19,7 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
           <NavLinks name='Home' url='/' />
           <NavLinks name='About' url='/about' />
           <NavLinks name='Classes' url='/classes' />
+          <NavLinks name='Shop' url='/shop' />
           <NavLinks name='Blog' url='/blog' />
           <NavLinks name='Contact' url='/contact' />
         </div>

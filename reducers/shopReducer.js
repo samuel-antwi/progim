@@ -1,9 +1,4 @@
-import {
-  ADD_TO_BASKET,
-  REMOVE_FROM_BASKET,
-  FETCH_FEATURED_PRODUCTS,
-  FETCH_PRODUCTS,
-} from '../types';
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from '../types';
 
 export const sumItems = (basket) => {
   let itemCount = basket.reduce((total, product) => total + product.quantity, 0);
@@ -17,8 +12,8 @@ const initialState = {
   basket: [],
 };
 
-const shopReducer = (state = initialState, actions) => {
-  switch (actions) {
+const shopReducer = (state = initialState, action) => {
+  switch (action.type) {
     // add to basket
     case ADD_TO_BASKET:
       if (!state.basket.find((item) => item.id === action.payload.id)) {
