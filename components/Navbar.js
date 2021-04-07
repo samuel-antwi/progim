@@ -4,6 +4,7 @@ import { VscMenu } from 'react-icons/vsc';
 import { useRouter } from 'next/router';
 import SideNav from './SideNav';
 import { useState } from 'react';
+import ShoppingBag from './ShoppingBag';
 
 const Navbar = () => {
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
         <div className='max-w-6xl mx-auto flex justify-between items-center'>
           <Link href='/'>
             <a>
-              <img className='w-32' src='/images/logo-1.png' alt='Logo' />
+              <h1 className='text-black font-bold md:text-4xl text-xl tracking-wider'>PROGIM</h1>
             </a>
           </Link>
           <div className='space-x-8 flex items-center'>
@@ -23,11 +24,12 @@ const Navbar = () => {
             <NavLinks name='Classes' url='/classes' />
             <NavLinks name='Blog' url='/blog' />
             <NavLinks name='Contact' url='/contact' />
-            <Link href='/'>
+            {/* <Link href='/'>
               <a className='cursor-pointer'>
                 <BsBag size={20} />
               </a>
-            </Link>
+            </Link> */}
+            <ShoppingBag />
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}
               aria-label='menu'

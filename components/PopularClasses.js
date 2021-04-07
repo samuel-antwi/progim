@@ -57,7 +57,7 @@ const PopularClasses = ({ classes }) => {
                         <p>class student</p>
                         <p>{classSize} per shift</p>
                       </span>
-                      <p>|</p>
+                      <div className='border-l-[1px] border-gray-200 h-[50px] absolute left-1/2 '></div>
                       <span>
                         <p>course price</p>
                         <p>£{price}</p>

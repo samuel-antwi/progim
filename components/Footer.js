@@ -52,9 +52,7 @@ const Footer = () => {
               <h1 className='text-primary font-bold uppercase text-lg tracking-wider'>address</h1>
               <Underline />
             </div>
-            <p>
-              Gimnas - Fitness Center 2165 Aurora Rd, Bedford Heights, OH 6543 North London, USA
-            </p>
+            <p>Progim - Fitness Center 21 Debby Avenue, Nottingham, NG21 5XU</p>
             <span className='flex items-center'>
               <FaEnvelope className='mr-2' />
               <a href='mailto:support@progym.com'>Support@progym.com</a>

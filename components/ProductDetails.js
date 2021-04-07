@@ -6,6 +6,7 @@ import { FiPlus, FiMinus } from 'react-icons/fi';
 import ProductReviewForm from './ProductReviewForm';
 import SaleBadge from './SaleBadge';
 import { useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 const ProductDetails = ({ product }) => {
   const [isDescription, setIsDescription] = useState(true);
