@@ -1,19 +1,40 @@
-import { FETCH_FEATURED_PRODUCTS, FETCH_PRODUCTS } from '../types';
+import {
+  ADD_TO_BASKET,
+  REMOVE_FROM_BASKET,
+  FETCH_FEATURED_PRODUCTS,
+  FETCH_PRODUCTS,
+} from '../types';
+
+export const sumItems = (basket) => {
+  let itemCount = basket.reduce((total, product) => total + product.quantity, 0);
+  let total = basket
+    .reduce((total, product) => total + product.price * product.quantity, 0)
+    .toFixed(2);
+  return { itemCount, total };
+};
 
 const initialState = {
-  products: [],
-  featured_products: [],
+  basket: [],
 };
 
 const shopReducer = (state = initialState, actions) => {
   switch (actions) {
-    case FETCH_PRODUCTS:
+    // add to basket
+    case ADD_TO_BASKET:
+      if (!state.basket.find((item) => item.id === action.payload.id)) {
+        state.basket.push({
+          ...action.payload,
+          quantity: 1,
+        });
+      }
+      return { ...state, ...sumItems(state.basket), basket: [...state.basket] };
+
+    // Remove from Basket
+    case REMOVE_FROM_BASKET:
       return {
         ...state,
-      };
-    case FETCH_FEATURED_PRODUCTS:
-      return {
-        ...state,
+        ...sumItems(state.basket.filter((item) => item.id !== action.payload)),
+        basket: [...state.basket.filter((item) => item.id !== action.payload)],
       };
     default:
       return {

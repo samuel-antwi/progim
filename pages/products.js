@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import LoadingScreen from '../components/LoadingScreen';
-import useFetchAllProducts from '../hooks/useFetchAllProducts';
 import { BsLink45Deg } from 'react-icons/bs';
 import SaleBadge from '../components/SaleBadge';
 import Header from '../components/Header';
@@ -10,10 +8,6 @@ import graphcms from '../graphql/client';
 import { ALL_PRODUCTS } from '../graphql/queries';
 
 const products = ({ products }) => {
-  // const { data, isLoading, error, isError } = useFetchAllProducts();
-
-  // if (isLoading) return <LoadingScreen />;
-
   return (
     <>
       <ProductBanner>

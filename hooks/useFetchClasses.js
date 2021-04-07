@@ -8,7 +8,7 @@ const useFetchClasses = () => {
     return classes;
   });
 
-  return { data, isError, isLoading, error };
+  return { data, isLoading, isError, error };
 };
 
 export default useFetchClasses;

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { BsBag } from 'react-icons/bs';
 import { VscMenu } from 'react-icons/vsc';
 import { useRouter } from 'next/router';
 import SideNav from './SideNav';
@@ -22,13 +21,9 @@ const Navbar = () => {
             <NavLinks name='Home' url='/' />
             <NavLinks name='About' url='/about' />
             <NavLinks name='Classes' url='/classes' />
+            <NavLinks name='Shop' url='/products' />
             <NavLinks name='Blog' url='/blog' />
             <NavLinks name='Contact' url='/contact' />
-            {/* <Link href='/'>
-              <a className='cursor-pointer'>
-                <BsBag size={20} />
-              </a>
-            </Link> */}
             <ShoppingBag />
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}
@@ -48,7 +43,7 @@ export default Navbar;
 export const NavLinks = ({ name, url }) => {
   const router = useRouter();
 
-  // Get pathname to style active links
+  // Get pathname to style the active route
   const getPathName = () => {
     return router.pathname;
   };

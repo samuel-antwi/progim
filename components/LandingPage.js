@@ -27,7 +27,7 @@ const LandingPage = () => {
                 data-aos-duration='1200'
                 className='md:text-5xl flex items-center font-extrabold mb-10'>
                 <span className='mr-3 text-gray-100'>with</span>
-                <h1 className='text-primary'>ProGim</h1>
+                <span className='text-primary'>ProGim</span>
               </h1>
             </div>
             <div data-aos='fade-up' data-aos-duration='1500'>

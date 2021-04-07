@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { BsLink45Deg } from 'react-icons/bs';
-import { getPathName } from '../utils';
 import graphcms from '../graphql/client';
 import { GET_ABOUT_PAGE } from '../graphql/queries';
 import Image from 'next/image';
 import { IoIosCheckmark } from 'react-icons/io';
 import WhatWeDo from '../components/WhatWeDo';
+import { useRouter } from 'next/router';
 
 const About = ({ page }) => {
   const {
@@ -25,7 +25,12 @@ const About = ({ page }) => {
     expertTrainers,
     happyClient,
   } = page;
-  console.log(page);
+
+  const getPathName = () => {
+    let router = useRouter();
+    return (router = router.pathname.slice(1));
+  };
+
   return (
     <>
       <AboutBanner>
@@ -37,7 +42,7 @@ const About = ({ page }) => {
                 <a>Home</a>
               </Link>
               <BsLink45Deg size={23} />
-              <p className='capitalize'>{getPathName()}</p>
+              <p className='capitalize'>About</p>
             </div>
           </div>
         </div>
