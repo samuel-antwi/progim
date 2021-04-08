@@ -22,7 +22,11 @@ const shopReducer = (state = initialState, action) => {
           quantity: 1,
         });
       }
-      return { ...state, ...sumItems(state.basket), basket: [...state.basket] };
+      return {
+        ...state,
+        ...sumItems(state.basket),
+        basket: [...state.basket],
+      };
 
     // Remove from Basket
     case REMOVE_FROM_BASKET:

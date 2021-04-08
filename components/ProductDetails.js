@@ -8,13 +8,14 @@ import SaleBadge from './SaleBadge';
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToBasket } from 'actions/shopActions';
+import { addToBasket, increaseQuantity } from 'actions/shopActions';
 
 const ProductDetails = ({ product }) => {
   const [isDescription, setIsDescription] = useState(true);
   const [isReview, setIsReview] = useState(false);
 
   const { quantity } = useSelector((state) => state.shop);
+  const { basket } = useSelector((state) => state.shop);
   const dispatch = useDispatch();
 
   const showDescription = () => {
@@ -27,6 +28,13 @@ const ProductDetails = ({ product }) => {
     setIsDescription(false);
   };
 
+  // Check if an item is already in Basket
+  const inBasket = (id) => {
+    if (basket.find((product) => product.id === id)) {
+      return true;
+    }
+  };
+
   const {
     name,
     shortDescription,
@@ -35,6 +43,7 @@ const ProductDetails = ({ product }) => {
     salePrice,
     productReviews,
     image,
+    id,
   } = product;
 
   return (
@@ -71,19 +80,12 @@ const ProductDetails = ({ product }) => {
               <p className='text-primary text-xl'>£{salePrice}</p>
             </span>
             <p className='text-gray-600 mb-10'>{shortDescription}</p>
-            <div className=' flex items-center space-x-5 mb-10'>
-              <div className='flex items-center justify-center justify-items-center space-x-4 border-2 rounded-full w-40 py-3'>
-                <button>
-                  <FiMinus />
-                </button>
-                <p className='border-r-2 border-l-2 px-3'>{quantity}</p>
-                <button>
-                  <FiPlus />
-                </button>
-              </div>
+            <div className='  space-x-5 mb-10'>
               <button
-                onClick={() => dispatch(addToBasket(product))}
-                className='border rounded-full bg-primary text-gray-50 w-40 py-3 uppercase'>
+                onClick={() => {
+                  return dispatch(addToBasket(product));
+                }}
+                className='border rounded-full bg-primary hover:bg-btn_hover text-gray-50 w-40 py-3 uppercase'>
                 add to basket
               </button>
             </div>

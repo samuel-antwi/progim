@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { IoIosCheckmark } from 'react-icons/io';
 import WhatWeDo from '../components/WhatWeDo';
 import { useRouter } from 'next/router';
+import Bmi from '@/components/Bmi';
 
 const About = ({ page }) => {
   const {
@@ -73,6 +74,7 @@ const About = ({ page }) => {
         </div>
       </section>
       <WhatWeDo />
+      <Bmi />
     </div>
   );
 };

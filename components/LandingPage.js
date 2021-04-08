@@ -31,7 +31,7 @@ const LandingPage = () => {
               </h1>
             </div>
             <div data-aos='fade-up' data-aos-duration='1500'>
-              <button className='text-gray-100 w-64 bg-primary hover:bg-primary rounded-full py-4 tracking-wide font-semibold uppercase'>
+              <button className='text-gray-100 w-64 bg-primary transition duration-300 hover:bg-btn_hover rounded-full py-4 tracking-wide font-semibold uppercase'>
                 become a member
               </button>
             </div>

@@ -48,7 +48,7 @@ const FeaturedProducts = ({ products }) => {
               <div className='overlay flex justify-end px-10'>
                 <button
                   onClick={() => dispatch(addToBasket(product))}
-                  className='focus:outline-none flex flex-col items-center'
+                  className='focus:outline-none focus:bg-gray-200 p-2 flex flex-col items-center'
                   aria-label='add to cart'>
                   <MdShoppingBasket size={35} />
                   <BsPlusCircleFill className='-mt-1.5' />
@@ -60,7 +60,7 @@ const FeaturedProducts = ({ products }) => {
       </div>
       <div className='flex justify-center justify-items-center mt-5'>
         <Link href='/shop'>
-          <a className='uppercase tracking-widest bg-primary text-gray-100 py-3 px-12 rounded-md font-bold'>
+          <a className='uppercase tracking-widest hover:bg-btn_hover transition duration-300 bg-primary text-gray-100 py-3 px-12 rounded-md font-bold'>
             shop all
           </a>
         </Link>

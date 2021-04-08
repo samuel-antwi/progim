@@ -13,7 +13,7 @@ const Navbar = () => {
       <SideNav showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
       <div className='fixed top-0 w-full bg-white z-10'>
         <MiniNavBar />
-        <div className='max-w-6xl mx-auto py-6 flex justify-between items-center'>
+        <div className='max-w-6xl mx-auto md:px-8 px-5 py-6 flex justify-between items-center'>
           <Link href='/'>
             <a>
               <h1 className='text-black font-bold md:text-4xl text-xl tracking-wider'>PROGIM</h1>
@@ -30,7 +30,7 @@ const Navbar = () => {
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}
               aria-label='menu'
-              className='md:hidden focus:outline-none p-3 focus:bg-gray-200'>
+              className='md:hidden focus:outline-none py-3 focus:bg-gray-200'>
               <VscMenu size={20} />
             </button>
           </div>

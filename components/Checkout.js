@@ -29,7 +29,7 @@ const Checkout = () => {
       <hr />
       <button
         onClick={() => router.push('/checkout')}
-        className='bg-primary text-gray-100 w-full mt-5 py-3 mb-3 font-semibold tracking-widest md:text-lg'>
+        className='bg-primary hover:bg-btn_hover transition duration-300 text-gray-100 w-full mt-5 py-3 mb-3 font-semibold tracking-widest md:text-lg'>
         CHECKOUT
       </button>
       <p className='text-sm'>Got a discount code? Add it in the next step.</p>

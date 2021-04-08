@@ -107,7 +107,9 @@ const SubscribeForm = () => {
           type='text'
           placeholder='Your email'
         />
-        <button className=' bg-primary p-3 rounded-r-full text-gray-100' type='submit'>
+        <button
+          className=' bg-primary hover:bg-btn_hover p-3 rounded-r-full text-gray-100'
+          type='submit'>
           Subscribe
         </button>
       </form>

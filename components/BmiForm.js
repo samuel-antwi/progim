@@ -106,7 +106,7 @@ const BmiForm = () => {
         ) : (
           <button
             type='submit'
-            className='block  w-full border mb-10 border-primary bg-primary p-2'
+            className='block  w-full border mb-10 border-primary bg-primary hover:bg-btn_hover transition duration-200 p-2'
             type='number'>
             Calculate
           </button>

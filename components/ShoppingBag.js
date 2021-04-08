@@ -12,7 +12,7 @@ const ShoppingBag = () => {
         </a>
       </Link>
       <p className='absolute h-4  w-4 -top-3 -right-4 text-gray-100  text-xs flex justify-center items-center justify-items-center bg-primary rounded-full'>
-        {itemCount}
+        {itemCount ? itemCount : 0}
       </p>
     </div>
   );

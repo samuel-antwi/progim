@@ -17,6 +17,7 @@ module.exports = {
         ...theme('colors'),
         primary: '#ea4d22',
         light: '#f8f8f8',
+        btn_hover: '#B84600',
       }),
       borderColor: (theme) => ({
         ...theme('colors'),
