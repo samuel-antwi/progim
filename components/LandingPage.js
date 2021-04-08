@@ -12,7 +12,7 @@ const LandingPage = () => {
             <h1
               data-aos='slide-left'
               data-aos-duration='800'
-              className='text-gray-800 text-4xl font-extrabold'>
+              className='text-primary text-4xl font-extrabold'>
               step up your
             </h1>
             <div className='text-gray-300 '>
@@ -26,12 +26,12 @@ const LandingPage = () => {
                 data-aos='slide-left'
                 data-aos-duration='1200'
                 className='md:text-5xl flex items-center font-extrabold mb-10'>
-                <span className='mr-3 text-gray-800'>with</span>
-                <img className='md:w-60 w-32 object-cover' src='/images/logo-1.png' alt='logo' />
+                <span className='mr-3 text-gray-100'>with</span>
+                <span className='text-primary'>ProGim</span>
               </h1>
             </div>
             <div data-aos='fade-up' data-aos-duration='1500'>
-              <button className='text-gray-100 w-64 bg-primary hover:bg-primary rounded-full py-4 tracking-wide font-semibold uppercase'>
+              <button className='text-gray-100 w-64 bg-primary transition duration-300 hover:bg-btn_hover rounded-full py-4 tracking-wide font-semibold uppercase'>
                 become a member
               </button>
             </div>
@@ -47,7 +47,7 @@ export default LandingPage;
 const Styles = styled.div`
   width: 100%;
   height: 100vh;
-  background: url('/images/landingBg-01.jpeg');
+  background: url('/images/hero-bg-01.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

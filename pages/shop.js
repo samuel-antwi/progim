@@ -1,21 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import LoadingScreen from '../components/LoadingScreen';
-import useFetchAllProducts from '../hooks/useFetchAllProducts';
 import { BsLink45Deg } from 'react-icons/bs';
 import SaleBadge from '../components/SaleBadge';
 import Header from '../components/Header';
 import graphcms from '../graphql/client';
 import { ALL_PRODUCTS } from '../graphql/queries';
+import { useDispatch } from 'react-redux';
+import { addToBasket } from '../actions/shopActions';
 
 const products = ({ products }) => {
-  // const { data, isLoading, error, isError } = useFetchAllProducts();
-
-  // if (isLoading) return <LoadingScreen />;
+  const dispatch = useDispatch();
 
   return (
-    <>
+    <div className='pt-10'>
       <ProductBanner>
         <div className='overlay absolute text-gray-200'>
           <div className='flex h-full container'>
@@ -38,7 +36,7 @@ const products = ({ products }) => {
           {products.map((product) => (
             <div className=' bg-white pb-10 relative mb-5 px-5' key={product.id}>
               <SaleBadge product={product} />
-              <Link href={`shop/${product.slug}`}>
+              <Link href={`/shop/${product.slug}`}>
                 <a>
                   <Image
                     src={product.image.url}
@@ -50,7 +48,7 @@ const products = ({ products }) => {
                 </a>
               </Link>
               <div className='flex flex-col justify-center items-center justify-items-center space-y-5'>
-                <Link href={`shop/${product.slug}`}>
+                <Link href={`/shop/${product.slug}`}>
                   <a>
                     <p className='text-xl  font-semibold capitalize hover:text-primary'>
                       {product.name}
@@ -61,7 +59,11 @@ const products = ({ products }) => {
                   {product.onSale && <p className='text-gray-800 line-through'>£{product.price}</p>}
                   <p className='text-primary'>£{product.salePrice}</p>
                 </span>
-                <button className='bg-primary py-3 text-sm rounded-full uppercase px-5 text-gray-100'>
+                <button
+                  onClick={() => {
+                    dispatch(addToBasket(product));
+                  }}
+                  className='bg-primary py-3 text-sm hover:bg-[#B84600] rounded-full uppercase px-5 text-gray-100'>
                   add to cart
                 </button>
               </div>
@@ -69,7 +71,7 @@ const products = ({ products }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

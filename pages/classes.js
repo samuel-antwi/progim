@@ -2,19 +2,28 @@ import styled from 'styled-components';
 import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ellipsis, getPathName } from '../utils';
+import { ellipsis } from '../utils';
 import useFetchClasses from '../hooks/useFetchClasses';
 import LoadingScreen from '../components/LoadingScreen';
 import Bmi from '../components/Bmi';
+import { useQuery } from 'react-query';
+import graphcms from '../graphql/client';
+import { GET_CLASSES } from '../graphql/queries';
+import { useRouter } from 'next/router';
 
 const GymClasses = () => {
-  const { data, isError, error, isLoading } = useFetchClasses();
+  const { data, isLoading, isError, error } = useFetchClasses();
+
+  const getPathName = () => {
+    let router = useRouter();
+    return (router = router.pathname.slice(1));
+  };
 
   if (isError) return console.log(error.message);
   if (isLoading) return LoadingScreen;
 
   return (
-    <>
+    <div className=' pt-10'>
       <ClassBanner>
         <div className='overlay absolute text-gray-200'>
           <div className='flex h-full container'>
@@ -25,7 +34,7 @@ const GymClasses = () => {
                   <a>Home</a>
                 </Link>
                 <BsLink45Deg size={23} />
-                <p className='capitalize'>{getPathName()}</p>
+                <p className='capitalize'>classes</p>
               </div>
             </div>
           </div>
@@ -88,7 +97,7 @@ const GymClasses = () => {
         </div>
       </div>
       <Bmi />
-    </>
+    </div>
   );
 };
 

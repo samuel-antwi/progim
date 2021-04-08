@@ -37,7 +37,7 @@ const Discount = () => {
                 <GrFormCheckmark size={20} className='bg-primary mr-3 rounded-full' />
                 <p className='md:text-xl capitalize'>Unlimited Fitness Classes</p>
               </span>
-              <button className='bg-primary text-gray-100 uppercase py-3 w-full mt-5 rounded-full mx-auto'>
+              <button className='bg-primary hover:bg-btn_hover text-gray-100 uppercase py-3 w-full mt-5 rounded-full mx-auto'>
                 join today
               </button>
             </div>

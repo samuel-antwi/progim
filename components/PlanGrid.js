@@ -37,7 +37,7 @@ const PlanGrid = ({ plan, index }) => {
         <BenefitList benefit={personalTrainer} description='personal trainer' />
         <BenefitList benefit={access} description='24/7 gym access' />
       </div>
-      <div className='flex justify-center items-center w-32 mx-auto py-3  rounded-full  bg-primary text-gray-100 mt-10'>
+      <div className='flex justify-center items-center w-32 mx-auto py-3  rounded-full hover:bg-btn_hover  bg-primary text-gray-100 mt-10'>
         <button className='uppercase focus:outline-none font-semibold tracking-wide'>
           subscribe
         </button>
