@@ -6,7 +6,7 @@ const ShoppingBag = () => {
   const { basket } = useSelector((state) => state.shop);
   return (
     <div className='relative'>
-      <Link href='/'>
+      <Link href='/basket'>
         <a className='cursor-pointer'>
           <BsBag size={20} />
         </a>

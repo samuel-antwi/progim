@@ -1,18 +1,15 @@
 import Header from './Header';
-import LoadingScreen from './LoadingScreen';
 import Image from 'next/image';
 import Link from 'next/link';
 import useFetchFeaturedProducts from '../hooks/useFetchFeaturedProducts';
 import SaleBadge from './SaleBadge';
 import { MdShoppingBasket } from 'react-icons/md';
 import { BsPlusCircleFill } from 'react-icons/bs';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToBasket } from '../actions/shopActions';
 
 const FeaturedProducts = ({ products }) => {
-  // const { data, isError, isLoading, error } = useFetchFeaturedProducts();
-
-  // if (isLoading) return <LoadingScreen />;
-
-  // if (isError) return <p>{error.message}</p>;
+  const dispatch = useDispatch();
 
   return (
     <div className='max-w-7xl mx-auto pb-20 md:px-20 px-5'>
@@ -50,6 +47,7 @@ const FeaturedProducts = ({ products }) => {
               </span>
               <div className='overlay flex justify-end px-10'>
                 <button
+                  onClick={() => dispatch(addToBasket(product))}
                   className='focus:outline-none flex flex-col items-center'
                   aria-label='add to cart'>
                   <MdShoppingBasket size={35} />

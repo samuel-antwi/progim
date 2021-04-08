@@ -8,7 +8,6 @@ const Layout = ({ title, description, children }) => {
   return (
     <div className='font-poppins bg-light'>
       <ProgressBar bgcolor='#EF5B5B' />
-      {/* <MiniNavBar /> */}
       <Navbar />
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
