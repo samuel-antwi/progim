@@ -59,7 +59,7 @@ const FeaturedProducts = ({ products }) => {
         ))}
       </div>
       <div className='flex justify-center justify-items-center mt-5'>
-        <Link href='/products'>
+        <Link href='/shop'>
           <a className='uppercase tracking-widest bg-primary text-gray-100 py-3 px-12 rounded-md font-bold'>
             shop all
           </a>

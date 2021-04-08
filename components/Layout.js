@@ -19,7 +19,7 @@ const Layout = ({ title, description, children }) => {
         <meta property='og:description' content={description} key='ogdesc' />
         <title>{title}</title>
       </Head>
-      <div className='pt-20'>{children}</div>
+      <div className='pt-20 min-h-screen'>{children}</div>
       <Footer />
     </div>
   );

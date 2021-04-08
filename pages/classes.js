@@ -23,7 +23,7 @@ const GymClasses = () => {
   if (isLoading) return LoadingScreen;
 
   return (
-    <>
+    <div className=' pt-10'>
       <ClassBanner>
         <div className='overlay absolute text-gray-200'>
           <div className='flex h-full container'>
@@ -97,7 +97,7 @@ const GymClasses = () => {
         </div>
       </div>
       <Bmi />
-    </>
+    </div>
   );
 };
 

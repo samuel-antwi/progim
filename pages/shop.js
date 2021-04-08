@@ -13,7 +13,7 @@ const products = ({ products }) => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div className='pt-10'>
       <ProductBanner>
         <div className='overlay absolute text-gray-200'>
           <div className='flex h-full container'>
@@ -62,9 +62,8 @@ const products = ({ products }) => {
                 <button
                   onClick={() => {
                     dispatch(addToBasket(product));
-                    console.log(product);
                   }}
-                  className='bg-primary py-3 text-sm rounded-full uppercase px-5 text-gray-100'>
+                  className='bg-primary py-3 text-sm hover:bg-[#B84600] rounded-full uppercase px-5 text-gray-100'>
                   add to cart
                 </button>
               </div>
@@ -72,7 +71,7 @@ const products = ({ products }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

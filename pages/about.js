@@ -32,7 +32,7 @@ const About = ({ page }) => {
   };
 
   return (
-    <>
+    <div className='pt-10'>
       <AboutBanner>
         <div className='overlay absolute text-gray-200'>
           <div className='h-full max-w-6xl flex flex-col justify-center items-center justify-items-center'>
@@ -73,7 +73,7 @@ const About = ({ page }) => {
         </div>
       </section>
       <WhatWeDo />
-    </>
+    </div>
   );
 };
 

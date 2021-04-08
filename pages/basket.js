@@ -4,10 +4,16 @@ import { VscChromeClose } from 'react-icons/vsc';
 import Image from 'next/image';
 import { useSnackbar } from 'react-simple-snackbar';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { decreaseQuantity, increaseQuantity, removeFromBasket } from 'actions/shopActions';
+import Checkout from '@/components/Checkout';
+import { FiMinus, FiPlus } from 'react-icons/fi';
 
 const Basket = () => {
   const { basket } = useSelector((state) => state.shop);
+  const { total } = useSelector((state) => state.shop);
+  const { itemCount } = useSelector((state) => state.shop);
+  const dispatch = useDispatch();
 
   return (
     <div className='md:pt-40 pt-20 min-h-screen'>
@@ -20,12 +26,13 @@ const Basket = () => {
                   MY BAG
                 </h1>
                 {basket.length > 1 && (
-                  <button
-                    // onClick={clearBasket}
-                    className='text-gray-700 bg-gray-300 px-2 py-1 text-sm hover:text-red-500 hover:bg-white transition duration-300 uppercase font-medium tracking-wider'>
+                  <button className='text-gray-700 bg-gray-300 px-2 py-1 text-sm hover:text-red-500 hover:bg-white transition duration-300 uppercase font-medium tracking-wider'>
                     Clear all
                   </button>
                 )}
+                <h1 className='font-semibold  md:text-lg md:tracking-wider p-5 text-gray-700'>
+                  Total items ({itemCount})
+                </h1>
               </div>
               {basket.map((product) => {
                 const { price, name, image, id, slug, quantity } = product;
@@ -47,29 +54,23 @@ const Basket = () => {
                           {name}
                         </a>
                       </Link>
-                      <span className='inline-flex items center space-x-6'>
+                      <div className='flex items-center justify-center rounded-full border-2 justify-items-center space-x-4'>
                         <button
-                          onClick={() => {
-                            decrease(id);
-                            if (quantity < 2) {
-                              removeFromBasket(id);
-                            }
-                          }}
-                          className={`border px-2 hover:bg-gray-200 border-gray-400 rounded`}>
-                          <BiMinus size={20} />
+                          className='border-r px-4 focus:outline-none focus:rounded-l-full focus:bg-gray-300  py-1 md:py-2'
+                          disabled={quantity === 1}
+                          onClick={() => dispatch(decreaseQuantity(id))}>
+                          <FiMinus />
                         </button>
-                        <p>{quantity}</p>
+                        <p className=''>{quantity}</p>
                         <button
-                          onClick={() => increase(id)}
-                          className='border px-2 hover:bg-gray-200 border-gray-400 rounded'>
-                          <BsPlus size={20} />
+                          className='border-l px-4 focus:outline-none focus:rounded-r-full focus:bg-gray-300  py-1 md:py-2'
+                          onClick={() => dispatch(increaseQuantity(id))}>
+                          <FiPlus />
                         </button>
-                      </span>
+                      </div>
                     </div>
                     <button
-                      onClick={() => {
-                        removeFromBasket(id);
-                      }}
+                      onClick={() => dispatch(removeFromBasket(id))}
                       className='absolute  -right-2 top-8'>
                       <VscChromeClose
                         className='hover:text-red-500 transition duration-200'
@@ -81,16 +82,25 @@ const Basket = () => {
               })}
               <div className='flex justify-end py-10 px-8 space-x-6 font-semibold tracking-wider text-gray-800'>
                 <span className=''>SUB-TOTAL</span>
-                {/* <span>£{total}</span> */}
+                <span>£{total}</span>
               </div>
             </div>
-            <div className='col-span-1 bg-white h-96 px-8'>{/* <Checkout /> */}</div>
+            <div className='col-span-1 relative'>
+              <Checkout />
+            </div>
           </div>
         </div>
       ) : (
         // <EmptyBasket />
-        <div>
+        <div className='container text-center'>
           <h1>Your basket is currently empty</h1>
+          <div className='flex justify-center pt-10'>
+            <Link href='/shop'>
+              <a className='bg-primary transition duration-200 rounded-full text-gray-100 py-2 px-4 hover:bg-[#B84600]'>
+                Continue shopping
+              </a>
+            </Link>
+          </div>
         </div>
       )}
     </div>

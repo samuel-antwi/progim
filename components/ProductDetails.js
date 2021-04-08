@@ -7,10 +7,15 @@ import ProductReviewForm from './ProductReviewForm';
 import SaleBadge from './SaleBadge';
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToBasket } from 'actions/shopActions';
 
 const ProductDetails = ({ product }) => {
   const [isDescription, setIsDescription] = useState(true);
   const [isReview, setIsReview] = useState(false);
+
+  const { quantity } = useSelector((state) => state.shop);
+  const dispatch = useDispatch();
 
   const showDescription = () => {
     setIsDescription(true);
@@ -71,12 +76,14 @@ const ProductDetails = ({ product }) => {
                 <button>
                   <FiMinus />
                 </button>
-                <p className='border-r-2 border-l-2 px-3'>1</p>
+                <p className='border-r-2 border-l-2 px-3'>{quantity}</p>
                 <button>
                   <FiPlus />
                 </button>
               </div>
-              <button className='border rounded-full bg-primary text-gray-50 w-40 py-3 uppercase'>
+              <button
+                onClick={() => dispatch(addToBasket(product))}
+                className='border rounded-full bg-primary text-gray-50 w-40 py-3 uppercase'>
                 add to basket
               </button>
             </div>

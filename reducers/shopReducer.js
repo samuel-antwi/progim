@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from '../types';
+import { ADD_TO_BASKET, DECREASE_QTY, INCREASE_QTY, REMOVE_FROM_BASKET } from '../types';
 
 export const sumItems = (basket) => {
   let itemCount = basket.reduce((total, product) => total + product.quantity, 0);
@@ -31,6 +31,24 @@ const shopReducer = (state = initialState, action) => {
         ...sumItems(state.basket.filter((item) => item.id !== action.payload)),
         basket: [...state.basket.filter((item) => item.id !== action.payload)],
       };
+
+    case INCREASE_QTY:
+      state.basket[state.basket.findIndex((product) => product.id === action.payload)].quantity++;
+      return {
+        ...state,
+        ...sumItems(state.basket),
+        basket: [...state.basket],
+      };
+
+    // Decreasse basket quantity
+    case DECREASE_QTY:
+      state.basket[state.basket.findIndex((product) => product.id === action.payload)].quantity--;
+      return {
+        ...state,
+        ...sumItems(state.basket),
+        basket: [...state.basket],
+      };
+
     default:
       return {
         ...state,

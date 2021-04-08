@@ -25,11 +25,11 @@ const Footer = () => {
         <div className='md:grid lg:grid-cols-3 md:grid-cols-2 gap-10 lg:border-b border-gray-600 md:space-y-0 space-y-8'>
           <div className='col-span-1 mb-10'>
             <div className=' mb-5'>
-              <h1 className='text-gray-100 font-bold uppercase text-lg tracking-wider'>Progym</h1>
+              <h1 className='text-gray-100 font-bold uppercase text-lg tracking-wider'>Progim</h1>
               <Underline primary={true} />
             </div>
             <p className='mb-3'>
-              Progym – Fitness Center is a professional fitness training center. We aim to take your
+              Progim – Fitness Center is a professional fitness training center. We aim to take your
               fitness to the next level.
             </p>
             <div className='flex items-center space-x-3'>
@@ -78,7 +78,7 @@ const Footer = () => {
         </div>
         <div className='border-b border-gray-600 max-w-sm mx-auto'>
           <p className=' text-gray-400 text-sm text-center pt-10 mb-5 tracking-wider'>
-            &#169; {getCurrentYear()} Progym Ltd. All rights reserved.
+            &#169; {getCurrentYear()} Progim Ltd. All rights reserved.
           </p>
         </div>
       </div>
@@ -107,7 +107,7 @@ const SubscribeForm = () => {
           type='text'
           placeholder='Your email'
         />
-        <button className=' bg-primary p-3 rounded-r-full  text-gray-100' type='submit'>
+        <button className=' bg-primary p-3 rounded-r-full text-gray-100' type='submit'>
           Subscribe
         </button>
       </form>
