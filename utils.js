@@ -47,3 +47,18 @@ export const slickSettings = {
     },
   ],
 };
+
+export const snackbarOptions = {
+  position: 'bottom-right',
+  style: {
+    backgroundColor: 'green',
+    border: '2px solid green',
+    color: 'white',
+    fontSize: '20px',
+    textAlign: 'center',
+  },
+  closeStyle: {
+    color: 'white',
+    fontSize: '16px',
+  },
+};
