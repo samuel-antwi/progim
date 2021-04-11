@@ -2,18 +2,24 @@ import { BsHeart, BsBag, BsPlus, BsExclamationSquare } from 'react-icons/bs';
 import { BiMinus } from 'react-icons/bi';
 import { VscChromeClose } from 'react-icons/vsc';
 import Image from 'next/image';
-import { useSnackbar } from 'react-simple-snackbar';
 import Link from 'next/link';
 import { useSelector, useDispatch } from 'react-redux';
 import { decreaseQuantity, increaseQuantity, removeFromBasket } from 'actions/shopActions';
 import Checkout from '@/components/Checkout';
 import { FiMinus, FiPlus } from 'react-icons/fi';
+import { useSnackbar } from 'react-simple-snackbar';
+import { snackbarOptions } from 'utils';
 
 const Basket = () => {
+  const [openSnackBar] = useSnackbar(snackbarOptions);
   const { basket } = useSelector((state) => state.shop);
   const { total } = useSelector((state) => state.shop);
   const { itemCount } = useSelector((state) => state.shop);
   const dispatch = useDispatch();
+
+  const handleRemoveFromBasket = (product) => {
+    dispatch(removeFromBasket(product));
+  };
 
   return (
     <div className='md:pt-40 pt-20 min-h-screen'>

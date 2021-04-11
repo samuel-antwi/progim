@@ -7,9 +7,17 @@ import { MdShoppingBasket } from 'react-icons/md';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToBasket } from '../actions/shopActions';
+import { useSnackbar } from 'react-simple-snackbar';
+import { snackbarOptions } from 'utils';
 
 const FeaturedProducts = ({ products }) => {
   const dispatch = useDispatch();
+  const [openSnackbar] = useSnackbar(snackbarOptions);
+
+  const handleAddToBasket = (product) => {
+    dispatch(addToBasket(product));
+    openSnackbar(`${product.name} added to bag`);
+  };
 
   return (
     <div className='max-w-7xl mx-auto pb-20 md:px-20 px-5'>
@@ -47,7 +55,7 @@ const FeaturedProducts = ({ products }) => {
               </span>
               <div className='overlay flex justify-end px-10'>
                 <button
-                  onClick={() => dispatch(addToBasket(product))}
+                  onClick={() => handleAddToBasket(product)}
                   className='focus:outline-none focus:bg-gray-200 p-2 flex flex-col items-center'
                   aria-label='add to cart'>
                   <MdShoppingBasket size={35} />

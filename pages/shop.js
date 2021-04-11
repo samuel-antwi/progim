@@ -8,9 +8,18 @@ import graphcms from '../graphql/client';
 import { ALL_PRODUCTS } from '../graphql/queries';
 import { useDispatch } from 'react-redux';
 import { addToBasket } from '../actions/shopActions';
+import { useSnackbar } from 'react-simple-snackbar';
+import { snackbarOptions } from 'utils';
 
-const products = ({ products }) => {
+const Products = ({ products }) => {
+  const [openSnackbar] = useSnackbar(snackbarOptions);
+
   const dispatch = useDispatch();
+
+  const handleAddToBasket = (product) => {
+    dispatch(addToBasket(product));
+    openSnackbar(`${product.name} added to bag`);
+  };
 
   return (
     <div className='pt-10'>
@@ -60,9 +69,7 @@ const products = ({ products }) => {
                   <p className='text-primary'>£{product.salePrice}</p>
                 </span>
                 <button
-                  onClick={() => {
-                    dispatch(addToBasket(product));
-                  }}
+                  onClick={() => handleAddToBasket(product)}
                   className='bg-primary py-3 text-sm hover:bg-[#B84600] rounded-full uppercase px-5 text-gray-100'>
                   add to cart
                 </button>
@@ -84,7 +91,7 @@ export const getStaticProps = async () => {
   };
 };
 
-export default products;
+export default Products;
 
 const ProductBanner = styled.div`
   background: url('/images/bruce-mars-jY-GlbKeTDs-unsplash.jpeg');
