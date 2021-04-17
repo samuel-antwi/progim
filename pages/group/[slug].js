@@ -2,15 +2,11 @@ import Link from 'next/link';
 import { getPathName } from '../../utils';
 import { BsLink45Deg } from 'react-icons/bs';
 import styled from 'styled-components';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import LoadingScreen from '@/components/LoadingScreen';
-import useFetchGroupDetail from 'hooks/useFetchGroupDetail';
-import { useQuery } from 'react-query';
 import { GET_GROUPS, GET_GROUP_DETAIL } from 'graphql/queries';
 import graphcms from 'graphql/client';
 import Image from 'next/image';
 import FitnessGroupCard from '@/components/FitnessGroupCard';
+import ReactMarkdown from 'react-markdown';
 
 const Group = ({ group }) => {
   const { name, image, description } = group;
@@ -48,7 +44,9 @@ const Group = ({ group }) => {
                 loading='eager'
                 priority={true}
               />
-              <p className='pt-5  text-gray-600'>{description.text}</p>
+              <div className='pt-5  text-gray-600 mb-4'>
+                <ReactMarkdown>{description.markdown}</ReactMarkdown>
+              </div>
             </div>
             <div className='col-span-1 pt-10 lg:pt-0'>
               <FitnessGroupCard group={group} />

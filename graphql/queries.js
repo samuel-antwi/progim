@@ -251,6 +251,7 @@ export const PAGE_CONTENT = gql`
       freeRiding
       id
       name
+      popular
       personalTrainer
       price
       slug
