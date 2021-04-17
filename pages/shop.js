@@ -6,20 +6,11 @@ import SaleBadge from '../components/SaleBadge';
 import Header from '../components/Header';
 import graphcms from '../graphql/client';
 import { ALL_PRODUCTS } from '../graphql/queries';
-import { useDispatch } from 'react-redux';
-import { addToBasket } from '../actions/shopActions';
 import { useSnackbar } from 'react-simple-snackbar';
 import { snackbarOptions } from 'utils';
 
 const Products = ({ products }) => {
   const [openSnackbar] = useSnackbar(snackbarOptions);
-
-  const dispatch = useDispatch();
-
-  const handleAddToBasket = (product) => {
-    dispatch(addToBasket(product));
-    openSnackbar(`${product.name} added to bag`);
-  };
 
   return (
     <div className='pt-10'>
@@ -68,9 +59,7 @@ const Products = ({ products }) => {
                   {product.onSale && <p className='text-gray-800 line-through'>£{product.price}</p>}
                   <p className='text-primary'>£{product.salePrice}</p>
                 </span>
-                <button
-                  onClick={() => handleAddToBasket(product)}
-                  className='bg-primary py-3 text-sm hover:bg-[#B84600] rounded-full uppercase px-5 text-gray-100'>
+                <button className='bg-primary py-2 text-sm hover:bg-[#B84600] rounded-full uppercase px-5 text-gray-100'>
                   add to cart
                 </button>
               </div>

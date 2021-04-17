@@ -7,7 +7,7 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
     <div
       className={` ${
         showSideMenu ? '-translate-x-0' : '-translate-x-full'
-      }  bg-primary w-full p-8 text-blue-50  absolute inset-y-0 z-[20] md:relative md:hidden transition duration-500 left-0 transform  ease-in-out`}>
+      }  bg-primary w-full p-8 text-blue-50  absolute inset-y-0 z-[20] md:relative md:hidden transition duration-500 left-0 transform h-full  ease-in-out`}>
       <div onClick={() => setShowSideMenu(!showSideMenu)}>
         <div className='flex justify-between items-center'>
           <h1 className='mb-10 text-3xl font-semibold tracking-wide'>Progym</h1>
@@ -18,7 +18,7 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
         <div className='space-y-5'>
           <NavLinks name='Home' url='/' />
           <NavLinks name='About' url='/about' />
-          <NavLinks name='Classes' url='/classes' />
+          <NavLinks name='Classes' url='/fitness-group' />
           <NavLinks name='Shop' url='/shop' />
           <NavLinks name='Blog' url='/blog' />
           <NavLinks name='Contact' url='/contact' />

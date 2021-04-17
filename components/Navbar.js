@@ -22,7 +22,7 @@ const Navbar = () => {
           <div className='space-x-8 flex items-center'>
             <NavLinks name='Home' url='/' />
             <NavLinks name='About' url='/about' />
-            <NavLinks name='Classes' url='/classes' />
+            <NavLinks name='Classes' url='/fitness-group' />
             <NavLinks name='Shop' url='/shop' />
             <NavLinks name='Blog' url='/blog' />
             <NavLinks name='Contact' url='/contact' />

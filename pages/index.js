@@ -11,7 +11,7 @@ import graphcms from '../graphql/client';
 import { PAGE_CONTENT, TRAINERS } from '../graphql/queries';
 import AOS from 'aos';
 
-export default function Home({ trainers, products, classes, pricePlans }) {
+export default function Home({ trainers, products, groups, pricePlans }) {
   useEffect(() => {
     AOS.init({
       once: true,
@@ -26,7 +26,7 @@ export default function Home({ trainers, products, classes, pricePlans }) {
     <>
       <LandingPage />
       <WhatWeDo />
-      <PopularClasses classes={classes} />
+      <PopularClasses groups={groups} />
       <Trainers trainers={trainers} />
       <Bmi variant={true} />
       <Plan pricePlans={pricePlans} />
@@ -37,9 +37,9 @@ export default function Home({ trainers, products, classes, pricePlans }) {
 }
 
 export const getStaticProps = async () => {
-  const { trainers, products, classes, pricePlans } = await graphcms.request(PAGE_CONTENT);
+  const { trainers, products, groups, pricePlans } = await graphcms.request(PAGE_CONTENT);
 
   return {
-    props: { trainers, products, classes, pricePlans },
+    props: { trainers, products, groups, pricePlans },
   };
 };
