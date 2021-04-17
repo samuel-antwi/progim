@@ -3,15 +3,15 @@ import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ellipsis } from '../utils';
-import useFetchClasses from '../hooks/useFetchClasses';
+import useFetchClasses from '../hooks/useFetchGroups';
 import LoadingScreen from '../components/LoadingScreen';
 import Bmi from '../components/Bmi';
 import { useQuery } from 'react-query';
 import graphcms from '../graphql/client';
-import { GET_CLASSES } from '../graphql/queries';
+import { GET_CLASSES, GET_GROUPS } from '../graphql/queries';
 import { useRouter } from 'next/router';
 
-const GymClasses = () => {
+const FitnessGroup = ({ groups }) => {
   const { data, isLoading, isError, error } = useFetchClasses();
 
   const getPathName = () => {
@@ -55,7 +55,7 @@ const GymClasses = () => {
             } = session;
             return (
               <div key={id} className='col-span-1 bg-white '>
-                <Link href={`/our-classes/${slug}`}>
+                <Link href={`/group/${slug}`}>
                   <a className='relative'>
                     <Image
                       className='transition object-cover duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110'
@@ -101,7 +101,17 @@ const GymClasses = () => {
   );
 };
 
-export default GymClasses;
+export default FitnessGroup;
+
+export const getStaticProps = async () => {
+  const { groups } = await graphcms.request(GET_GROUPS);
+
+  return {
+    props: {
+      groups,
+    },
+  };
+};
 
 const ClassBanner = styled.div`
   background: url('/images/classBg.jpeg') no-repeat center;

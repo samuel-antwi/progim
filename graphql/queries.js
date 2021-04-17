@@ -1,17 +1,14 @@
 import { gql } from 'graphql-request';
 
-export const GET_CLASSES = gql`
-  query fetchClasses {
-    classes {
+export const GET_GROUPS = gql`
+  query groups {
+    groups {
       description {
         markdown
-        text
       }
       id
-      slug
       name
-      classSize
-      price
+      slug
       image {
         height
         width
@@ -19,6 +16,51 @@ export const GET_CLASSES = gql`
       }
       classCategory {
         id
+        name
+        trainers {
+          name
+          slug
+          trainerImage {
+            height
+            width
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_GROUP_DETAIL = gql`
+  query groupDetail($slug: String!) {
+    group(where: { slug: $slug }) {
+      id
+      name
+      price
+      slug
+      duration
+      classSize
+      shift
+      trainers {
+        name
+        id
+        slug
+        trainerImage {
+          height
+          width
+          url
+        }
+      }
+      description {
+        markdown
+        text
+      }
+      image {
+        height
+        width
+        url
+      }
+      classCategory {
         name
       }
     }
@@ -184,7 +226,7 @@ export const PAGE_CONTENT = gql`
         url
       }
     }
-    classes(first: 3) {
+    groups(first: 3) {
       id
       description {
         markdown

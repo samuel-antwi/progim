@@ -3,23 +3,15 @@ import { BiMinus } from 'react-icons/bi';
 import { VscChromeClose } from 'react-icons/vsc';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSelector, useDispatch } from 'react-redux';
-import { decreaseQuantity, increaseQuantity, removeFromBasket } from 'actions/shopActions';
 import Checkout from '@/components/Checkout';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 import { useSnackbar } from 'react-simple-snackbar';
 import { snackbarOptions } from 'utils';
+import { useState } from 'react';
 
 const Basket = () => {
+  const [basket] = useState([]);
   const [openSnackBar] = useSnackbar(snackbarOptions);
-  const { basket } = useSelector((state) => state.shop);
-  const { total } = useSelector((state) => state.shop);
-  const { itemCount } = useSelector((state) => state.shop);
-  const dispatch = useDispatch();
-
-  const handleRemoveFromBasket = (product) => {
-    dispatch(removeFromBasket(product));
-  };
 
   return (
     <div className='md:pt-40 pt-20 min-h-screen'>
@@ -37,7 +29,7 @@ const Basket = () => {
                   </button>
                 )}
                 <h1 className='font-semibold  md:text-lg md:tracking-wider p-5 text-gray-700'>
-                  Total items ({itemCount})
+                  Total items (0)
                 </h1>
               </div>
               {basket.map((product) => {
@@ -63,21 +55,16 @@ const Basket = () => {
                       <div className='flex items-center justify-center rounded-full border-2 justify-items-center space-x-4'>
                         <button
                           className='border-r px-4 focus:outline-none focus:rounded-l-full focus:bg-gray-300  py-1 md:py-2'
-                          disabled={quantity === 1}
-                          onClick={() => dispatch(decreaseQuantity(id))}>
+                          disabled={quantity === 1}>
                           <FiMinus />
                         </button>
                         <p className=''>{quantity}</p>
-                        <button
-                          className='border-l px-4 focus:outline-none focus:rounded-r-full focus:bg-gray-300  py-1 md:py-2'
-                          onClick={() => dispatch(increaseQuantity(id))}>
+                        <button className='border-l px-4 focus:outline-none focus:rounded-r-full focus:bg-gray-300  py-1 md:py-2'>
                           <FiPlus />
                         </button>
                       </div>
                     </div>
-                    <button
-                      onClick={() => dispatch(removeFromBasket(id))}
-                      className='absolute  -right-2 top-8'>
+                    <button className='absolute  -right-2 top-8'>
                       <VscChromeClose
                         className='hover:text-red-500 transition duration-200'
                         size={26}
@@ -88,7 +75,7 @@ const Basket = () => {
               })}
               <div className='flex justify-end py-10 px-8 space-x-6 font-semibold tracking-wider text-gray-800'>
                 <span className=''>SUB-TOTAL</span>
-                <span>£{total}</span>
+                {/* <span>£{total}</span> */}
               </div>
             </div>
             <div className='col-span-1 relative'>

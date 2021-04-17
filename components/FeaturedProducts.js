@@ -1,17 +1,13 @@
 import Header from './Header';
 import Image from 'next/image';
 import Link from 'next/link';
-import useFetchFeaturedProducts from '../hooks/useFetchFeaturedProducts';
 import SaleBadge from './SaleBadge';
 import { MdShoppingBasket } from 'react-icons/md';
 import { BsPlusCircleFill } from 'react-icons/bs';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToBasket } from '../actions/shopActions';
 import { useSnackbar } from 'react-simple-snackbar';
 import { snackbarOptions } from 'utils';
 
 const FeaturedProducts = ({ products }) => {
-  const dispatch = useDispatch();
   const [openSnackbar] = useSnackbar(snackbarOptions);
 
   const handleAddToBasket = (product) => {
