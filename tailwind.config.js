@@ -11,11 +11,13 @@ module.exports = {
       textColor: (theme) => theme('colors'),
       textColor: {
         primary: '#ea4d22',
+        // primary: '#5950EA',
         secondary: '#11ccc9',
       },
       backgroundColor: (theme) => ({
         ...theme('colors'),
         primary: '#ea4d22',
+        // primary: '#5950EA',
         light: '#f8f8f8',
         btn_hover: '#B84600',
       }),
