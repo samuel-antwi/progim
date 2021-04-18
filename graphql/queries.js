@@ -273,9 +273,7 @@ export const TESTIMONIALS = gql`
       name
       group
       id
-      message {
-        markdown
-      }
+      testimony
       media {
         height
         width
