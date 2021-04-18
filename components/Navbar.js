@@ -15,8 +15,9 @@ const Navbar = () => {
         <MiniNavBar />
         <div className='max-w-6xl mx-auto md:px-8 px-5 py-6 flex justify-between items-center'>
           <Link href='/'>
-            <a>
+            <a className='flex items-center'>
               <h1 className='text-black font-bold md:text-4xl text-xl tracking-wider'>PROGIM</h1>
+              <img className='w-12' src='/images/body-building.png' alt='Logo' />
             </a>
           </Link>
           <div className='space-x-8 flex items-center'>
@@ -25,7 +26,7 @@ const Navbar = () => {
             <NavLinks name='Classes' url='/fitness-group' />
             <NavLinks name='Shop' url='/shop' />
             <NavLinks name='Blog' url='/blog' />
-            <NavLinks name='Contact' url='/contact' />
+            {/* <NavLinks name='Contact' url='/contact' /> */}
             <ShoppingBag />
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}

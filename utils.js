@@ -1,5 +1,5 @@
-// Get pathname of a current route and remove the slash infront.
 import { useRouter } from 'next/router';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 export const getFullPathName = () => {
   let router = useRouter();
@@ -47,6 +47,42 @@ export const slickSettings = {
     },
   ],
 };
+export const testimonySettings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  dots: true,
+  autoplay: true,
+  speed: 2000,
+  autoplaySpeed: 6000,
+  dotsClass: 'button__bar',
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+};
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: '#111927' }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: '#111927' }}
+      onClick={onClick}
+    />
+  );
+}
 
 export const snackbarOptions = {
   position: 'bottom-right',

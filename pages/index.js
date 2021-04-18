@@ -10,6 +10,7 @@ import WhatWeDo from '../components/WhatWeDo';
 import graphcms from '../graphql/client';
 import { PAGE_CONTENT, TRAINERS } from '../graphql/queries';
 import AOS from 'aos';
+import Testimonials from '@/components/Testimonials';
 
 export default function Home({ trainers, products, groups, pricePlans }) {
   useEffect(() => {
@@ -32,6 +33,10 @@ export default function Home({ trainers, products, groups, pricePlans }) {
       <Plan pricePlans={pricePlans} />
       <Discount />
       <FeaturedProducts products={products} />
+      <div className='max-w-7xl mx-auto'>
+        <hr />
+      </div>
+      <Testimonials />
     </>
   );
 }

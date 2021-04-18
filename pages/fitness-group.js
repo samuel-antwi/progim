@@ -10,6 +10,7 @@ import { useQuery } from 'react-query';
 import graphcms from '../graphql/client';
 import { GET_CLASSES, GET_GROUPS } from '../graphql/queries';
 import { useRouter } from 'next/router';
+import Testimonials from '@/components/Testimonials';
 
 const FitnessGroup = ({ groups }) => {
   const { data, isLoading, isError, error } = useFetchClasses();
@@ -96,6 +97,7 @@ const FitnessGroup = ({ groups }) => {
           })}
         </div>
       </div>
+      <Testimonials />
       <Bmi />
     </div>
   );

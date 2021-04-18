@@ -266,3 +266,21 @@ export const PAGE_CONTENT = gql`
     }
   }
 `;
+
+export const TESTIMONIALS = gql`
+  query testimonials {
+    testimonies {
+      name
+      group
+      id
+      message {
+        markdown
+      }
+      media {
+        height
+        width
+        url
+      }
+    }
+  }
+`;
