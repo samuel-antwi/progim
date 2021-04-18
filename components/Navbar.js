@@ -26,7 +26,6 @@ const Navbar = () => {
             <NavLinks name='Classes' url='/fitness-group' />
             <NavLinks name='Shop' url='/shop' />
             <NavLinks name='Blog' url='/blog' />
-            {/* <NavLinks name='Contact' url='/contact' /> */}
             <ShoppingBag />
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}
