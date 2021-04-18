@@ -8,6 +8,7 @@ export const GET_GROUPS = gql`
       }
       id
       name
+      price
       slug
       image {
         height

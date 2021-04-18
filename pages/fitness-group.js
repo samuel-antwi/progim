@@ -3,26 +3,11 @@ import { BsLink45Deg } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ellipsis } from '../utils';
-import useFetchClasses from '../hooks/useFetchGroups';
-import LoadingScreen from '../components/LoadingScreen';
 import Bmi from '../components/Bmi';
-import { useQuery } from 'react-query';
 import graphcms from '../graphql/client';
-import { GET_CLASSES, GET_GROUPS } from '../graphql/queries';
-import { useRouter } from 'next/router';
-import Testimonials from '@/components/Testimonials';
+import { GET_GROUPS } from '../graphql/queries';
 
 const FitnessGroup = ({ groups }) => {
-  const { data, isLoading, isError, error } = useFetchClasses();
-
-  const getPathName = () => {
-    let router = useRouter();
-    return (router = router.pathname.slice(1));
-  };
-
-  if (isError) return console.log(error.message);
-  if (isLoading) return LoadingScreen;
-
   return (
     <div className=' pt-10'>
       <ClassBanner>
@@ -43,7 +28,7 @@ const FitnessGroup = ({ groups }) => {
       </ClassBanner>
       <div className='xl:max-w-7xl mx-auto py-20  px-5 xl:px-10'>
         <div className='xxm:grid grid-cols-2 lg:grid-cols-3  gap-10'>
-          {data.map((session) => {
+          {groups.map((session) => {
             const {
               slug,
               name,
@@ -88,7 +73,7 @@ const FitnessGroup = ({ groups }) => {
                     <p>|</p>
                     <span>
                       <p>course price</p>
-                      <p>£{price}</p>
+                      <p>£ {price}</p>
                     </span>
                   </div>
                 </div>
@@ -97,7 +82,6 @@ const FitnessGroup = ({ groups }) => {
           })}
         </div>
       </div>
-      <Testimonials />
       <Bmi />
     </div>
   );
