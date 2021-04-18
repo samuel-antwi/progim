@@ -4,14 +4,11 @@ import { testimonySettings } from 'utils';
 import LoadingScreen from './LoadingScreen';
 import Image from 'next/image';
 import { FaQuoteLeft } from 'react-icons/fa';
-import ReactMarkdown from 'react-markdown';
 
 const Testimonials = () => {
   const { data, isError, isLoading, error } = useFetchTestimonials();
 
   if (isLoading) return <LoadingScreen />;
-
-  console.log(data);
 
   return (
     <div className='py-20'>
@@ -27,7 +24,7 @@ const Testimonials = () => {
         </div>
         <Slider {...testimonySettings}>
           {data.map((testimonial) => {
-            const { name, message, media, id, group } = testimonial;
+            const { name, testimony, media, id, group } = testimonial;
             return (
               <div className=' rounded-md bg-white py-20' key={id}>
                 <div className='md:grid grid-cols-3  bg-gray-900'>
@@ -38,7 +35,7 @@ const Testimonials = () => {
                     <div className='my-auto mx-10'>
                       <FaQuoteLeft className='text-gray-400 mb-5' size={40} />
                       <div className='md:text-lg text-gray-400 mb-5'>
-                        <ReactMarkdown>{message.markdown}</ReactMarkdown>
+                        <p>{testimony}</p>
                       </div>
                       <p className='mb-1 text-xl'>{name}</p>
                       <p className='mb-5 text-lg italic'>Member of the {group} class</p>

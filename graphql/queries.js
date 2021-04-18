@@ -8,6 +8,7 @@ export const GET_GROUPS = gql`
       }
       id
       name
+      price
       slug
       image {
         height
@@ -273,9 +274,7 @@ export const TESTIMONIALS = gql`
       name
       group
       id
-      message {
-        markdown
-      }
+      testimony
       media {
         height
         width
