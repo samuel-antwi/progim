@@ -7,14 +7,18 @@ import { useSnackbar } from 'react-simple-snackbar'
 import { snackbarOptions } from 'utils'
 import { useProductsContext } from 'context/ProductContextProvider'
 import { MdRemoveShoppingCart } from 'react-icons/md'
+import commerce from 'lib/commerce'
+import RelatedProducts from '@/components/RelatedProducts'
 
-const Basket = () => {
+const Basket = ({ data }) => {
   const { cart, handleUpdateQty, handleRemoveFromCart, handleEmptyBasket } = useProductsContext()
   const [openSnacbar] = useSnackbar(snackbarOptions)
 
   const { line_items } = cart
 
   if (Object.keys(cart).length === 0) return null
+
+  console.log(cart)
 
   return (
     <div className='md:pt-40 pt-20 min-h-screen'>
@@ -113,3 +117,11 @@ const Basket = () => {
 }
 
 export default Basket
+
+export const getStaticProps = async () => {
+  const { data } = await commerce.products.list({ limit: 3 })
+
+  return {
+    props: { data },
+  }
+}

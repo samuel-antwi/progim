@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import { BsChevronDown } from 'react-icons/bs';
-import { useEffect } from 'react';
-import AOS from 'aos';
+import styled from 'styled-components'
+import { BsChevronDown } from 'react-icons/bs'
+import { useEffect } from 'react'
+import AOS from 'aos'
+import Typewriter from 'typewriter-effect'
 
 const LandingPage = () => {
   return (
@@ -15,23 +16,31 @@ const LandingPage = () => {
               className='text-primary text-4xl font-extrabold'>
               step up your
             </h1>
-            <div className='text-gray-300 '>
-              <h1
-                data-aos='slide-right'
-                data-aos-duration='1000'
-                className='md:text-8xl text-5xl font-extrabold'>
-                fitness
-              </h1>
-              <h1
-                data-aos='slide-left'
-                data-aos-duration='1200'
-                className='md:text-5xl flex items-center font-extrabold mb-10'>
-                <span className='mr-3 text-gray-100'>with</span>
-                <span className='text-primary'>ProGim</span>
-              </h1>
+            <div className='text-gray-300 md:text-7xl text-5xl font-extrabold '>
+              <Typewriter
+                options={{
+                  cursor: '',
+                  delay: 150,
+                  deleteSpeed: 150,
+                  autoStart: true,
+                  loop: true,
+                  strings: ['fitness', 'goals', 'dreams'],
+                }}
+                onInit={(typewriter) => {
+                  typewriter.pauseFor(500).deleteAll().start()
+                }}
+              />
             </div>
+            <h1
+              data-aos='slide-left'
+              data-aos-duration='1200'
+              className='md:text-5xl text-3xl flex items-center font-extrabold mb-10'>
+              <span className='mr-3 text-gray-100'>with</span>
+              <span className='text-primary'>ProGim</span>
+            </h1>
+
             <div data-aos='fade-up' data-aos-duration='1500'>
-              <button className='text-gray-100 md:py-4 md:w-64 w-48 py-3 bg-primary transition duration-300 hover:bg-btn_hover rounded-full  tracking-wide font-semibold uppercase'>
+              <button className='text-gray-100 md:py-4 md:w-64 w-48 py-3 focus:outline-none bg-primary transition duration-300 hover:bg-btn_hover rounded-full  tracking-wide font-semibold uppercase'>
                 become a member
               </button>
             </div>
@@ -39,10 +48,10 @@ const LandingPage = () => {
         </div>
       </div>
     </Styles>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage
 
 const Styles = styled.div`
   width: 100%;
@@ -58,4 +67,4 @@ const Styles = styled.div`
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
   }
-`;
+`

@@ -18,7 +18,7 @@ const Products = ({ products }) => {
         <div className='overlay absolute text-gray-200'>
           <div className='flex h-full container'>
             <div className='my-auto'>
-              <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Products</h1>
+              <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Shop</h1>
               <div className='flex items-center md:text-lg text-sm space-x-2 py-2 px-3 bg-primary'>
                 <Link href='/'>
                   <a>Home</a>

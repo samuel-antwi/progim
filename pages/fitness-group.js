@@ -13,7 +13,7 @@ const FitnessGroup = ({ groups }) => {
       <ClassBanner>
         <div className='overlay absolute text-gray-200'>
           <div className='flex h-full container'>
-            <div className='my-auto px-5 max-w-6xl'>
+            <div className='my-auto '>
               <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Classes</h1>
               <div className='flex items-center text-lg space-x-2 py-2 px-3 bg-primary rounded-br-3xl'>
                 <Link href='/'>
@@ -103,12 +103,12 @@ const ClassBanner = styled.div`
   background: url('/images/classBg.jpeg') no-repeat center;
   background-size: cover;
   width: 100%;
-  height: 25vh;
+  height: 30vh;
   position: relative;
 
   .overlay {
     width: 100%;
-    height: 25vh;
+    height: 30vh;
     background: rgba(0, 0, 0, 0.8);
   }
   .vertical-center {

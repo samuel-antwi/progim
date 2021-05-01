@@ -1,19 +1,19 @@
-import { useRouter } from 'next/router';
-import { AiOutlineMail, AiOutlineFieldTime, AiFillInstagram } from 'react-icons/ai';
-import { FiPhoneCall } from 'react-icons/fi';
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { useRouter } from 'next/router'
+import { AiOutlineMail, AiOutlineFieldTime, AiFillInstagram } from 'react-icons/ai'
+import { FiPhoneCall } from 'react-icons/fi'
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 
 const MiniNavBar = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   const getPathName = () => {
-    return router.pathname;
-  };
+    return router.pathname
+  }
 
   return getPathName() !== '/' ? (
-    <div className='hidden  md:block bg-primary py-3 text-gray-50'>
+    <div className=' bg-primary py-3 sm:px-8 px-4 text-gray-50'>
       <div className='max-w-6xl mx-auto flex justify-between items-center'>
-        <div className='flex items-center space-x-5'>
+        <div className='md:flex items-center md:space-x-5 space-y-2 md:space-y-0'>
           <a className='flex text-sm items-center' href='mailto: support@progim.com '>
             <AiOutlineMail size={20} />
             <p className='ml-2'>support@progym.com</p>
@@ -27,11 +27,13 @@ const MiniNavBar = () => {
             <p className='ml-2'>Mon - Fri 9:00 am - 17:00 pm</p>
           </span>
         </div>
-        <SocialLinks />
+        <div className='hidden md:block'>
+          <SocialLinks />
+        </div>
       </div>
     </div>
-  ) : null;
-};
+  ) : null
+}
 
 export const SocialLinks = () => {
   return (
@@ -49,7 +51,7 @@ export const SocialLinks = () => {
         <AiFillInstagram />
       </a>
     </div>
-  );
-};
+  )
+}
 
-export default MiniNavBar;
+export default MiniNavBar
