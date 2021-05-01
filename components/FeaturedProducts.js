@@ -1,19 +1,16 @@
-import Header from './Header';
-import Image from 'next/image';
-import Link from 'next/link';
-import SaleBadge from './SaleBadge';
-import { MdShoppingBasket } from 'react-icons/md';
-import { BsPlusCircleFill } from 'react-icons/bs';
-import { useSnackbar } from 'react-simple-snackbar';
-import { snackbarOptions } from 'utils';
+import Header from './Header'
+import Image from 'next/image'
+import Link from 'next/link'
+import SaleBadge from './SaleBadge'
+import { MdShoppingBasket } from 'react-icons/md'
+import { BsPlusCircleFill } from 'react-icons/bs'
+import { useSnackbar } from 'react-simple-snackbar'
+import { snackbarOptions } from 'utils'
+import { useProductsContext } from 'context/ProductContextProvider'
 
 const FeaturedProducts = ({ products }) => {
-  const [openSnackbar] = useSnackbar(snackbarOptions);
-
-  const handleAddToBasket = (product) => {
-    dispatch(addToBasket(product));
-    openSnackbar(`${product.name} added to bag`);
-  };
+  const [openSnackbar] = useSnackbar(snackbarOptions)
+  const { handleAddToCart } = useProductsContext()
 
   return (
     <div className='max-w-7xl mx-auto pb-20 md:px-20 px-5'>
@@ -25,20 +22,19 @@ const FeaturedProducts = ({ products }) => {
             data-aos-duration='1000'
             className='hover:shadow bg-white pb-10 relative mb-5 px-5'
             key={product.id}>
-            <SaleBadge product={product} />
-            <Link href={`/shop/${product.slug}`}>
+            <Link href={`/shop/${product.permalink}`}>
               <a>
                 <Image
-                  src={product.image.url}
-                  width={product.image.width}
-                  height={product.image.height}
+                  src={product.media.source}
+                  width={900}
+                  height={900}
                   layout='responsive'
                   alt={product.name}
                 />
               </a>
             </Link>
             <div className='flex flex-col justify-center items-center justify-items-center space-y-5'>
-              <Link href={`/shop/${product.slug}`}>
+              <Link href={`/shop/${product.permalink}`}>
                 <a>
                   <p className='text-xl  font-semibold capitalize hover:text-primary'>
                     {product.name}
@@ -46,12 +42,11 @@ const FeaturedProducts = ({ products }) => {
                 </a>
               </Link>
               <span className='flex items-center space-x-4 text-lg'>
-                {product.onSale && <p className='text-gray-800 line-through'>£{product.price}</p>}
-                <p className='text-primary'>£{product.salePrice}</p>
+                <p className='text-primary'>£{product.price.formatted_with_symbol}</p>
               </span>
               <div className='overlay flex justify-end px-10'>
                 <button
-                  onClick={() => handleAddToBasket(product)}
+                  onClick={() => handleAddToCart(product.id, 1, product.name)}
                   className='focus:outline-none focus:bg-gray-200 p-2 flex flex-col items-center'
                   aria-label='add to cart'>
                   <MdShoppingBasket size={35} />
@@ -70,7 +65,7 @@ const FeaturedProducts = ({ products }) => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeaturedProducts;
+export default FeaturedProducts

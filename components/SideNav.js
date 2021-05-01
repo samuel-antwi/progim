@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { GrClose } from 'react-icons/gr';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { GrClose } from 'react-icons/gr'
 
 const SideNav = ({ showSideMenu, setShowSideMenu }) => {
   return (
@@ -20,23 +20,22 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
           <NavLinks name='About' url='/about' />
           <NavLinks name='Classes' url='/fitness-group' />
           <NavLinks name='Shop' url='/shop' />
-          <NavLinks name='Blog' url='/blog' />
           <NavLinks name='Contact' url='/contact' />
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SideNav;
+export default SideNav
 
 const NavLinks = ({ name, url }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   // Get pathname to style active links
   const getPathName = () => {
-    return router.pathname;
-  };
+    return router.pathname
+  }
 
   return (
     <div>
@@ -51,5 +50,5 @@ const NavLinks = ({ name, url }) => {
         </a>
       </Link>
     </div>
-  );
-};
+  )
+}

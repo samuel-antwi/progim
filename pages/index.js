@@ -1,27 +1,28 @@
-import { useEffect } from 'react';
-import Bmi from '../components/Bmi';
-import Discount from '../components/Discount';
-import FeaturedProducts from '../components/FeaturedProducts';
-import LandingPage from '../components/LandingPage';
-import Plan from '../components/Plan';
-import PopularClasses from '../components/PopularClasses';
-import Trainers from '../components/Trainers';
-import WhatWeDo from '../components/WhatWeDo';
-import graphcms from '../graphql/client';
-import { PAGE_CONTENT, TRAINERS } from '../graphql/queries';
-import AOS from 'aos';
-import Testimonials from '@/components/Testimonials';
+import { useEffect } from 'react'
+import Bmi from '../components/Bmi'
+import Discount from '../components/Discount'
+import FeaturedProducts from '../components/FeaturedProducts'
+import LandingPage from '../components/LandingPage'
+import Plan from '../components/Plan'
+import PopularClasses from '../components/PopularClasses'
+import Trainers from '../components/Trainers'
+import WhatWeDo from '../components/WhatWeDo'
+import graphcms from '../graphql/client'
+import { PAGE_CONTENT, TRAINERS } from '../graphql/queries'
+import AOS from 'aos'
+import Testimonials from '@/components/Testimonials'
+import commerce from 'lib/commerce'
 
-export default function Home({ trainers, products, groups, pricePlans }) {
+export default function Home({ trainers, data, groups, pricePlans }) {
   useEffect(() => {
     AOS.init({
       once: true,
       disable: function () {
-        const maxWidth = 800;
-        return window.innerWidth < maxWidth;
+        const maxWidth = 800
+        return window.innerWidth < maxWidth
       },
-    });
-  });
+    })
+  })
 
   return (
     <>
@@ -32,19 +33,20 @@ export default function Home({ trainers, products, groups, pricePlans }) {
       <Bmi variant={true} />
       <Plan pricePlans={pricePlans} />
       <Discount />
-      <FeaturedProducts products={products} />
+      <FeaturedProducts products={data} />
       <div className='max-w-7xl mx-auto'>
         <hr />
       </div>
       <Testimonials />
     </>
-  );
+  )
 }
 
 export const getStaticProps = async () => {
-  const { trainers, products, groups, pricePlans } = await graphcms.request(PAGE_CONTENT);
+  const { trainers, groups, pricePlans } = await graphcms.request(PAGE_CONTENT)
+  const { data } = await commerce.products.list({ limit: 3 })
 
   return {
-    props: { trainers, products, groups, pricePlans },
-  };
-};
+    props: { trainers, data, groups, pricePlans },
+  }
+}
