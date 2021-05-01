@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { BsLink45Deg } from 'react-icons/bs';
-import graphcms from '../graphql/client';
-import { GET_ABOUT_PAGE } from '../graphql/queries';
-import Image from 'next/image';
-import { IoIosCheckmark } from 'react-icons/io';
-import WhatWeDo from '../components/WhatWeDo';
-import { useRouter } from 'next/router';
-import Bmi from '@/components/Bmi';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
+import { BsLink45Deg } from 'react-icons/bs'
+import graphcms from '../graphql/client'
+import { GET_ABOUT_PAGE } from '../graphql/queries'
+import Image from 'next/image'
+import { IoIosCheckmark } from 'react-icons/io'
+import WhatWeDo from '../components/WhatWeDo'
+import { useRouter } from 'next/router'
+import Bmi from '@/components/Bmi'
 
 const About = ({ page }) => {
   const {
@@ -25,25 +25,27 @@ const About = ({ page }) => {
     equipment,
     expertTrainers,
     happyClient,
-  } = page;
+  } = page
 
   const getPathName = () => {
-    let router = useRouter();
-    return (router = router.pathname.slice(1));
-  };
+    let router = useRouter()
+    return (router = router.pathname.slice(1))
+  }
 
   return (
     <div className='pt-10'>
       <AboutBanner>
         <div className='overlay absolute text-gray-200'>
-          <div className='h-full max-w-6xl flex flex-col justify-center items-center justify-items-center'>
-            <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>About</h1>
-            <div className='flex items-center text-lg space-x-2 py-2 px-3 bg-primary rounded-br-3xl'>
-              <Link href='/'>
-                <a>Home</a>
-              </Link>
-              <BsLink45Deg size={23} />
-              <p className='capitalize'>About</p>
+          <div className='flex h-full container'>
+            <div className='my-auto'>
+              <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>About</h1>
+              <div className='flex items-center md:text-lg text-sm space-x-2 py-2 px-3 bg-primary'>
+                <Link href='/'>
+                  <a>Home</a>
+                </Link>
+                <BsLink45Deg size={23} />
+                <p className='capitalize'>About</p>
+              </div>
             </div>
           </div>
         </div>
@@ -76,10 +78,10 @@ const About = ({ page }) => {
       <WhatWeDo />
       <Bmi />
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About
 
 export const AboutSection = ({ title, subTitle, description, list, aboutImage }) => {
   return (
@@ -112,8 +114,8 @@ export const AboutSection = ({ title, subTitle, description, list, aboutImage })
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export const AboutGrid = ({ item, item_des }) => {
   return (
@@ -121,17 +123,17 @@ export const AboutGrid = ({ item, item_des }) => {
       <h1 className='lg:text-3xl text-xl'>{item} +</h1>
       <h1 className='lg:text-xl text-lg'>{item_des}</h1>
     </div>
-  );
-};
+  )
+}
 
 export const getStaticProps = async () => {
-  const { page } = await graphcms.request(GET_ABOUT_PAGE, { slug: 'about-page' });
+  const { page } = await graphcms.request(GET_ABOUT_PAGE, { slug: 'about-page' })
   return {
     props: {
       page,
     },
-  };
-};
+  }
+}
 
 const AboutBanner = styled.div`
   background: url('/images/about-bg.jpeg');
@@ -147,4 +149,4 @@ const AboutBanner = styled.div`
     height: 30vh;
     background: rgba(0, 0, 0, 0.8);
   }
-`;
+`

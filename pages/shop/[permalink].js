@@ -1,11 +1,8 @@
-import graphcms from '../../graphql/client'
-import { ALL_PRODUCTS, PRODUCT } from '../../graphql/queries'
 import ProductDetails from '../../components/ProductDetails'
 import RelatedProducts from '../../components/RelatedProducts'
 import commerce from 'lib/commerce'
 
 const Product = ({ product }) => {
-  console.log(product)
   return (
     <div>
       <ProductDetails product={product} />

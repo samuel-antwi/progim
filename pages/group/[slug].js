@@ -1,18 +1,16 @@
-import Link from 'next/link';
-import { getPathName } from '../../utils';
-import { BsLink45Deg } from 'react-icons/bs';
-import styled from 'styled-components';
-import { GET_GROUPS, GET_GROUP_DETAIL } from 'graphql/queries';
-import graphcms from 'graphql/client';
-import Image from 'next/image';
-import FitnessGroupCard from '@/components/FitnessGroupCard';
-import ReactMarkdown from 'react-markdown';
-import FitnessGroupTrainers from '@/components/FitnessGroupTrainers';
+import Link from 'next/link'
+import { getPathName } from '../../utils'
+import { BsLink45Deg } from 'react-icons/bs'
+import styled from 'styled-components'
+import { GET_GROUPS, GET_GROUP_DETAIL } from 'graphql/queries'
+import graphcms from 'graphql/client'
+import Image from 'next/image'
+import FitnessGroupCard from '@/components/FitnessGroupCard'
+import ReactMarkdown from 'react-markdown'
+import FitnessGroupTrainers from '@/components/FitnessGroupTrainers'
 
 const Group = ({ group }) => {
-  const { name, image, description, trainers } = group;
-
-  console.log(group);
+  const { name, image, description, trainers } = group
 
   return (
     <div>
@@ -57,13 +55,13 @@ const Group = ({ group }) => {
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Group;
+export default Group
 
 export const getStaticPaths = async () => {
-  const { groups } = await graphcms.request(GET_GROUPS);
+  const { groups } = await graphcms.request(GET_GROUPS)
   return {
     paths: groups.map(({ slug }) => ({
       params: {
@@ -71,19 +69,19 @@ export const getStaticPaths = async () => {
       },
     })),
     fallback: false,
-  };
-};
+  }
+}
 
 export const getStaticProps = async ({ params }) => {
   const { group } = await graphcms.request(GET_GROUP_DETAIL, {
     slug: params.slug,
-  });
+  })
   return {
     props: {
       group,
     },
-  };
-};
+  }
+}
 
 const ClassBanner = styled.div`
   background: url('/images/classBg.jpeg');
@@ -99,4 +97,4 @@ const ClassBanner = styled.div`
     height: 25vh;
     background: rgba(0, 0, 0, 0.8);
   }
-`;
+`

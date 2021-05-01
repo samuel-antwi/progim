@@ -33,7 +33,8 @@
     "react-simple-snackbar": "^1.1.11",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "typewriter-effect": "^2.17.0"
   },
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.10",

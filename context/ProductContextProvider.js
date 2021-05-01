@@ -45,13 +45,24 @@ export const ProductContextProvider = ({ children }) => {
     window.scrollTo(0, 0)
   }
 
+  const isInBasket = (id) => {
+    return cart.line_items.filter((item) => item.id === id)
+  }
+
   useEffect(() => {
     fetchCart()
   }, [])
 
   return (
     <ProductContext.Provider
-      value={{ cart, handleAddToCart, handleUpdateQty, handleRemoveFromCart, handleEmptyBasket }}>
+      value={{
+        cart,
+        handleAddToCart,
+        handleUpdateQty,
+        handleRemoveFromCart,
+        handleEmptyBasket,
+        isInBasket,
+      }}>
       {children}
     </ProductContext.Provider>
   )
