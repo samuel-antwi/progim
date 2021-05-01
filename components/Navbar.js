@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       <SideNav showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
-      <div className='md:fixed top-0 w-full bg-white z-10'>
+      <nav className='md:fixed top-0 w-full bg-white z-10'>
         <MiniNavBar />
         <div className='max-w-6xl mx-auto md:px-8 px-5 py-6 flex justify-between items-center'>
           <Link href='/'>
@@ -34,7 +34,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   )
 }
