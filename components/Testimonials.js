@@ -26,7 +26,7 @@ const Testimonials = () => {
           {data.map((testimonial) => {
             const { name, testimony, media, id, group } = testimonial;
             return (
-              <div className=' rounded-md bg-white py-20' key={id}>
+              <div className=' rounded-md bg-white md:py-20' key={id}>
                 <div className='md:grid grid-cols-3  bg-gray-900'>
                   <div className='col-span-1 md:ml-10 relative'>
                     <img className='md:-mt-10 md:-mb-10 md:rounded-xl' src={media.url} />

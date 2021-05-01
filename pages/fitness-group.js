@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { BsLink45Deg } from 'react-icons/bs';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ellipsis } from '../utils';
-import Bmi from '../components/Bmi';
-import graphcms from '../graphql/client';
-import { GET_GROUPS } from '../graphql/queries';
+import styled from 'styled-components'
+import { BsLink45Deg } from 'react-icons/bs'
+import Link from 'next/link'
+import Image from 'next/image'
+import { ellipsis } from '../utils'
+import Bmi from '../components/Bmi'
+import graphcms from '../graphql/client'
+import { GET_GROUPS } from '../graphql/queries'
 
 const FitnessGroup = ({ groups }) => {
   return (
@@ -38,7 +38,7 @@ const FitnessGroup = ({ groups }) => {
               id,
               price,
               classSize,
-            } = session;
+            } = session
             return (
               <div key={id} className='col-span-1 bg-white '>
                 <Link href={`/group/${slug}`}>
@@ -57,7 +57,7 @@ const FitnessGroup = ({ groups }) => {
                   </a>
                 </Link>
                 <div className=''>
-                  <Link href='/'>
+                  <Link href={`/group/${slug}`}>
                     <a>
                       <p className='text-center md:text-xl hover:text-primary font-semibold uppercase py-5'>
                         {name}
@@ -78,26 +78,26 @@ const FitnessGroup = ({ groups }) => {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
       <Bmi />
     </div>
-  );
-};
+  )
+}
 
-export default FitnessGroup;
+export default FitnessGroup
 
 export const getStaticProps = async () => {
-  const { groups } = await graphcms.request(GET_GROUPS);
+  const { groups } = await graphcms.request(GET_GROUPS)
 
   return {
     props: {
       groups,
     },
-  };
-};
+  }
+}
 
 const ClassBanner = styled.div`
   background: url('/images/classBg.jpeg') no-repeat center;
@@ -117,4 +117,4 @@ const ClassBanner = styled.div`
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-`;
+`

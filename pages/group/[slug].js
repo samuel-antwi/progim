@@ -7,9 +7,10 @@ import graphcms from 'graphql/client';
 import Image from 'next/image';
 import FitnessGroupCard from '@/components/FitnessGroupCard';
 import ReactMarkdown from 'react-markdown';
+import FitnessGroupTrainers from '@/components/FitnessGroupTrainers';
 
 const Group = ({ group }) => {
-  const { name, image, description } = group;
+  const { name, image, description, trainers } = group;
 
   console.log(group);
 
@@ -47,6 +48,7 @@ const Group = ({ group }) => {
               <div className='pt-5  text-gray-600 mb-4'>
                 <ReactMarkdown>{description.markdown}</ReactMarkdown>
               </div>
+              <FitnessGroupTrainers trainers={trainers} name={name} />
             </div>
             <div className='col-span-1 pt-10 lg:pt-0'>
               <FitnessGroupCard group={group} />

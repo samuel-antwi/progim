@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import { VscMenu } from 'react-icons/vsc';
-import { useRouter } from 'next/router';
-import SideNav from './SideNav';
-import { useState } from 'react';
-import ShoppingBag from './ShoppingBag';
-import MiniNavBar from './MiniNavBar';
+import Link from 'next/link'
+import { VscMenu } from 'react-icons/vsc'
+import { useRouter } from 'next/router'
+import SideNav from './SideNav'
+import { useState } from 'react'
+import ShoppingBag from './ShoppingBag'
+import MiniNavBar from './MiniNavBar'
 
 const Navbar = () => {
-  const [showSideMenu, setShowSideMenu] = useState(false);
+  const [showSideMenu, setShowSideMenu] = useState(false)
   return (
     <>
       <SideNav showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link href='/'>
             <a className='flex items-center'>
               <h1 className='text-black font-bold md:text-4xl text-xl tracking-wider'>PROGIM</h1>
-              <img className='w-12' src='/images/body-building.png' alt='Logo' />
+              <img className='w-12 hidden sm:block' src='/images/body-building.png' alt='Logo' />
             </a>
           </Link>
           <div className='space-x-8 flex items-center'>
@@ -25,29 +25,27 @@ const Navbar = () => {
             <NavLinks name='About' url='/about' />
             <NavLinks name='Classes' url='/fitness-group' />
             <NavLinks name='Shop' url='/shop' />
-            <NavLinks name='Blog' url='/blog' />
-            {/* <NavLinks name='Contact' url='/contact' /> */}
             <ShoppingBag />
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}
               aria-label='menu'
-              className='md:hidden focus:outline-none py-3 focus:bg-gray-200'>
+              className='md:hidden focus:outline-none py-3'>
               <VscMenu size={20} />
             </button>
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
 
 export const NavLinks = ({ name, url }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   // Get pathname to style the active route
-  const getPathName = router.pathname;
+  const getPathName = router.pathname
 
   return (
     <Link href={url}>
@@ -58,5 +56,5 @@ export const NavLinks = ({ name, url }) => {
         {name}
       </a>
     </Link>
-  );
-};
+  )
+}

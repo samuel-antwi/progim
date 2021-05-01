@@ -1,10 +1,11 @@
-import { useRouter } from 'next/router';
-import { BsExclamationCircle } from 'react-icons/bs';
-import { useSelector } from 'react-redux';
+import { useProductsContext } from 'context/ProductContextProvider'
+import { useRouter } from 'next/router'
+import { BsExclamationCircle } from 'react-icons/bs'
+import { useSelector } from 'react-redux'
 
 const Checkout = () => {
-  const { total } = useSelector((state) => state.shop);
-  const router = useRouter();
+  const { cart } = useProductsContext()
+  const router = useRouter()
   return (
     <div className=' px-8 right-5 h-96 bg-white'>
       <h1 className='font-bold text-gray-800 tracking-widest py-10'>TOTAL</h1>
@@ -12,7 +13,7 @@ const Checkout = () => {
       <div className='py-4'>
         <div className='flex items-center justify-between mb-3'>
           <h1 className='font-semibold tracking-widest'>Sub-total</h1>
-          <p className='font-semibold tracking-wider'>£{total}</p>
+          <p className='font-semibold tracking-wider'>{cart.subtotal.formatted_with_symbol}</p>
         </div>
         <div className='flex items-center justify-between mb-5'>
           <h1 className='font-semibold tracking-widest'>Delivery</h1>
@@ -34,7 +35,7 @@ const Checkout = () => {
       </button>
       <p className='text-sm'>Got a discount code? Add it in the next step.</p>
     </div>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout

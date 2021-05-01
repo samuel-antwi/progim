@@ -1,7 +1,10 @@
-import Link from 'next/link';
-import { BsBag } from 'react-icons/bs';
+import { useProductsContext } from 'context/ProductContextProvider'
+import Link from 'next/link'
+import { BsBag } from 'react-icons/bs'
 
 const ShoppingBag = () => {
+  const { cart } = useProductsContext()
+  console.log(cart)
   return (
     <div className='relative'>
       <Link href='/basket'>
@@ -9,11 +12,13 @@ const ShoppingBag = () => {
           <BsBag size={20} />
         </a>
       </Link>
-      <p className='absolute h-4  w-4 -top-3 -right-4 text-gray-100  text-xs flex justify-center items-center justify-items-center bg-primary rounded-full'>
-        0
-      </p>
+      {Object.keys(cart).length !== 0 && (
+        <p className='absolute h-4  w-4 -top-2 -right-3 text-gray-100  text-xs flex justify-center items-center justify-items-center bg-primary rounded-full'>
+          {cart.total_items}
+        </p>
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default ShoppingBag;
+export default ShoppingBag
