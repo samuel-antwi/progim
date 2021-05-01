@@ -5,22 +5,22 @@ import {
   FaTwitter,
   FaPhoneAlt,
   FaEnvelope,
-} from 'react-icons/fa';
-import { BsChevronUp } from 'react-icons/bs';
-import useScroll from '../hooks/useScroll';
+} from 'react-icons/fa'
+import { BsChevronUp } from 'react-icons/bs'
+import useScroll from '../hooks/useScroll'
 
 const Footer = () => {
-  const pageHasScrolled = useScroll();
+  const pageHasScrolled = useScroll()
 
   const getCurrentYear = () => {
-    return new Date().getFullYear();
-  };
+    return new Date().getFullYear()
+  }
 
   const socialIconsStyles =
-    'bg-primary rounded-full text-white p-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110';
+    'bg-primary rounded-full text-white p-3 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110'
 
   return (
-    <div className='bg-[#272727] text-gray-400'>
+    <footer className='bg-[#272727] text-gray-400'>
       <div className=' max-w-[90rem] mx-auto py-10 sm:px-12  px-5'>
         <div className='md:grid lg:grid-cols-3 md:grid-cols-2 gap-10 lg:border-b border-gray-600 md:space-y-0 space-y-8'>
           <div className='col-span-1 mb-10'>
@@ -89,11 +89,11 @@ const Footer = () => {
           <BsChevronUp className='bg-primary h-10 w-10 rounded-full p-2.5 text-gray-100' />
         </button>
       )}
-    </div>
-  );
-};
+    </footer>
+  )
+}
 
-export default Footer;
+export default Footer
 
 const SubscribeForm = () => {
   return (
@@ -114,9 +114,9 @@ const SubscribeForm = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
 export const Underline = ({ primary }) => {
-  return <div className={`${primary ? 'bg-primary' : 'bg-white'} w-12 h-[4px]`}></div>;
-};
+  return <div className={`${primary ? 'bg-primary' : 'bg-white'} w-12 h-[4px]`}></div>
+}
