@@ -48,7 +48,7 @@ const ProductDetails = ({ product }) => {
               <button
                 data-tooltip='add'
                 onClick={() => handleAddToCart(id, 1, name)}
-                className='border rounded-full bg-primary hover:bg-btn_hover text-gray-50 w-40 py-3 uppercase'>
+                className='border focus:outline-none focus:ring-1 focus:ring-yellow-600 bg-primary hover:bg-btn_hover text-gray-50 w-40 py-3 uppercase'>
                 add to basket
               </button>
             </div>

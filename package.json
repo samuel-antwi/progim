@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export"
   },
+  
   "dependencies": {
     "@apollo/client": "^3.3.12",
     "@chec/commerce.js": "^2.4.1",
