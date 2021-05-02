@@ -1,7 +1,6 @@
 import Header from './Header'
 import Image from 'next/image'
 import Link from 'next/link'
-import SaleBadge from './SaleBadge'
 import { MdShoppingBasket } from 'react-icons/md'
 import { BsPlusCircleFill } from 'react-icons/bs'
 import { useSnackbar } from 'react-simple-snackbar'

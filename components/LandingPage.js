@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-import { BsChevronDown } from 'react-icons/bs'
-import { useEffect } from 'react'
-import AOS from 'aos'
 import Typewriter from 'typewriter-effect'
 
 const LandingPage = () => {
@@ -11,8 +8,8 @@ const LandingPage = () => {
         <div className=' container'>
           <div className=' col-span-1 uppercase flex flex-col justify-center h-screen'>
             <h1
-              data-aos='slide-left'
-              data-aos-duration='800'
+              data-aos='slide-right'
+              data-aos-duration='1000'
               className='text-primary text-4xl font-extrabold'>
               step up your
             </h1>
