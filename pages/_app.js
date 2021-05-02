@@ -9,6 +9,7 @@ import SnackbarProvider from 'react-simple-snackbar'
 import { Provider } from 'react-redux'
 import { store } from 'redux/store'
 import { ProductContextProvider } from 'context/ProductContextProvider'
+import { AuthContextProvider } from 'context/AuthContextProvider'
 
 const queryClient = new QueryClient()
 
@@ -25,15 +26,17 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <SnackbarProvider>
-      <ProductContextProvider>
-        <Provider store={store}>
-          <QueryClientProvider client={queryClient}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </QueryClientProvider>
-        </Provider>
-      </ProductContextProvider>
+      <AuthContextProvider>
+        <ProductContextProvider>
+          <Provider store={store}>
+            <QueryClientProvider client={queryClient}>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </QueryClientProvider>
+          </Provider>
+        </ProductContextProvider>
+      </AuthContextProvider>
     </SnackbarProvider>
   )
 }

@@ -18,8 +18,6 @@ const Basket = ({ data }) => {
 
   if (Object.keys(cart).length === 0) return null
 
-  console.log(cart)
-
   return (
     <div className='md:pt-40 pt-20 min-h-screen'>
       {line_items?.length ? (

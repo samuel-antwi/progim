@@ -4,7 +4,6 @@ import { BsBag } from 'react-icons/bs'
 
 const ShoppingBag = () => {
   const { cart } = useProductsContext()
-  console.log(cart)
   return (
     <div className='relative'>
       <Link href='/basket'>

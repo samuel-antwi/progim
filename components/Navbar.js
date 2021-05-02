@@ -5,9 +5,14 @@ import SideNav from './SideNav'
 import { useState } from 'react'
 import ShoppingBag from './ShoppingBag'
 import MiniNavBar from './MiniNavBar'
+import { useAuthContextProvider } from 'context/AuthContextProvider'
 
 const Navbar = () => {
   const [showSideMenu, setShowSideMenu] = useState(false)
+  const { user, login } = useAuthContextProvider()
+
+  console.log(user)
+
   return (
     <>
       <SideNav showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
@@ -25,6 +30,9 @@ const Navbar = () => {
             <NavLinks name='About' url='/about' />
             <NavLinks name='Classes' url='/fitness-group' />
             <NavLinks name='Shop' url='/shop' />
+            <button onClick={login} className='focus:outline-none font-semibold uppercase text-sm'>
+              Login
+            </button>
             <ShoppingBag />
             <button
               onClick={() => setShowSideMenu(!showSideMenu)}
