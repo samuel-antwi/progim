@@ -71,7 +71,7 @@ const Basket = ({ data }) => {
                     </div>
                     <button
                       onClick={() => handleRemoveFromCart(id, name)}
-                      className='absolute  -right-2 top-8'>
+                      className='absolute -right-2 top-8'>
                       <VscChromeClose
                         className='hover:text-red-500 transition duration-200'
                         size={26}
@@ -80,13 +80,13 @@ const Basket = ({ data }) => {
                   </div>
                 )
               })}
-              <div className='flex justify-between items-center py-10 px-8 space-x-6 font-semibold tracking-wider text-gray-800'>
+              <div className='md:flex justify-between items-center py-10 font-semibold tracking-wider text-gray-800'>
                 <button
                   onClick={() => handleEmptyBasket()}
-                  className='bg-primary text-gray-100 py-3 px-5'>
+                  className='bg-primary text-gray-100 py-2 px-4'>
                   Clear basket
                 </button>
-                <div>
+                <div className='hidden md:block'>
                   <span className='mr-3'>SUB-TOTAL</span>
                   <span>{cart.subtotal.formatted_with_symbol}</span>
                 </div>

@@ -10,8 +10,8 @@ const MiniNavBar = () => {
     return router.pathname
   }
 
-  return getPathName() !== '/' ? (
-    <div className=' bg-primary py-3 sm:px-8 px-4 text-gray-50'>
+  return (
+    <div className='hidden md:block bg-primary py-3 sm:px-8 px-4 text-gray-50'>
       <div className='max-w-6xl mx-auto flex justify-between items-center'>
         <div className='md:flex items-center md:space-x-5 space-y-2 md:space-y-0'>
           <a className='flex text-sm items-center' href='mailto: support@progim.com '>
@@ -32,7 +32,7 @@ const MiniNavBar = () => {
         </div>
       </div>
     </div>
-  ) : null
+  )
 }
 
 export const SocialLinks = () => {

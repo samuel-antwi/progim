@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import { ellipsis } from '../utils';
-import Header from './Header';
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import { ellipsis } from '../utils'
+import Header from './Header'
 
 const PopularClasses = ({ groups }) => {
   return (
@@ -21,7 +21,7 @@ const PopularClasses = ({ groups }) => {
                 id,
                 price,
                 classSize,
-              } = session;
+              } = session
               return (
                 <div
                   data-aos='zoom-in-up'
@@ -43,8 +43,8 @@ const PopularClasses = ({ groups }) => {
                       </p>
                     </a>
                   </Link>
-                  <div className=''>
-                    <Link href='/'>
+                  <div>
+                    <Link href={`/group/${slug}`}>
                       <a>
                         <p className='text-center md:text-xl hover:text-primary font-semibold uppercase py-5'>
                           {name}
@@ -65,13 +65,13 @@ const PopularClasses = ({ groups }) => {
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PopularClasses;
+export default PopularClasses
