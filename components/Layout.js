@@ -1,8 +1,7 @@
-import Head from 'next/head';
-import Footer from './Footer';
-import MiniNavBar from './MiniNavBar';
-import Navbar from './Navbar';
-import ProgressBar from 'react-scroll-progress-bar';
+import Head from 'next/head'
+import Footer from './Footer'
+import Navbar from './Navbar'
+import ProgressBar from 'react-scroll-progress-bar'
 
 const Layout = ({ title, description, children }) => {
   return (
@@ -19,10 +18,10 @@ const Layout = ({ title, description, children }) => {
         <meta property='og:description' content={description} key='ogdesc' />
         <title>{title}</title>
       </Head>
-      <div className='pt-20 min-h-screen'>{children}</div>
+      <div className='md:pt-20 min-h-screen'>{children}</div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

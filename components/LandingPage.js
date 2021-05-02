@@ -3,15 +3,15 @@ import Typewriter from 'typewriter-effect'
 
 const LandingPage = () => {
   return (
-    <Styles className=''>
+    <Styles>
       <div className='overlay '>
         <div className=' container'>
-          <div className=' col-span-1 uppercase flex flex-col justify-center h-screen'>
+          <div className=' col-span-1 uppercase flex flex-col justify-center md:h-screen h-[600px]'>
             <h1
               data-aos='slide-right'
               data-aos-duration='1000'
               className='text-primary text-4xl font-extrabold'>
-              step up your
+              set up your
             </h1>
             <div className='text-gray-300 md:text-7xl text-5xl font-extrabold '>
               <Typewriter
@@ -35,7 +35,6 @@ const LandingPage = () => {
               <span className='mr-3 text-gray-100'>with</span>
               <span className='text-primary'>ProGim</span>
             </h1>
-
             <div data-aos='fade-up' data-aos-duration='1500'>
               <button className='text-gray-100 md:py-4 md:w-64 w-48 py-3 focus:outline-none bg-primary transition duration-300 hover:bg-btn_hover rounded-full  tracking-wide font-semibold uppercase'>
                 become a member

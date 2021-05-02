@@ -1,6 +1,9 @@
+import { useAuthContextProvider } from 'context/AuthContextProvider'
+
 const FitnessGroupCard = ({ group }) => {
   const { price, duration, shift, classSize, trainers, classCategory } = group
 
+  const { login } = useAuthContextProvider()
   return (
     <div className='bg-primary text-gray-200 p-6'>
       <h1 className='text-2xl font-semibold mb-7'>Group Fetaures</h1>
@@ -26,7 +29,9 @@ const FitnessGroupCard = ({ group }) => {
           <span>£{price}</span>
         </div>
         <div className='py-6 flex justify-items-center items-center justify-center'>
-          <button className='bg-white hover:bg-black hover:text-gray-100 transition duration-300 py-2 px-8 rounded-full text-primary font-bold tracking-wider uppercase'>
+          <button
+            onClick={login}
+            className='focus:outline-none bg-white hover:bg-black hover:text-gray-100 transition duration-300 py-2 px-8 rounded-full text-primary font-bold tracking-wider uppercase'>
             Join now
           </button>
         </div>

@@ -9,7 +9,7 @@ import { useAuthContextProvider } from 'context/AuthContextProvider'
 
 const Navbar = () => {
   const [showSideMenu, setShowSideMenu] = useState(false)
-  const { user, login } = useAuthContextProvider()
+  const { user, login, logout } = useAuthContextProvider()
 
   console.log(user)
 
@@ -18,29 +18,46 @@ const Navbar = () => {
       <SideNav showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
       <nav className='md:fixed top-0 w-full bg-white z-10'>
         <MiniNavBar />
-        <div className='max-w-6xl mx-auto md:px-8 px-5 py-6 flex justify-between items-center'>
+        <div className='max-w-7xl mx-auto md:px-8 px-5 py-6 flex justify-between items-center'>
           <Link href='/'>
             <a className='flex items-center'>
               <h1 className='text-black font-bold md:text-4xl text-xl tracking-wider'>PROGIM</h1>
               <img className='w-12 hidden sm:block' src='/images/body-building.png' alt='Logo' />
             </a>
           </Link>
-          <div className='space-x-8 flex items-center'>
-            <NavLinks name='Home' url='/' />
-            <NavLinks name='About' url='/about' />
-            <NavLinks name='Classes' url='/fitness-group' />
-            <NavLinks name='Shop' url='/shop' />
-            <button onClick={login} className='focus:outline-none font-semibold uppercase text-sm'>
-              Login
-            </button>
+          <div className='md:hidden'>
             <ShoppingBag />
-            <button
-              onClick={() => setShowSideMenu(!showSideMenu)}
-              aria-label='menu'
-              className='md:hidden focus:outline-none py-3'>
-              <VscMenu size={20} />
-            </button>
           </div>
+          <div className='hidden md:block'>
+            <div className='space-x-8 flex items-center'>
+              <NavLinks name='Home' url='/' />
+              <NavLinks name='About' url='/about' />
+              <NavLinks name='Classes' url='/fitness-group' />
+              <NavLinks name='Shop' url='/shop' />
+              <div>
+                {user === null ? (
+                  <button
+                    onClick={login}
+                    className='focus:outline-none tracking-wide font-semibold uppercase text-sm'>
+                    Login
+                  </button>
+                ) : (
+                  <button
+                    onClick={logout}
+                    className='focus:outline-none tracking-wide font-semibold uppercase text-sm'>
+                    Logout
+                  </button>
+                )}
+              </div>
+              <ShoppingBag />
+            </div>
+          </div>
+          <button
+            onClick={() => setShowSideMenu(!showSideMenu)}
+            aria-label='menu'
+            className='md:hidden focus:outline-none py-3'>
+            <VscMenu size={20} />
+          </button>
         </div>
       </nav>
     </>
@@ -60,7 +77,7 @@ export const NavLinks = ({ name, url }) => {
       <a
         className={`${
           getPathName === url && 'text-primary'
-        } hover:text-primary hidden md:block uppercase text-sm font-semibold tracking-wide`}>
+        } hover:text-primary  uppercase text-sm font-semibold tracking-wide`}>
         {name}
       </a>
     </Link>

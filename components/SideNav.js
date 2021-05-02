@@ -1,14 +1,16 @@
+import { useAuthContextProvider } from 'context/AuthContextProvider'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { GrClose } from 'react-icons/gr'
 
 const SideNav = ({ showSideMenu, setShowSideMenu }) => {
+  const { user, login, logout } = useAuthContextProvider()
   return (
     <div
       className={` ${
         showSideMenu ? '-translate-x-0' : '-translate-x-full'
       }  bg-primary w-full p-8 text-blue-50  absolute inset-y-0 z-[20] md:relative md:hidden transition duration-500 left-0 transform h-full  ease-in-out`}>
-      <div onClick={() => setShowSideMenu(!showSideMenu)}>
+      <div>
         <div className='flex justify-between items-center'>
           <h1 className='mb-10 text-3xl font-semibold tracking-wide'>Progym</h1>
           <button onClick={() => setShowSideMenu(!showSideMenu)}>
@@ -16,11 +18,51 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
           </button>
         </div>
         <div className='space-y-5'>
-          <NavLinks name='Home' url='/' />
-          <NavLinks name='About' url='/about' />
-          <NavLinks name='Classes' url='/fitness-group' />
-          <NavLinks name='Shop' url='/shop' />
-          <NavLinks name='Contact' url='/contact' />
+          <NavLinks
+            name='Home'
+            url='/'
+            showSideMenu={showSideMenu}
+            setShowSideMenu={setShowSideMenu}
+          />
+          <NavLinks
+            name='About'
+            url='/about'
+            showSideMenu={showSideMenu}
+            setShowSideMenu={setShowSideMenu}
+          />
+          <NavLinks
+            name='Classes'
+            url='/fitness-group'
+            showSideMenu={showSideMenu}
+            setShowSideMenu={setShowSideMenu}
+          />
+          <NavLinks
+            name='Shop'
+            url='/shop'
+            showSideMenu={showSideMenu}
+            setShowSideMenu={setShowSideMenu}
+          />
+          <NavLinks
+            name='Contact'
+            url='/contact'
+            showSideMenu={showSideMenu}
+            setShowSideMenu={setShowSideMenu}
+          />
+          <div className=''>
+            {user === null ? (
+              <button
+                onClick={login}
+                className='focus:outline-none transition duration-500 tracking-wide font-semibold uppercase text-xl hover:text-gray-900'>
+                Login
+              </button>
+            ) : (
+              <button
+                onClick={logout}
+                className='focus:outline-none transition duration-500 tracking-wide font-semibold uppercase text-xl hover:text-gray-900'>
+                Logout
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -29,7 +71,7 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
 
 export default SideNav
 
-const NavLinks = ({ name, url }) => {
+const NavLinks = ({ name, url, setShowSideMenu, showSideMenu }) => {
   const router = useRouter()
 
   // Get pathname to style active links
@@ -40,7 +82,7 @@ const NavLinks = ({ name, url }) => {
   return (
     <div>
       <Link href={url}>
-        <a>
+        <a onClick={() => setShowSideMenu(!showSideMenu)}>
           <p
             className={`${
               getPathName() === url && 'text-gray-900'
