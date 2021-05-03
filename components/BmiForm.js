@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
-import LoadingScreen from './LoadingScreen';
-import { BiReset } from 'react-icons/bi';
+import { useEffect, useState } from 'react'
+import LoadingScreen from './LoadingScreen'
+import { BiReset } from 'react-icons/bi'
 
 const BmiForm = () => {
-  const [bmiResults, setBmiResults] = useState('');
-  const [showResults, setShowResults] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [bmiResults, setBmiResults] = useState('')
+  const [showResults, setShowResults] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [formState, setFormState] = useState({
     weight: '',
     height: '',
-  });
+  })
 
-  const underWeight = bmiResults < 18.5;
-  const normalWeight = bmiResults >= 18.5 && bmiResults <= 24.99;
-  const overWeight = bmiResults >= 25 && bmiResults <= 29.99;
-  const obese = bmiResults >= 30;
+  const underWeight = bmiResults < 18.5
+  const normalWeight = bmiResults >= 18.5 && bmiResults <= 24.99
+  const overWeight = bmiResults >= 25 && bmiResults <= 29.99
+  const obese = bmiResults >= 30
 
   // Funtion to calculate bmi description based on bmi rsults
   const description = () => {
@@ -26,51 +26,51 @@ const BmiForm = () => {
       ? 'over weight'
       : obese
       ? 'obese'
-      : null;
-  };
+      : null
+  }
 
   useEffect(() => {
-    resetForm();
-  }, [formState.height, formState.weight]);
+    resetForm()
+  }, [formState.height, formState.weight])
 
   // Function to calculate bmi
   const calculateBmiInKg = (weight, height) => {
-    const newheight = height / 100;
-    return weight / (newheight * newheight);
-  };
+    const newheight = height / 100
+    return weight / (newheight * newheight)
+  }
 
   // Handle Onchange
   const handleChange = (e) => {
-    const value = e.target.value;
+    const value = e.target.value
     setFormState({
       ...formState,
       [e.target.name]: value,
-    });
-  };
+    })
+  }
 
   //   Handle bmi form input function
   const handleForm = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault()
+    setIsLoading(true)
     setTimeout(() => {
-      setBmiResults(calculateBmiInKg(formState.weight, formState.height).toFixed(1));
-      setShowResults(true);
-      setIsLoading(false);
-    }, 2000);
-  };
+      setBmiResults(calculateBmiInKg(formState.weight, formState.height).toFixed(1))
+      setShowResults(true)
+      setIsLoading(false)
+    }, 2000)
+  }
 
   // Reset bmi results when user delete input fields
   const resetForm = () => {
     if (formState.height === '' || formState.weight === '') {
-      setBmiResults('');
-      setShowResults(false);
+      setBmiResults('')
+      setShowResults(false)
     }
-  };
+  }
 
   return (
     <div className='lg:mr-10'>
       <p className='mb-5'>
-        Gimnas – Fitness Center provide all kinds of fitness training with modern instruments.
+        Progim – Fitness Center provide all kinds of fitness training with modern instruments.
       </p>
       <form onSubmit={handleForm}>
         <div className='grid grid-cols-2 gap-5 mb-2'>
@@ -129,7 +129,7 @@ const BmiForm = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default BmiForm;
+export default BmiForm
