@@ -1,11 +1,11 @@
-import React from 'react';
-import Image from 'next/image';
-import { getFullPathName } from '../utils';
-import Header from './Header';
+import React from 'react'
+import Image from 'next/image'
+import { getFullPathName } from '../utils'
+import Header from './Header'
 
 const WhatWeDo = () => {
   const description =
-    'Gimnas apparatus such asin barbells, parallel bars, fencin tennis-balls jump.';
+    'Progim apparatus such asin barbells, parallel bars, fencin tennis-balls jump.'
   return (
     <div className='bg-light py-20 relative'>
       <div className='container max-w-7xl mx-auto'>
@@ -69,8 +69,8 @@ const WhatWeDo = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const ServicesCard = ({ title, description, image_url }) => {
   return (
@@ -86,7 +86,7 @@ const ServicesCard = ({ title, description, image_url }) => {
         <p className='text-gray-400'>{description}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WhatWeDo;
+export default WhatWeDo
