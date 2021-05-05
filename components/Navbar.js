@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className='space-x-8 flex items-center'>
               <NavLinks name='Home' url='/' />
               <NavLinks name='About' url='/about' />
-              <NavLinks name='Classes' url='/fitness-group' />
+              <NavLinks name='Class' url='/fitness-group' />
               <NavLinks name='Shop' url='/shop' />
               <div>
                 {user === null ? (
