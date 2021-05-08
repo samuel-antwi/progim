@@ -1,17 +1,54 @@
 import styled from 'styled-components'
 import { GrFormCheckmark } from 'react-icons/gr'
 import Link from 'next/link'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { useEffect } from 'react'
 
 const Discount = () => {
+  const controls = useAnimation()
+  const { ref, inView } = useInView()
+
+  const boxVariants = {
+    hidden: { scale: 0 },
+    visible: {
+      scale: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  }
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible')
+    }
+    if (!inView) {
+      controls.start('hidden')
+    }
+  }, [controls, inView])
+
   return (
     <Styles className='mb-20 min-h-[750px]'>
       <div className='overlay min-h-[750px]'>
         <div className='md:grid grid-cols-2 max-w-6xl px-5 mx-auto'>
           <div>
-            <img src='/images/discount2.png' alt='Gym member' />
+            <motion.img
+              ref={ref}
+              initial='hidden'
+              animate={controls}
+              variants={boxVariants}
+              src='/images/discount2.png'
+              alt='Gym member'
+            />
           </div>
           <div className='text-gray-100 flex h-full'>
-            <div className='m-auto py-10 md:py-0'>
+            <motion.div
+              ref={ref}
+              initial='hidden'
+              animate={controls}
+              variants={boxVariants}
+              className='m-auto py-10 md:py-0'>
               <h1 className='md:text-3xl text-xl font-semibold uppercase mb-3 tracking-wider'>
                 Join fitness class
               </h1>
@@ -45,7 +82,7 @@ const Discount = () => {
                   </button>
                 </a>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

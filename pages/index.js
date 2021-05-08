@@ -8,22 +8,11 @@ import PopularClasses from '../components/PopularClasses'
 import Trainers from '../components/Trainers'
 import WhatWeDo from '../components/WhatWeDo'
 import graphcms from '../graphql/client'
-import { PAGE_CONTENT, TRAINERS } from '../graphql/queries'
-import AOS from 'aos'
+import { PAGE_CONTENT } from '../graphql/queries'
 import Testimonials from '@/components/Testimonials'
 import commerce from 'lib/commerce'
 
 export default function Home({ trainers, data, groups, pricePlans }) {
-  useEffect(() => {
-    AOS.init({
-      once: true,
-      disable: function () {
-        const maxWidth = 800
-        return window.innerWidth < maxWidth
-      },
-    })
-  })
-
   return (
     <>
       <LandingPage />
