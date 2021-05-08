@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { getPathName } from '../../utils'
 import { BsLink45Deg } from 'react-icons/bs'
 import styled from 'styled-components'
 import { GET_GROUPS, GET_GROUP_DETAIL } from 'graphql/queries'
@@ -8,6 +7,7 @@ import Image from 'next/image'
 import FitnessGroupCard from '@/components/FitnessGroupCard'
 import ReactMarkdown from 'react-markdown'
 import FitnessGroupTrainers from '@/components/FitnessGroupTrainers'
+import clsx from 'clsx'
 
 const Group = ({ group }) => {
   const { name, image, description, trainers } = group
@@ -19,7 +19,11 @@ const Group = ({ group }) => {
           <div className='flex h-full container'>
             <div className='my-auto '>
               <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Class</h1>
-              <div className='flex items-center md:text-lg text-sm space-x-2 py-2 px-3 bg-primary'>
+              <div
+                className={clsx(
+                  'flex items-center md:text-lg text-sm ',
+                  'space-x-2 py-2 px-3 bg-primary'
+                )}>
                 <Link href='/'>
                   <a>Home</a>
                 </Link>

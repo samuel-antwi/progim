@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -31,14 +32,21 @@ const PopularClasses = ({ groups }) => {
                   <Link href={`/group/${slug}`}>
                     <a className='relative'>
                       <Image
-                        className='transition object-cover duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110'
+                        className={clsx(
+                          'transition object-cover duration-500 ease-in-out',
+                          'transform hover:-translate-y-1 hover:scale-110'
+                        )}
                         src={url}
                         width={600}
                         height={500}
                         alt={name}
                         priority
                       />
-                      <p className='bg-primary text-gray-200 text-sm py-2 absolute bottom-2 px-3 rounded right-0 left-0 w-44 mx-auto '>
+                      <p
+                        className={clsx(
+                          'bg-primary text-gray-200 text-sm py-2 w-44, mx-auto ',
+                          'absolute bottom-2 px-3 rounded right-0 left-0  '
+                        )}>
                         {classCategory.name}
                       </p>
                     </a>
@@ -52,7 +60,12 @@ const PopularClasses = ({ groups }) => {
                       </a>
                     </Link>
                     <p className='text-gray-700 mb-5 px-8'>{ellipsis(description.text)}</p>
-                    <div className='flex items-center text-sm capitalize bg-primary justify-between py-2 lg:px-16 px-5 text-center text-gray-100'>
+                    <div
+                      className={clsx(
+                        'flex items-center text-sm capitalize ',
+                        'bg-primary justify-between py-2 lg:px-16 ',
+                        'px-5 text-center text-gray-100'
+                      )}>
                       <span>
                         <p>class student</p>
                         <p>{classSize} per shift</p>
