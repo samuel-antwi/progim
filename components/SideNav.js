@@ -48,7 +48,7 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
             showSideMenu={showSideMenu}
             setShowSideMenu={setShowSideMenu}
           />
-          <div className=''>
+          {/* <div className=''>
             {user === null ? (
               <button
                 onClick={login}
@@ -62,7 +62,7 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
                 Logout
               </button>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
