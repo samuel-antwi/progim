@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import styled from 'styled-components';
-import BmiCategories from './BmiCategories';
-import BmiForm from './BmiForm';
-import { useRouter } from 'next/router';
+import Image from 'next/image'
+import styled from 'styled-components'
+import BmiCategories from './BmiCategories'
+import BmiForm from './BmiForm'
+import { useRouter } from 'next/router'
 
 const Bmi = ({ variant }) => {
-  const router = useRouter();
-  const homePage = router.pathname === '/';
+  const router = useRouter()
+  const homePage = router.pathname === '/'
   return (
     <Styles className={`${variant ? 'my-20' : 'mt-20'} text-gray-100`}>
       <div className='overlay'>
@@ -25,17 +25,17 @@ const Bmi = ({ variant }) => {
               </div>
               <BmiForm />
             </div>
-            <div data-aos='slide-left' data-aos-duration='1000' className='col-span-2'>
+            <div className='col-span-2'>
               <BmiCategories />
             </div>
           </div>
         </div>
       </div>
     </Styles>
-  );
-};
+  )
+}
 
-export default Bmi;
+export default Bmi
 
 const Styles = styled.div`
   width: 100%;
@@ -55,4 +55,4 @@ const Styles = styled.div`
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
   }
-`;
+`
