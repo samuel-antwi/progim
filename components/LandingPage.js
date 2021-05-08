@@ -3,10 +3,10 @@ import Typewriter from 'typewriter-effect'
 
 const LandingPage = () => {
   return (
-    <Styles>
-      <div className='overlay '>
+    <Styles className='md:h-[100vh] h-[60vh]'>
+      <div className='overlay md:h-[100vh] h-[60vh] '>
         <div className=' container'>
-          <div className=' col-span-1 uppercase flex flex-col justify-center md:h-screen h-[600px]'>
+          <div className=' col-span-1 uppercase flex flex-col justify-center md:h-screen h-[50vh] '>
             <h1 className='text-primary text-4xl font-extrabold'>set up your</h1>
             <div className='text-gray-300 md:text-7xl text-5xl font-extrabold '>
               <Typewriter
@@ -43,7 +43,6 @@ export default LandingPage
 
 const Styles = styled.div`
   width: 100%;
-  height: 100vh;
   background: url('/images/hero-bg-01.jpeg');
   background-position: center;
   background-repeat: no-repeat;
@@ -52,7 +51,6 @@ const Styles = styled.div`
 
   .overlay {
     width: 100%;
-    height: 100vh;
     background: rgba(0, 0, 0, 0.5);
   }
 `
