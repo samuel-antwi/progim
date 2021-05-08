@@ -18,7 +18,7 @@ const Bmi = ({ variant }) => {
                 src={homePage ? '/images/bmi-03.jpg' : '/images/bmi.png'}
               />
             </div>
-            <div data-aos='fade-up' data-aos-duration='1000' className='col-span-3'>
+            <div className='col-span-3'>
               <div className='mb-10'>
                 <h1 className='md:text-4xl mb-3 font-bold uppercase'>calculate your bmi</h1>
                 <img src='/images/arrow-dark.png' alt='' />
