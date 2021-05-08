@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect'
 
@@ -28,9 +29,13 @@ const LandingPage = () => {
               <span className='text-primary'>ProGim</span>
             </h1>
             <div>
-              <button className='text-gray-100 md:py-4 md:w-64 w-48 py-3 focus:outline-none bg-primary transition duration-300 hover:bg-btn_hover rounded-full  tracking-wide font-semibold uppercase'>
-                become a member
-              </button>
+              <Link href='/signup'>
+                <a>
+                  <button className='text-gray-100 md:py-4 md:w-64 w-48 py-3 focus:outline-none bg-primary transition duration-300 hover:bg-btn_hover rounded-full  tracking-wide font-semibold uppercase'>
+                    become a member
+                  </button>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
