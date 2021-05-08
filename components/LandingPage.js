@@ -29,13 +29,13 @@ const LandingPage = () => {
               />
             </div>
             <h1
-              data-aos='slide-left'
-              data-aos-duration='1200'
+              data-aos='slide-right'
+              data-aos-duration='1000'
               className='md:text-5xl text-3xl flex items-center font-extrabold mb-10'>
               <span className='mr-3 text-gray-100'>with</span>
               <span className='text-primary'>ProGim</span>
             </h1>
-            <div data-aos='fade-up' data-aos-duration='1500'>
+            <div>
               <button className='text-gray-100 md:py-4 md:w-64 w-48 py-3 focus:outline-none bg-primary transition duration-300 hover:bg-btn_hover rounded-full  tracking-wide font-semibold uppercase'>
                 become a member
               </button>
