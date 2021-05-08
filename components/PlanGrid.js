@@ -1,5 +1,6 @@
-import { GiCheckMark } from 'react-icons/gi';
-import { VscChromeClose } from 'react-icons/vsc';
+import Link from 'next/link'
+import { GiCheckMark } from 'react-icons/gi'
+import { VscChromeClose } from 'react-icons/vsc'
 
 const PlanGrid = ({ plan, index }) => {
   const {
@@ -15,7 +16,7 @@ const PlanGrid = ({ plan, index }) => {
     personalTrainer,
     slug,
     fileName,
-  } = plan;
+  } = plan
 
   return (
     <div
@@ -52,13 +53,17 @@ const PlanGrid = ({ plan, index }) => {
         className={`${
           popular && 'bg-primary text-gray-100 '
         }  flex justify-center items-center w-48 mx-auto py-3  rounded-full hover:bg-btn_hover hover:text-gray-100 text-primary mt-10`}>
-        <button className='uppercase focus:outline-none font-semibold tracking-wide'>
-          get started
-        </button>
+        <Link href='/signup'>
+          <a>
+            <button className='uppercase focus:outline-none font-semibold tracking-wide'>
+              get started
+            </button>
+          </a>
+        </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const BenefitList = ({ benefit, description }) => {
   return (
@@ -68,7 +73,7 @@ const BenefitList = ({ benefit, description }) => {
         {benefit ? <GiCheckMark /> : <VscChromeClose />}
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default PlanGrid;
+export default PlanGrid
