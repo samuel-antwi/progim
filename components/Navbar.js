@@ -34,7 +34,7 @@ const Navbar = () => {
               <NavLinks name='About' url='/about' />
               <NavLinks name='Class' url='/fitness-group' />
               <NavLinks name='Shop' url='/shop' />
-              <div>
+              {/* <div>
                 {user === null ? (
                   <button
                     onClick={login}
@@ -48,7 +48,7 @@ const Navbar = () => {
                     Logout
                   </button>
                 )}
-              </div>
+              </div> */}
               <ShoppingBag />
             </div>
           </div>

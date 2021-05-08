@@ -7,12 +7,7 @@ const LandingPage = () => {
       <div className='overlay '>
         <div className=' container'>
           <div className=' col-span-1 uppercase flex flex-col justify-center md:h-screen h-[600px]'>
-            <h1
-              data-aos='slide-right'
-              data-aos-duration='1000'
-              className='text-primary text-4xl font-extrabold'>
-              set up your
-            </h1>
+            <h1 className='text-primary text-4xl font-extrabold'>set up your</h1>
             <div className='text-gray-300 md:text-7xl text-5xl font-extrabold '>
               <Typewriter
                 options={{
@@ -28,10 +23,7 @@ const LandingPage = () => {
                 }}
               />
             </div>
-            <h1
-              data-aos='slide-right'
-              data-aos-duration='1000'
-              className='md:text-5xl text-3xl flex items-center font-extrabold mb-10'>
+            <h1 className='md:text-5xl text-3xl flex items-center font-extrabold mb-10'>
               <span className='mr-3 text-gray-100'>with</span>
               <span className='text-primary'>ProGim</span>
             </h1>
