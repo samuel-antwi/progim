@@ -48,21 +48,6 @@ const SideNav = ({ showSideMenu, setShowSideMenu }) => {
             showSideMenu={showSideMenu}
             setShowSideMenu={setShowSideMenu}
           />
-          {/* <div className=''>
-            {user === null ? (
-              <button
-                onClick={login}
-                className='focus:outline-none transition duration-500 tracking-wide font-semibold uppercase text-xl hover:text-gray-900'>
-                Login
-              </button>
-            ) : (
-              <button
-                onClick={logout}
-                className='focus:outline-none transition duration-500 tracking-wide font-semibold uppercase text-xl hover:text-gray-900'>
-                Logout
-              </button>
-            )}
-          </div> */}
         </div>
       </div>
     </div>

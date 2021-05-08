@@ -11,8 +11,6 @@ const Navbar = () => {
   const [showSideMenu, setShowSideMenu] = useState(false)
   const { user, login, logout } = useAuthContextProvider()
 
-  console.log(user)
-
   return (
     <>
       <SideNav showSideMenu={showSideMenu} setShowSideMenu={setShowSideMenu} />
@@ -25,39 +23,26 @@ const Navbar = () => {
               <img className='w-12 hidden sm:block' src='/images/body-building.png' alt='Logo' />
             </a>
           </Link>
-          <div className='md:hidden'>
-            <ShoppingBag />
-          </div>
           <div className='hidden md:block'>
             <div className='space-x-8 flex items-center'>
               <NavLinks name='Home' url='/' />
               <NavLinks name='About' url='/about' />
               <NavLinks name='Class' url='/fitness-group' />
               <NavLinks name='Shop' url='/shop' />
-              {/* <div>
-                {user === null ? (
-                  <button
-                    onClick={login}
-                    className='focus:outline-none tracking-wide font-semibold uppercase text-sm'>
-                    Login
-                  </button>
-                ) : (
-                  <button
-                    onClick={logout}
-                    className='focus:outline-none tracking-wide font-semibold uppercase text-sm'>
-                    Logout
-                  </button>
-                )}
-              </div> */}
               <ShoppingBag />
             </div>
           </div>
-          <button
-            onClick={() => setShowSideMenu(!showSideMenu)}
-            aria-label='menu'
-            className='md:hidden focus:outline-none py-3'>
-            <VscMenu size={20} />
-          </button>
+          <div className='md:hidden '>
+            <div className='flex space-x-8 items-center'>
+              <ShoppingBag />
+              <button
+                onClick={() => setShowSideMenu(!showSideMenu)}
+                aria-label='menu'
+                className='focus:outline-none py-3'>
+                <VscMenu size={20} />
+              </button>
+            </div>
+          </div>
         </div>
       </nav>
     </>
