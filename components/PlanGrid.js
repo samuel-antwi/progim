@@ -20,8 +20,6 @@ const PlanGrid = ({ plan, index }) => {
 
   return (
     <div
-      data-aos='flip-down'
-      data-aos-duration={index === 0 ? '1000' : index === 1 ? '1500' : index === 2 ? '2000' : ''}
       className={`${
         popular && 'border-2 border-primary lg:-mt-10'
       } col-span-1 mb-10 md:mb-0 bg-white shadow rounded-lg py-10 relative`}>
