@@ -1,12 +1,12 @@
-import Header from './Header';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
-import { slickSettings } from '../utils';
-import Image from 'next/image';
-import Link from 'next/link';
-import { SocialLinks } from './MiniNavBar';
-import styled from 'styled-components';
+import Header from './Header'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import Slider from 'react-slick'
+import { slickSettings } from '../utils'
+import Image from 'next/image'
+import Link from 'next/link'
+import { SocialLinks } from './MiniNavBar'
+import styled from 'styled-components'
 
 const Trainers = ({ trainers }) => {
   return (
@@ -15,7 +15,7 @@ const Trainers = ({ trainers }) => {
         <Header isCenter={true} title='choose your trainer' subTitile='expert trainers' />
         <Slider {...slickSettings}>
           {trainers.map((trainer) => {
-            const { id, trainerImage, name, classCategories } = trainer;
+            const { id, trainerImage, name, classCategories } = trainer
             return (
               <div key={id} className='wrapper pt-10 relative mb-5'>
                 <Link href='/'>
@@ -37,15 +37,15 @@ const Trainers = ({ trainers }) => {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </Slider>
       </div>
     </Styles>
-  );
-};
+  )
+}
 
-export default Trainers;
+export default Trainers
 
 const Styles = styled.div`
   .overlay {
@@ -58,6 +58,6 @@ const Styles = styled.div`
   }
 
   .wrapper:hover .overlay {
-    height: 30%;
+    height: 28%;
   }
-`;
+`

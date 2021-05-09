@@ -3,12 +3,7 @@ import { motion } from 'framer-motion'
 const BmiCategories = () => {
   const { boxVariants, ref, controls, slideVariants } = useMotion()
   return (
-    <motion.div
-      ref={ref}
-      initial='hidden'
-      animate={controls}
-      variants={slideVariants}
-      className='pb-20 lg:pb-0'>
+    <div className='pb-20 lg:pb-0'>
       <h1 className='uppercase mb-1 font-bold md:text-xl text-center bg-primary py-3 px-5'>
         bmi categories
       </h1>
@@ -16,7 +11,7 @@ const BmiCategories = () => {
       <Categories score='BMI 18.50 - 24.99' indicator='Healthy weight' />
       <Categories score='BMI 25 - 29.99' indicator='overweight' />
       <Categories score='BMI 30 more' indicator='Obese' />
-    </motion.div>
+    </div>
   )
 }
 

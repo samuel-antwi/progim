@@ -1,18 +1,18 @@
-import { useRouter } from 'next/router';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import { useRouter } from 'next/router'
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
 export const getFullPathName = () => {
-  let router = useRouter();
-  return router.pathname;
-};
+  let router = useRouter()
+  return router.pathname
+}
 
 export const ellipsis = (description) => {
   if (description?.length > 10) {
-    return description.substring(0, 70) + '...';
+    return description.substring(0, 70) + '...'
   } else {
-    return description;
+    return description
   }
-};
+}
 
 export const slickSettings = {
   infinite: true,
@@ -46,7 +46,7 @@ export const slickSettings = {
       },
     },
   ],
-};
+}
 export const testimonySettings = {
   infinite: true,
   speed: 500,
@@ -55,33 +55,33 @@ export const testimonySettings = {
   arrows: false,
   dots: true,
   autoplay: true,
-  speed: 2000,
-  autoplaySpeed: 6000,
+  speed: 1000,
+  autoplaySpeed: 4000,
   dotsClass: 'button__bar',
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
-};
+}
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props
   return (
     <div
       className={className}
       style={{ ...style, display: 'block', background: '#111927' }}
       onClick={onClick}
     />
-  );
+  )
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style, onClick } = props
   return (
     <div
       className={className}
       style={{ ...style, display: 'block', background: '#111927' }}
       onClick={onClick}
     />
-  );
+  )
 }
 
 export const snackbarOptions = {
@@ -97,4 +97,4 @@ export const snackbarOptions = {
     color: 'white',
     fontSize: '16px',
   },
-};
+}
