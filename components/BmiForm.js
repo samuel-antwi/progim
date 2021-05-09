@@ -106,9 +106,9 @@ const BmiForm = () => {
         ) : (
           <button
             type='submit'
-            className='block  w-full border mb-10 border-primary bg-primary hover:bg-btn_hover transition duration-200 p-2'
+            className='block uppercase tracking-wide font-semibold  w-full border mb-10 border-primary bg-primary hover:bg-btn_hover transition duration-200 p-2'
             type='number'>
-            Calculate
+            {formState.height && formState.weight && bmiResults ? 'Recalculate' : 'Calculate'}
           </button>
         )}
       </form>

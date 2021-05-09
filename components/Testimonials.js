@@ -1,14 +1,15 @@
-import useFetchTestimonials from 'hooks/useFetchTestimonials';
-import Slider from 'react-slick';
-import { testimonySettings } from 'utils';
-import LoadingScreen from './LoadingScreen';
-import Image from 'next/image';
-import { FaQuoteLeft } from 'react-icons/fa';
+import useFetchTestimonials from 'hooks/useFetchTestimonials'
+import Slider from 'react-slick'
+import { testimonySettings } from 'utils'
+import LoadingScreen from './LoadingScreen'
+import Image from 'next/image'
+import { FaQuoteLeft } from 'react-icons/fa'
 
 const Testimonials = () => {
-  const { data, isError, isLoading, error } = useFetchTestimonials();
+  const { data, isError, isLoading } = useFetchTestimonials()
 
-  if (isLoading) return <LoadingScreen />;
+  if (isLoading) return <LoadingScreen />
+  if (isError) return <p>Error loading testimonials</p>
 
   return (
     <div className='py-20'>
@@ -24,7 +25,7 @@ const Testimonials = () => {
         </div>
         <Slider {...testimonySettings}>
           {data.map((testimonial) => {
-            const { name, testimony, media, id, group } = testimonial;
+            const { name, testimony, media, id, group } = testimonial
             return (
               <div className=' rounded-md bg-white md:py-20' key={id}>
                 <div className='md:grid grid-cols-3  bg-gray-900'>
@@ -43,12 +44,12 @@ const Testimonials = () => {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </Slider>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Testimonials;
+export default Testimonials
