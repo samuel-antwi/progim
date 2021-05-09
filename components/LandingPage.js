@@ -1,13 +1,17 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect'
+import { motion } from 'framer-motion'
+import useMotion from 'hooks/framer-motion/motion'
 
 const LandingPage = () => {
+  const { controls, ref, boxVariants } = useMotion()
+
   return (
     <Styles className='md:h-[100vh] h-[60vh]'>
       <div className='overlay md:h-[100vh] h-[60vh] '>
         <div className=' container'>
-          <div className=' col-span-1 uppercase flex flex-col justify-center md:h-screen h-[50vh] '>
+          <div className='  uppercase flex flex-col justify-center md:h-screen h-[50vh] '>
             <h1 className='text-primary text-4xl font-extrabold'>set up your</h1>
             <div className='text-gray-300 md:text-7xl text-5xl font-extrabold '>
               <Typewriter
@@ -28,7 +32,7 @@ const LandingPage = () => {
               <span className='mr-3 text-gray-100'>with</span>
               <span className='text-primary'>ProGim</span>
             </h1>
-            <div>
+            <motion.div ref={ref} initial='hidden' animate={controls} variants={boxVariants}>
               <Link href='/signup'>
                 <a>
                   <button className='  text-gray-100 md:py-4 md:w-64 w-48 py-3 focus:outline-none bg-primary transition duration-300 hover:bg-btn_hover rounded-full  tracking-wide font-semibold uppercase'>
@@ -36,7 +40,7 @@ const LandingPage = () => {
                   </button>
                 </a>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

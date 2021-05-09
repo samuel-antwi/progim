@@ -6,8 +6,12 @@ import { BsPlusCircleFill } from 'react-icons/bs'
 import { useSnackbar } from 'react-simple-snackbar'
 import { snackbarOptions } from 'utils'
 import { useProductsContext } from 'context/ProductContextProvider'
+import useMotion from 'hooks/framer-motion/motion'
+import { motion } from 'framer-motion'
 
 const FeaturedProducts = ({ products }) => {
+  const { ref, controls, boxVariants } = useMotion()
+
   const [openSnackbar] = useSnackbar(snackbarOptions)
   const { handleAddToCart } = useProductsContext()
 
@@ -16,7 +20,10 @@ const FeaturedProducts = ({ products }) => {
       <Header title='choose your brand' subTitile='our featured products' />
       <div className='md:grid md:grid-cols-2 pt-10 lg:grid-cols-3  gap-10'>
         {products.map((product) => (
-          <div className='hover:shadow bg-white pb-10 relative mb-5 px-5' key={product.id}>
+          <motion.div
+            whileHover={{ scale: 1.06, transition: { duration: 0.2 } }}
+            className='hover:shadow bg-white pb-10 relative mb-5 px-5'
+            key={product.id}>
             <Link href={`/shop/${product.permalink}`}>
               <a>
                 <Image
@@ -49,16 +56,21 @@ const FeaturedProducts = ({ products }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-      <div className='flex justify-center justify-items-center mt-5'>
+      <motion.div
+        ref={ref}
+        initial='hidden'
+        animate={controls}
+        variants={boxVariants}
+        className='flex justify-center justify-items-center mt-5'>
         <Link href='/shop'>
           <a className='uppercase tracking-widest hover:bg-btn_hover transition duration-300 bg-primary text-gray-100 py-3 px-12 rounded-md font-bold'>
             shop all
           </a>
         </Link>
-      </div>
+      </motion.div>
     </div>
   )
 }

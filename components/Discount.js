@@ -4,29 +4,31 @@ import Link from 'next/link'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useEffect } from 'react'
+import useMotion from 'hooks/framer-motion/motion'
 
 const Discount = () => {
-  const controls = useAnimation()
-  const { ref, inView } = useInView()
+  const { boxVariants, ref, controls } = useMotion()
+  // const controls = useAnimation()
+  // const { ref, inView } = useInView()
 
-  const boxVariants = {
-    hidden: { scale: 0 },
-    visible: {
-      scale: 1,
-      transition: {
-        duration: 1,
-      },
-    },
-  }
+  // const boxVariants = {
+  //   hidden: { scale: 0 },
+  //   visible: {
+  //     scale: 1,
+  //     transition: {
+  //       duration: 1,
+  //     },
+  //   },
+  // }
 
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible')
-    }
-    if (!inView) {
-      controls.start('hidden')
-    }
-  }, [controls, inView])
+  // useEffect(() => {
+  //   if (inView) {
+  //     controls.start('visible')
+  //   }
+  //   if (!inView) {
+  //     controls.start('hidden')
+  //   }
+  // }, [controls, inView])
 
   return (
     <Styles className='mb-20 min-h-[750px]'>
