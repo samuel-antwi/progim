@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { IoIosCheckmark } from 'react-icons/io'
 import WhatWeDo from '../components/WhatWeDo'
 import { useRouter } from 'next/router'
-import Bmi from '@/components/Bmi'
+import Bmi from '@/components/bmi/Bmi'
 
 const About = ({ page }) => {
   const {
@@ -35,11 +35,11 @@ const About = ({ page }) => {
   return (
     <div className='pt-10'>
       <AboutBanner>
-        <div className='overlay absolute text-gray-200'>
-          <div className='flex h-full container'>
+        <div className='absolute text-gray-200 overlay'>
+          <div className='container flex h-full'>
             <div className='my-auto'>
-              <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>About</h1>
-              <div className='flex items-center md:text-lg text-sm space-x-2 py-2 px-3 bg-primary'>
+              <h1 className='mb-5 font-extrabold tracking-wider uppercase md:text-4xl'>About</h1>
+              <div className='flex items-center px-3 py-2 space-x-2 text-sm bg-primary md:text-lg'>
                 <Link href='/'>
                   <a>Home</a>
                 </Link>
@@ -50,7 +50,7 @@ const About = ({ page }) => {
           </div>
         </div>
       </AboutBanner>
-      <section className='py-20 px-5'>
+      <section className='px-5 py-20'>
         <AboutSection
           title={title}
           subTitle={subTitle}
@@ -60,18 +60,18 @@ const About = ({ page }) => {
         />
       </section>
       <section>
-        <div className='md:grid grid-cols-6 mb-20'>
+        <div className='grid-cols-6 mb-20 md:grid'>
           <AboutGrid item={happyClient} item_des='Happy client' />
-          <img className='h-64 w-full object-cover' src={images[3].url} alt='Happy clients' />
+          <img className='object-cover w-full h-64' src={images[3].url} alt='Happy clients' />
           <AboutGrid item={equipment} item_des='Equipment' />
-          <img className='h-64 w-full object-cover' src={images[2].url} alt='Happy clients' />
+          <img className='object-cover w-full h-64' src={images[2].url} alt='Happy clients' />
           <AboutGrid item={expertTrainers} item_des='Expert trainers' />
-          <img className='h-64 w-full object-cover' src={images[4].url} alt='Expert trainers' />
-          <img className='h-64 w-full object-cover' src={images[1].url} alt='Trophy' />
+          <img className='object-cover w-full h-64' src={images[4].url} alt='Expert trainers' />
+          <img className='object-cover w-full h-64' src={images[1].url} alt='Trophy' />
           <AboutGrid item={award} item_des='Awards' />
-          <img className='h-64 w-full object-cover' src={images[5].url} alt='Personal trainers' />
+          <img className='object-cover w-full h-64' src={images[5].url} alt='Personal trainers' />
           <AboutGrid item={personalTrainers} item_des='Personal trainers' />
-          <img className='h-64 w-full object-cover' src={images[6].url} alt='Classrooms' />
+          <img className='object-cover w-full h-64' src={images[6].url} alt='Classrooms' />
           <AboutGrid item={classRoom} item_des='class rooms' />
         </div>
       </section>
@@ -86,7 +86,7 @@ export default About
 export const AboutSection = ({ title, subTitle, description, list, aboutImage }) => {
   return (
     <div className='max-w-6xl mx-auto'>
-      <div className='md:grid grid-cols-2 gap-10'>
+      <div className='grid-cols-2 gap-10 md:grid'>
         <div className='col-span-1'>
           <Image
             className='object-cover mb-10'
@@ -98,14 +98,14 @@ export const AboutSection = ({ title, subTitle, description, list, aboutImage })
         </div>
         <div className='col-span-1 py-10 md:py-0'>
           <div className='xl:py-10'>
-            <h1 className='text-primary md:text-xl mb-1 font-semibold'>{title}</h1>
-            <h1 className='mb-3 md:text-3xl font-bold'>{subTitle}</h1>
+            <h1 className='mb-1 font-semibold text-primary md:text-xl'>{title}</h1>
+            <h1 className='mb-3 font-bold md:text-3xl'>{subTitle}</h1>
             <img src='/images/arrow-dark.png' alt='Arrow dumbell' />
-            <p className='mb-5 pt-10 text-gray-600'>{description}</p>
+            <p className='pt-10 mb-5 text-gray-600'>{description}</p>
             <div className='space-y-3'>
               {list.map((item, index) => (
                 <div className='flex items-center' key={index}>
-                  <IoIosCheckmark size={20} className='bg-primary  mr-2 text-white rounded-full' />
+                  <IoIosCheckmark size={20} className='mr-2 text-white rounded-full bg-primary' />
                   <p className='text-gray-600'>{item}</p>
                 </div>
               ))}
@@ -119,9 +119,9 @@ export const AboutSection = ({ title, subTitle, description, list, aboutImage })
 
 export const AboutGrid = ({ item, item_des }) => {
   return (
-    <div className='uppercase font-bold  bg-primary text-gray-100 flex flex-col justify-center h-full items-center'>
-      <h1 className='lg:text-3xl text-xl'>{item} +</h1>
-      <h1 className='lg:text-xl text-lg'>{item_des}</h1>
+    <div className='flex flex-col items-center justify-center h-full font-bold text-gray-100 uppercase bg-primary'>
+      <h1 className='text-xl lg:text-3xl'>{item} +</h1>
+      <h1 className='text-lg lg:text-xl'>{item_des}</h1>
     </div>
   )
 }

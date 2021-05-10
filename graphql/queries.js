@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from 'graphql-request'
 
 export const GET_GROUPS = gql`
   query groups {
@@ -9,6 +9,7 @@ export const GET_GROUPS = gql`
       id
       name
       price
+      classSize
       slug
       image {
         height
@@ -30,7 +31,7 @@ export const GET_GROUPS = gql`
       }
     }
   }
-`;
+`
 
 export const GET_GROUP_DETAIL = gql`
   query groupDetail($slug: String!) {
@@ -66,7 +67,7 @@ export const GET_GROUP_DETAIL = gql`
       }
     }
   }
-`;
+`
 
 export const GET_ABOUT_PAGE = gql`
   query queryAboutPage($slug: String!) {
@@ -95,7 +96,7 @@ export const GET_ABOUT_PAGE = gql`
       }
     }
   }
-`;
+`
 
 export const TRAINERS = gql`
   query queryTrainers {
@@ -114,7 +115,7 @@ export const TRAINERS = gql`
       }
     }
   }
-`;
+`
 
 export const FEATURED_PRODUCTS = gql`
   query getFeaturedProducts {
@@ -133,7 +134,7 @@ export const FEATURED_PRODUCTS = gql`
       }
     }
   }
-`;
+`
 export const ALL_PRODUCTS = gql`
   query getAllProducts {
     products {
@@ -151,7 +152,7 @@ export const ALL_PRODUCTS = gql`
       }
     }
   }
-`;
+`
 
 export const PRODUCT = gql`
   query getProduct($slug: String!) {
@@ -196,7 +197,7 @@ export const PRODUCT = gql`
       }
     }
   }
-`;
+`
 
 export const PAGE_CONTENT = gql`
   query pageContents {
@@ -266,7 +267,7 @@ export const PAGE_CONTENT = gql`
       }
     }
   }
-`;
+`
 
 export const TESTIMONIALS = gql`
   query testimonials {
@@ -282,4 +283,4 @@ export const TESTIMONIALS = gql`
       }
     }
   }
-`;
+`

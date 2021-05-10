@@ -10,17 +10,17 @@ const Bmi = ({ variant }) => {
   return (
     <Styles className={`${variant ? 'my-20' : 'mt-20'} text-gray-100`}>
       <div className='overlay'>
-        <div className='xl:max-w-7xl mx-auto lg:px-5 sm:px-20 px-5 pt-20'>
-          <div className='lg:grid grid-cols-7 gap-5'>
-            <div className='bmi__image col-span-2 hidden lg:block'>
+        <div className='px-5 pt-20 mx-auto sm:px-20 lg:px-5 xl:max-w-7xl'>
+          <div className='grid-cols-7 gap-5 lg:grid'>
+            <div className='hidden col-span-2 bmi__image lg:block'>
               <img
-                className='object-cover z-20'
+                className='z-20 object-cover'
                 src={homePage ? '/images/bmi-03.jpg' : '/images/bmi.png'}
               />
             </div>
             <div className='col-span-3'>
               <div className='mb-10'>
-                <h1 className='md:text-4xl mb-3 font-bold uppercase'>calculate your bmi</h1>
+                <h1 className='mb-3 font-bold uppercase md:text-4xl'>calculate your bmi</h1>
                 <img src='/images/arrow-dark.png' alt='' />
               </div>
               <BmiForm />
