@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import LoadingScreen from './LoadingScreen'
 import { BiReset } from 'react-icons/bi'
+import clsx from 'clsx'
+import LoadingScreen from '../LoadingScreen'
 
 const BmiForm = () => {
   const [bmiResults, setBmiResults] = useState('')
@@ -80,7 +81,7 @@ const BmiForm = () => {
             </label>
             <input
               required
-              className='block w-full  border border-primary bg-transparent p-2 '
+              className='block w-full p-2 bg-transparent border border-primary'
               name='height'
               value={formState.height}
               onChange={handleChange}
@@ -93,7 +94,10 @@ const BmiForm = () => {
             </label>
             <input
               required
-              className='block w-full mb-4 border  border-primary bg-transparent p-2 appearance-none'
+              className={clsx(
+                'block mb-4 w-full border border-primary',
+                'p-2 bg-transparent appearance-none'
+              )}
               type='number'
               name='weight'
               value={formState.weight}
@@ -106,25 +110,43 @@ const BmiForm = () => {
         ) : (
           <button
             type='submit'
-            className='block uppercase tracking-wide font-semibold  w-full border mb-10 border-primary bg-primary hover:bg-btn_hover transition duration-200 p-2'
+            className={clsx(
+              'block font-semibold tracking-wide uppercase',
+              'mb-10 w-full bg-primary border border-primary',
+              'p-2 hover:bg-btn_hover transition duration-200'
+            )}
             type='number'>
             {formState.height && formState.weight && bmiResults ? 'Recalculate' : 'Calculate'}
           </button>
         )}
       </form>
+      <BmiResults
+        setFormState={setFormState}
+        showResults={showResults}
+        isLoading={isLoading}
+        description={description}
+        bmiResults={bmiResults}
+      />
+    </div>
+  )
+}
+
+const BmiResults = ({ showResults, isLoading, description, bmiResults, setFormState }) => {
+  return (
+    <div>
       {showResults && !isLoading && (
-        <div className='font-semibold mb-10'>
+        <div className='mb-10 font-semibold'>
           <span className='flex items-center mb-5'>
             <h1>Your BMI results:</h1>
-            <p className='py-2 w-1/2 px-4 bg-primary ml-3'>{bmiResults}</p>
+            <p className='w-1/2 px-4 py-2 ml-3 bg-primary'>{bmiResults}</p>
           </span>
           <p className={`py-3 px-4 bg-primary xs:text-base text-xs`}>
             Your BMI Category is <span className='capitalize'>{description()}</span>
           </p>
           <button
             onClick={() => setFormState({ weight: '', height: '' })}
-            className='bg-primary p-2 mt-5  text-gray-100'>
-            <BiReset className='xs:w-8 xs:h-8 w-4 h-4' />
+            className='p-2 mt-5 text-gray-100 bg-primary'>
+            <BiReset className='w-4 h-4 xs:w-8 xs:h-8' />
           </button>
         </div>
       )}

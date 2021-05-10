@@ -2,6 +2,16 @@ module.exports = {
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      xxs: '280px',
+      xs: '360px',
+      xxm: '480px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         futura: ['Futura', 'sans-serif'],
@@ -26,16 +36,6 @@ module.exports = {
         DEFAULT: theme('colors.gray.300', 'currentColor'),
         primary: '#ea4d22',
       }),
-      screens: {
-        xxs: '280px',
-        xs: '360px',
-        xxm: '580px',
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px',
-      },
       container: {
         center: true,
         padding: '1.5rem',
@@ -45,5 +45,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')],
-};
+  plugins: [require('@tailwindcss/typography'), require('tailwindcss-debug-screens')],
+}

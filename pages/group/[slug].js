@@ -15,14 +15,14 @@ const Group = ({ group }) => {
   return (
     <div>
       <ClassBanner>
-        <div className='overlay absolute text-gray-200'>
-          <div className='flex h-full container'>
-            <div className='my-auto '>
-              <h1 className='uppercase md:text-4xl font-extrabold mb-5 tracking-wider'>Class</h1>
+        <div className='absolute text-gray-200 overlay'>
+          <div className='container flex h-full'>
+            <div className='my-auto'>
+              <h1 className='mb-5 font-extrabold tracking-wider uppercase md:text-4xl'>Class</h1>
               <div
                 className={clsx(
-                  'flex items-center md:text-lg text-sm ',
-                  'space-x-2 py-2 px-3 bg-primary'
+                  'flex items-center text-sm md:text-lg ',
+                  'px-3 py-2 bg-primary space-x-2'
                 )}>
                 <Link href='/'>
                   <a>Home</a>
@@ -37,8 +37,8 @@ const Group = ({ group }) => {
         </div>
       </ClassBanner>
       <section className='py-20'>
-        <div className='max-w-7xl mx-auto px-5'>
-          <div className='lg:grid grid-cols-3 gap-10'>
+        <div className='px-5 mx-auto max-w-7xl'>
+          <div className='grid-cols-3 gap-10 lg:grid'>
             <div className='col-span-2'>
               <Image
                 src={image.url}
@@ -47,9 +47,10 @@ const Group = ({ group }) => {
                 loading='eager'
                 priority={true}
               />
-              <div className='pt-5  text-gray-600 mb-4'>
+              <div className='pt-5 mb-4 text-gray-600'>
                 <ReactMarkdown>{description.markdown}</ReactMarkdown>
               </div>
+              <hr className='my-10 bg-gray-200' />
               <FitnessGroupTrainers trainers={trainers} name={name} />
             </div>
             <div className='col-span-1 pt-10 lg:pt-0'>

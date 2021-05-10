@@ -10,30 +10,30 @@ const FitnessGroupCard = ({ group }) => {
   const router = useRouter()
 
   return (
-    <div className='bg-primary text-gray-200 p-6'>
+    <div className='p-6 text-gray-200 bg-primary'>
       <h1 className='text-2xl font-semibold mb-7'>Group Fetaures</h1>
       <div>
-        <div className='flex items-center font-bold mb-5 justify-between border-b border-gray-500'>
+        <div className='flex items-center justify-between mb-5 font-bold border-b border-gray-500'>
           <span>Category</span>
           <span className=''>{classCategory.name}</span>
         </div>
-        <div className='flex items-center mb-5 justify-between border-b border-gray-500'>
+        <div className='flex items-center justify-between mb-5 border-b border-gray-500'>
           <span>Duration</span>
           <span>{duration} days</span>
         </div>
-        <div className='flex items-center mb-5 justify-between border-b border-gray-500'>
+        <div className='flex items-center justify-between mb-5 border-b border-gray-500'>
           <span>Students</span>
           <span>{classSize}</span>
         </div>
-        <div className='flex items-center mb-5 justify-between border-b border-gray-500'>
+        <div className='flex items-center justify-between mb-5 border-b border-gray-500'>
           <span>Shift</span>
           <span>{shift}</span>
         </div>
-        <div className='flex items-center mb-5 justify-between border-b border-gray-500'>
+        <div className='flex items-center justify-between mb-5 border-b border-gray-500'>
           <span>Price</span>
           <span>£{price}</span>
         </div>
-        <div className='py-6 flex justify-items-center items-center justify-center'>
+        <div className='flex items-center justify-center py-6 justify-items-center'>
           <Link href='/signup'>
             <a>
               <button
@@ -44,7 +44,7 @@ const FitnessGroupCard = ({ group }) => {
                     router.push('/account')
                   }
                 }}
-                className='focus:outline-none bg-white hover:bg-black hover:text-gray-100 transition duration-300 py-2 px-8 rounded-full text-primary font-bold tracking-wider uppercase'>
+                className='px-8 py-2 font-bold tracking-wider uppercase transition duration-300 bg-white rounded-full hover:text-gray-100 text-primary hover:bg-black focus:outline-none'>
                 Join now
               </button>
             </a>

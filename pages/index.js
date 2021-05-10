@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import Bmi from '../components/Bmi'
 import Discount from '../components/Discount'
 import FeaturedProducts from '../components/FeaturedProducts'
 import LandingPage from '../components/LandingPage'
@@ -11,6 +10,7 @@ import graphcms from '../graphql/client'
 import { PAGE_CONTENT } from '../graphql/queries'
 import Testimonials from '@/components/Testimonials'
 import commerce from 'lib/commerce'
+import Bmi from '@/components/bmi/Bmi'
 
 export default function Home({ trainers, data, groups, pricePlans }) {
   return (
@@ -23,7 +23,7 @@ export default function Home({ trainers, data, groups, pricePlans }) {
       <Plan pricePlans={pricePlans} />
       <Discount />
       <FeaturedProducts products={data} />
-      <div className='max-w-7xl mx-auto'>
+      <div className='mx-auto max-w-7xl'>
         <hr />
       </div>
       <Testimonials />

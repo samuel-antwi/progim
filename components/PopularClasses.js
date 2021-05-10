@@ -8,10 +8,10 @@ import Header from './Header'
 const PopularClasses = ({ groups }) => {
   return (
     <div>
-      <div className='max-w-7xl mx-auto'>
+      <div className='mx-auto max-w-7xl'>
         <Header title='our popular classes' subTitile='curated by our experts' />
-        <div className='xl:max-w-7xl mx-auto mb-20 pt-10  px-5 xl:px-10'>
-          <div className='xxm:grid grid-cols-2 lg:grid-cols-3  gap-10'>
+        <div className='px-5 pt-10 mx-auto mb-20 xl:px-10 xl:max-w-7xl'>
+          <div className='grid-cols-2 gap-10 xxm:grid lg:grid-cols-3'>
             {groups.map((session) => {
               const {
                 name,
@@ -28,12 +28,12 @@ const PopularClasses = ({ groups }) => {
                   data-aos='zoom-in-up'
                   data-aos-duratin='1000'
                   key={id}
-                  className='col-span-1 bg-white '>
+                  className='col-span-1 bg-white'>
                   <Link href={`/group/${slug}`}>
                     <a className='relative'>
                       <Image
                         className={clsx(
-                          'transition object-cover duration-500 ease-in-out',
+                          'object-cover transition duration-500 ease-in-out',
                           'transform hover:-translate-y-1 hover:scale-110'
                         )}
                         src={url}
@@ -42,39 +42,33 @@ const PopularClasses = ({ groups }) => {
                         alt={name}
                         priority
                       />
-                      <p
-                        className={clsx(
-                          'bg-primary text-gray-200 text-sm py-2 w-44, mx-auto ',
-                          'absolute bottom-2 px-3 rounded right-0 left-0  '
-                        )}>
-                        {classCategory.name}
-                      </p>
                     </a>
                   </Link>
                   <div>
                     <Link href={`/group/${slug}`}>
                       <a>
-                        <p className='text-center md:text-xl hover:text-primary font-semibold uppercase py-5'>
+                        <p className='flex justify-center py-5 font-semibold text-center uppercase hover:text-primary md:text-xl'>
                           {name}
                         </p>
                       </a>
                     </Link>
-                    <p className='text-gray-700 mb-5 px-8'>{ellipsis(description.text)}</p>
+                    <p className='px-8 mb-5 text-gray-700'>{ellipsis(description.text)}</p>
                     <div
                       className={clsx(
                         'flex items-center text-sm capitalize ',
-                        'bg-primary justify-between py-2 lg:px-16 ',
+                        'justify-between py-2 bg-primary lg:px-16 ',
                         'px-5 text-center text-gray-100'
                       )}>
-                      <span>
-                        <p>class student</p>
+                      <div>
+                        <p>class size</p>
                         <p>{classSize} per shift</p>
-                      </span>
-                      <div className='border-l-[1px] border-gray-200 h-[50px] absolute left-1/2 '></div>
-                      <span>
+                      </div>
+                      {/* <div className='border-l-[1px] h-[50px] absolute left-1/2 border-gray-200'></div> */}
+                      <p>|</p>
+                      <div>
                         <p>course price</p>
                         <p>£{price}</p>
-                      </span>
+                      </div>
                     </div>
                   </div>
                 </div>

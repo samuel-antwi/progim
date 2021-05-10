@@ -13,9 +13,9 @@ const Testimonials = () => {
 
   return (
     <div className='py-20'>
-      <div className='max-w-7xl mx-auto'>
-        <div className='text-center mb-10'>
-          <h1 className='md:text-2xl text-primary uppercase mb-3 font-bold tracking-wider'>
+      <div className='mx-auto max-w-7xl'>
+        <div className='mb-10 text-center'>
+          <h1 className='mb-3 text-primary font-bold tracking-wider uppercase md:text-2xl'>
             See what people are already saying
           </h1>
           <p>
@@ -27,15 +27,15 @@ const Testimonials = () => {
           {data.map((testimonial) => {
             const { name, testimony, media, id, group } = testimonial
             return (
-              <div className=' rounded-md bg-white md:py-20' key={id}>
-                <div className='md:grid grid-cols-3  bg-gray-900'>
-                  <div className='col-span-1 md:ml-10 relative'>
-                    <img className='md:-mt-10 md:-mb-10 md:rounded-xl' src={media.url} />
+              <div className='bg-white rounded-md md:py-20' key={id}>
+                <div className='grid-cols-3 bg-gray-900 md:grid'>
+                  <div className='relative col-span-1 md:ml-10'>
+                    <img className='md:-mb-10 md:-mt-10 md:rounded-xl' src={media.url} />
                   </div>
-                  <div className='col-span-2 flex flex-col text-gray-200 py-5'>
-                    <div className='my-auto mx-10'>
-                      <FaQuoteLeft className='text-gray-400 mb-5' size={40} />
-                      <div className='md:text-lg text-gray-400 mb-5'>
+                  <div className='flex flex-col col-span-2 py-5 text-gray-200'>
+                    <div className='mx-10 my-auto'>
+                      <FaQuoteLeft className='mb-5 text-gray-400' size={40} />
+                      <div className='mb-5 text-gray-400 md:text-lg'>
                         <p>{testimony}</p>
                       </div>
                       <p className='mb-1 text-xl'>{name}</p>
