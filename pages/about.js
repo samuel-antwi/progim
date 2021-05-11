@@ -62,16 +62,16 @@ const About = ({ page }) => {
       <section>
         <div className='grid-cols-6 mb-20 md:grid'>
           <AboutGrid item={happyClient} item_des='Happy client' />
-          <img className='object-cover w-full h-64' src={images[3].url} alt='Happy clients' />
+          <img className='object-cover w-full h-64' src={images[0].url} alt='Happy clients' />
           <AboutGrid item={equipment} item_des='Equipment' />
-          <img className='object-cover w-full h-64' src={images[2].url} alt='Happy clients' />
+          <img className='object-cover w-full h-64' src={images[1].url} alt='Happy clients' />
           <AboutGrid item={expertTrainers} item_des='Expert trainers' />
-          <img className='object-cover w-full h-64' src={images[4].url} alt='Expert trainers' />
-          <img className='object-cover w-full h-64' src={images[1].url} alt='Trophy' />
+          <img className='object-cover w-full h-64' src={images[2].url} alt='Expert trainers' />
+          <img className='object-cover w-full h-64' src={images[3].url} alt='Trophy' />
           <AboutGrid item={award} item_des='Awards' />
-          <img className='object-cover w-full h-64' src={images[5].url} alt='Personal trainers' />
+          <img className='object-cover w-full h-64' src={images[4].url} alt='Personal trainers' />
           <AboutGrid item={personalTrainers} item_des='Personal trainers' />
-          <img className='object-cover w-full h-64' src={images[6].url} alt='Classrooms' />
+          <img className='object-cover w-full h-64' src={images[5].url} alt='Classrooms' />
           <AboutGrid item={classRoom} item_des='class rooms' />
         </div>
       </section>
